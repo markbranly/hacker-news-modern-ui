@@ -45,7 +45,12 @@ Considering that,
 1. The blue tone appearing copy of the post is a nearly-perfect complement of the orange, (hence a complementary scheme) and
 2. The blue tone appearing as the author of the post and in the sidebar is the [default Tailwind blue](https://v2.tailwindcss.com/docs/customizing-colors),
 
-This project will assume the former is the canonical blue for the brand. 
+This project will assume the former is the canonical blue for the brand, yielding the final palette:
+
+- Orange: `#f26522`
+- Blue: `#268bd2`
+- Yellow: `#d87606`
+- Gray: `#374151`
 
 Y Combinators brand standards, as deployed, are not particularly accessible. This project will make use of [tints and shades of the color palette](https://maketintsandshades.com/#f26522,268bd2,d87606,374151,777777) to achieve acceptable contrast ratios where necessary. However, as much as possible, the design will adhere to the vibrant, airy, and clean feeling of the brand. 
 
