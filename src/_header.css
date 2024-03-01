@@ -1,120 +1,146 @@
-/** 
-
-Header
-
+/*
+===============================================================================
+_header.css
+===============================================================================
 */
-.pagetop {
-    color: rgba(255, 255, 255, 0.5);
-    font-family: var(--font-family-sans);
-}
 
-@media only screen and (max-width: 750px) and (min-width: 300px) {
-    span.pagetop {
-        margin: 0;
+/* The outermost Header element. */
+#hnmain > tbody > tr:first-child td[bgcolor="#ff6600"] {
+    background: var(--color-orange-600) !important;
+    border-bottom: solid var(--header-border-size) var(--header-border-color);
+
+    td:has(.pagetop) {
+        vertical-align: middle;
     }
 }
 
-#hnmain > tbody > tr:first-child td[bgcolor="#ff6600"] {
-    background: var(--color-orange-700) !important;
-    border-bottom: solid var(--header-border-size) var(--header-border-color);
-}
-
-#hnmain > tbody > tr:first-child td[bgcolor="#ff6600"] td:has(.pagetop) {
-    vertical-align: middle;
-}
-
-a[href="https://news.ycombinator.com"]:has(img) {
-    display: block;
-    position: relative;
-    top: -1px;
-}
-
-body:not([bgcolor="#ffffff"]) a[href="https://news.ycombinator.com"] img {
-    box-sizing: border-box;
-    background: url(/favicon.ico) no-repeat;
-    background-size: contain;
-    overflow: hidden;
-    padding: 0 16px 0 0;
-    width: 18px;
-    margin-right: 10px;
-    transform: scale(2);
-}
-
-a[href="https://news.ycombinator.com"]:hover img {
-    filter: hue-rotate(-180deg);
-    transform: scale(2.3);
-
-}
-
-.pagetop .hnname {
-    display: inline-block;
-    margin: 0 20px 0 5px;
-    font-size: 16px;
-}
-
-.pagetop a,
-.pagetop .hnname a,
-.pagetop a:visited,
-.pagetop .hnname a:visited {
-    --underline-color: rgba(255 255 255 / 50%);
-    
-    color: #fff;
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration-color: var(--underline-color);
-    transition: all 0.25s;
-}
-
-.pagetop a:hover,
-.pagetop .hnname a:hover {
-    color: #fff;
-    text-decoration: underline;
-    text-decoration-color: var(--underline-color);
-    text-decoration-thickness: 3px;
-    transition: all 0.25s;
-}
-
-.pagetop:has(.hnname) a {
-    font-weight: bold;
-    text-transform: capitalize;
-}
-
-.pagetop a[href="newest"] {
-    font-style: italic;
-}
-
-.pagetop:has(#logout) {
-    align-items: center; 
+/* General settings for text and links in the header.  */
+.pagetop {
+    /* The only useful header text that isn't links is the karma score. */
     color: transparent;
+    font-family: var(--font-family-sans);
+
+    @media (max-width: 750px) and (min-width: 300px) {
+        margin: 0;
+    }
+
+    a,
+    a:visited {
+        --underline-color: rgba(255 255 255 / 50%);
+    
+        color: #fff;
+        color: rgba(255, 255, 255, 1);
+        margin-left: 1ch;
+        text-decoration-color: var(--underline-color);
+        transition: all 0.25s;
+
+        &:hover {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: var(--underline-color);
+            text-decoration-thickness: 3px;
+            transition: all 0.25s;
+        }
+    }
+}
+
+/* The YC logo and site name, together forming the Site ID. */
+tr:has(> td > .pagetop .hnname) {
+    a[href="https://news.ycombinator.com"]:has(img) {
+        display: block;
+        position: relative;
+        top: -1px;
+
+        img {
+            box-sizing: border-box;
+            background: url(/favicon.ico) no-repeat;
+            background-size: contain;
+            overflow: hidden;
+            padding: 0 16px 0 0;
+            transform: scale(2);
+            transition: transform 0.3s;
+        }
+
+        &:hover img {
+            filter: hue-rotate(-180deg);
+            transform: scale(2.3);
+            transition: transform 0.2s;
+        }
+    }
+
+    .hnname {
+        display: inline-block;
+        margin: 0 20px 0 5px;
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* The Main Nav */
+.pagetop {
+    &:has(.hnname) a {
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    a[href="newest"] {
+        font-style: italic;
+    }
+
+    a[href="submit"] {
+        background: var(--color-blue-600);
+        border-radius: 3px;
+        display: inline-block;
+        margin-left: 2ch;
+        padding: 0.5em 0.75em;
+        scale: 1.2;
+
+        &::before {
+            content: '+ ';
+        }
+
+        &:hover {
+            background: var(--color-blue-800);
+            box-shadow: 0.25ch 0.25ch 1ch 0 var(--color-orange-700);
+            text-decoration: none;
+            scale: 1.3;
+        }
+    }
+}
+
+/* The User Login/Logout Area */
+.pagetop:has(#logout, a[href^="login"]) {
+    align-items: center; 
     display: flex;
     justify-content: flex-end;
-}
 
-.pagetop #karma {
-    align-items: center;
-    background-color: rgba(255 255 255 / 95%);
-    border-radius: 1em;
-    color: var(--color-orange-700);
-    display: flex;
-    justify-content: center;
-    height: 2ch;
-    letter-spacing: 1px;
-    line-height: 1;
-    min-width: 2ch;
-    padding: 0.1em;
-}
+    /* The Karma: turn it into a "badge"  */
+    #karma {
+        align-items: center;
+        background-color: rgba(255 255 255 / 95%);
+        border-radius: 1em;
+        color: var(--color-blue-800);
+        display: flex;
+        justify-content: center;
+        height: 2ch;
+        letter-spacing: 1px;
+        line-height: 1;
+        min-width: 2ch;
+        padding: 0.1em;
+    }
 
-.pagetop a[href^="login"],
-.pagetop #logout {
-    border: solid 1px #fff;
-    display: inline-block;
-    text-transform: uppercase;
-    padding: 0.25em 0.5em;
-    border-radius: 3px;
-}
+    /* Login/Logout Button */
+    a[href^="login"],
+    #logout {
+        border: solid 1px #fff;
+        display: inline-block;
+        text-transform: uppercase;
+        padding: 0.25em 0.5em;
+        border-radius: 3px;
 
-.pagetop a[href^="login"]:hover,
-.pagetop #logout:hover {
-    background: #fff;
-    color: var(--color-orange-700) !important;
-    text-decoration: none;
+        &:hover {
+            background: #fff;
+            color: var(--color-orange-700) !important;
+            text-decoration: none;
+        }
+    }
 }
