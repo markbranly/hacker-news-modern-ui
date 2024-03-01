@@ -37,7 +37,7 @@ body[bgcolor="#ffffff"] {
     width: 100%;
 }
 
-// If there is no footer, add a bottom border for a smoother transition.
+/* If there is no footer, add a bottom border for a smoother transition. */
 #hnmain:not(:has(.yclinks)) {
     border-bottom: solid 10px #888;
 }
