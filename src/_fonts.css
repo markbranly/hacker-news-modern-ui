@@ -1,0 +1,44 @@
+@font-face {
+  font-family: Avenir;
+  src: url("/vite/assets/35-light-_GPKMJBa.woff2") format("woff2"),
+    url("/vite/assets/35-light-lKI4P3Yc.woff") format("woff");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/vite/assets/45-book-YsuRGIk5.woff2") format("woff2"),
+    url("/vite/assets/45-book-e_G390gv.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/vite/assets/55-roman-yx5jv5v7.woff2") format("woff2"),
+    url("/vite/assets/55-roman-mZoSBv07.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/vite/assets/65-medium-eGsjcntx.woff2") format("woff2"),
+    url("/vite/assets/65-medium-yu4ohWxI.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/vite/assets/85-heavy-W-dsdGT9.woff2") format("woff2"),
+    url("/vite/assets/85-heavy-kTxV5owS.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}

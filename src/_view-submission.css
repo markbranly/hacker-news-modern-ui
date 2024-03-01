@@ -1,0 +1,20 @@
+/** 
+
+Submission View
+
+*/
+.fatitem .votearrow {
+    margin-top: -2px;
+}
+
+html[op="item"] .toptext {
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.33;
+    margin: 3rem 0 4rem;
+}
+
+html[op="item"] .toptext a {
+    color: var(--color-blue-500);
+}

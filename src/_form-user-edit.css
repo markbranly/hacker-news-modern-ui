@@ -1,0 +1,38 @@
+/** 
+
+User Profile Edit Form
+
+*/
+.profileform td {
+    font-size: 16px;
+}
+
+.profileform::before {
+    display: block;
+    content: 'User Profile';
+    font-size: 36px;
+    margin: 0 0 20px 84px;
+}
+
+.profileform td {
+    padding-bottom: 10px;
+}
+
+.profileform tr > td:first-child {
+    vertical-align: top;
+
+    padding-top: 6px;
+    width: 80px;
+
+    font-size: 12px;
+    text-align: right;
+    text-transform: capitalize;
+}
+
+.profileform textarea {
+    display: block;
+}
+
+.profileform input[type="submit"] {
+    margin-left: 80px;
+}

@@ -1,0 +1,49 @@
+/** 
+    
+    * Lead Text
+    *
+    * This appears at the top of the pages to describe the content.
+    
+    */
+    #pagespace + tr > td > div {
+        color: #555;
+        font-size: 1rem;
+        font-weight: 300;
+        max-width: 960px;
+        margin: 0 auto 3rem !important;
+    }
+    /** 
+        
+        * More Links
+        
+        */
+    .morelink {
+        background: var(--button-background-color);
+        border-radius: 3px;
+        color: var(--button-text-color) !important;
+        font-size: 1rem;
+        display: inline-block;
+        margin: 1rem 0;
+        padding: 0.5em 1.25em;
+    }
+    
+    .morelink::after {
+        content: '⟩';
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 0.5ch;
+        transform: scaleX(1.5);
+        transition: all 0.2s;
+    }
+    
+    .morelink:hover {
+        background: var(--button-background-color-hover);
+        color: var(--button-text-color-hover) !important;
+        transform: scale(1.05);
+        transition: all 0.3s;
+    }
+    
+    .morelink:hover::after {
+        transform: scaleY(.75) scaleX(1.75) translateX(0.25ch);
+        transition: all 0.5s;
+    }

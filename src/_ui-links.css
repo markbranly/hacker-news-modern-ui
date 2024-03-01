@@ -1,0 +1,22 @@
+/** 
+
+UI Links
+*
+* These are the links under a submission and in the meta of a comment.
+*
+* TODO: Design a visited state since these are consumable content. 
+
+**/
+.subtext .subline a:link,
+.comhead a:link {
+    color: var(--ui-link-color);
+    font-family: var(--font-family-sans);
+    font-size: var(--ui-link-font-size);
+}
+
+.subtext .subline a:hover,
+.comhead a:hover {
+    color: #000;
+    text-decoration-color: var(--color-blue-500);
+    text-decoration-thickness: 2px;
+}

@@ -1,0 +1,60 @@
+/** 
+
+Submissions
+
+**/
+.athing .title {
+    font-size: 1.2rem;
+    font-family: var(--font-family-sans);
+}
+
+.athing .title a:hover {
+    color: #333;
+}
+
+.comhead {
+    color: #828282;
+}
+
+.athing td {
+    margin-bottom: 0.25rem;
+}
+
+.title {
+    overflow: visible;
+}
+
+.title .titleline {
+    display: inline-block;
+    margin-bottom: 0.25rem;    
+}
+
+.title .titleline > a {
+    border-radius: 3px;
+    color: #333 !important;
+    display: inline-block;
+    line-height: 1;
+    margin-right: 8px;
+    overflow: visible;
+    text-decoration-color: #999;
+}
+
+.title .titleline > a:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+    color: var(--color-blue-500) !important;
+    text-decoration: underline;
+    text-decoration-color: var(--color-blue-200);
+    text-decoration-thickness: 2px;
+}
+
+.title .sitebit {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.title .sitebit,
+.subtext .subline {
+    font-size: var(--ui-link-font-size);
+    color: #6f6f6f;
+}

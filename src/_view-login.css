@@ -1,0 +1,13 @@
+/** 
+
+Login Page
+
+**/
+a[href="forgot"] {
+    color: var(--color-blue-500);
+    text-decoration: none;
+}
+
+a[href="forgot"]:hover {
+    text-decoration: underline;
+}

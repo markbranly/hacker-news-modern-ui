@@ -1,0 +1,120 @@
+/** 
+
+Comments
+
+Examples:
+- https://news.ycombinator.com/item?id=39560180 (code blocks and links)
+
+*/
+.comment-tree {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px !important;
+}
+
+.comment-tree > tbody > tr:first-child > td {
+    padding-top: 10px;
+}
+
+.comment {
+    font-size: 15px;
+    font-family: var(--font-family-sans);
+    ;
+    color: #555;
+    display: inline-block;
+    padding: 5px 20px 10px 0;
+    line-height: 1.5;
+}
+
+.comment:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: -5px 0 0 5px rgba(255, 255, 255, 0.9);
+}
+
+.comment-tree .votearrow {
+    margin-right: 3px;
+}
+
+.comment-tree .votearrow::before {
+    font-size: 24px;
+    height: 18px;
+    width: 18px;
+    padding-top: 5px;
+    top: -4px;
+    border-radius: 2px;
+}
+
+.comhead a[href^="user?id"] {
+    font-weight: bold;
+}
+
+.comhead .navs a.togg {
+    display: inline-block;
+    font-weight: 700;
+    margin-left: 0.5ch;
+}
+
+.comhead .navs a.togg:hover {
+    color: var(--ui-link-underline-color) !important;
+    text-decoration: none;
+}
+
+.comment p {
+    margin-top: 1em;
+}
+
+.comment a {
+    color: var(--comments-link-color) !important;
+    font-weight: bold;
+}
+
+.comment a:visited {
+    color: var(--comments-link-color-visited) !important;
+}
+
+.comment a:hover {
+    color: var(--comments-link-color-hover) !important;
+}
+
+.comment pre,
+.comment code {
+    font-family: var(--font-family-mono);
+}
+
+.comment pre {
+    background: #f0f0f0;
+    border: solid 1px #e0e0e0;
+    padding: 20px 10px;
+    width: 600px !important;
+    max-width: 90% !important;
+}
+
+.reply p u {
+    text-decoration: none;
+}
+
+.reply p a:link {
+    color: var(--color-blue-900) !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.reply p a::before {
+    content: '↪';
+    display: inline-block;
+    position: relative;
+    top: 4px;
+
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 0.5;
+    color: var(--color-blue-200);
+    transition: all .3s;
+}
+
+.reply p a:hover,
+.reply p a:hover::before {
+    color: var(--color-blue-500) !important;
+    transition: all .3s;
+}

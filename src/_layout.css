@@ -1,0 +1,67 @@
+/** 
+
+Layout
+
+*/
+html[op="x"] body,
+html[op="newest"] body,
+html[op="news"] body,
+html[op="item"] body,
+html[op="reply"] body,
+html[op="jobs"] body,
+html[op="show"] body,
+html[op="ask"] body,
+html[op="submit"] body,
+html[op="user"] body,
+html[op="submitted"] body,
+html[op="favorites"] body,
+html[op="threads"] body,
+html[op="lists"] body,
+html[op="hidden"] body,
+html[op="newcomments"] body,
+html[op="bestcomments"] body,
+html[op="noobstories"] body,
+html[op="noobcomments"] body,
+html[op="leaders"] body,
+html[op="front"] body,
+html[op="best"] body,
+html[op="active"] body,
+html[op="upvoted"] body,
+html[op="bestcomments"] body,
+html[op="changepw"] body,
+body[bgcolor="#ffffff"] {
+    padding: 0;
+}
+
+#hnmain {
+    width: 100%;
+}
+
+// If there is no footer, add a bottom border for a smoother transition.
+#hnmain:not(:has(.yclinks)) {
+    border-bottom: solid 10px #888;
+}
+
+#hnmain > tbody > tr:first-child > td {
+    padding: 20px;
+}
+
+#hnmain > tbody > tr:first-child > td table td {
+    vertical-align: top;
+}
+
+#hnmain > tbody > tr:nth-child(2) {
+    height: 30px !important;
+}
+
+#hnmain > tbody > tr:nth-child(3) > td > table {
+    max-width: 960px;
+    margin: auto
+}
+
+@media (min-width: 960px) {
+    #hnmain > tbody > tr:nth-child(3) > td > table {
+        width: 960px;
+    }
+
+}

@@ -1,0 +1,21 @@
+input[type=submit] {
+    background: var(--button-background-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: var(--font-family-sans);
+    line-height: 1.25;
+    padding: 7px 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background: var(--button-background-color-hover);
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+        color: var(--button-text-color-hover);
+        transition: all 0.3s;
+        transform: scale(1.05);
+    }
+}

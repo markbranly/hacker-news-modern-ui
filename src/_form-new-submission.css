@@ -1,0 +1,30 @@
+/** 
+
+Submit Post Form
+
+*/
+.profileform,
+form[action="/r"] {
+    margin: auto;
+
+    padding: 0 20px 60px 20px;
+    max-width: 480px;
+}
+
+form[action="/r"]::before {
+    content: 'Submit';
+    font-size: 36px;
+}
+
+form[action="/r"] td {
+    display: block;
+    width: 100%;
+}
+
+form[action="/r"] tr > td:first-child {
+    padding-top: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+}

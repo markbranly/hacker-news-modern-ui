@@ -1,0 +1,23 @@
+/** 
+
+Basics
+
+*/
+html {
+    background: var(--footer-background-color);
+}
+
+body {
+    background: rgb(246, 246, 239);
+    padding: 10% 40%;
+    margin: 0;
+    font-family: var(--font-family-sans);
+}
+
+td {
+    font-family: var(--font-family-sans);
+}
+
+a {
+    transition: all 0.3s;
+}
