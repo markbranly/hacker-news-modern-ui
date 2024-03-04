@@ -61,7 +61,9 @@ Variables
     --votearrow-arrow-color: rgba(255 255 255 / 80%);
     --votearrow-arrow-color-hover: var(--button-text-color-hover);
     /* Layout */
-    --footer-background-color: var(--color-gray-400);
+    --content-width-max: 960px;
+    --footer-background-color: var(--color-gray-500);
+    --footer-border-color: rgb(255 255 255 / 20%);
     --header-background-color: var(--color-orange-700);
     --header-border-color: var(--color-orange-500);
     --header-border-size: 5px;

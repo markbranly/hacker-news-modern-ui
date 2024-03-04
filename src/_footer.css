@@ -1,31 +1,97 @@
-/** 
-
+/*
+===============================================================================
 Footer
-
+===============================================================================
 */
+
+/* The outermost footer element. */
 #hnmain > tbody > tr:has(.yclinks) {
     background: var(--footer-background-color);
     color: #fff;
+
+    /* This wraps the contents of the footer */
+    center {
+        align-items: center;
+        display: flex;
+        /* Make the search form first. */
+        flex-direction: column-reverse;
+    }
+
+    form[action="//hn.algolia.com/"] {
+        background: var(--color-gray-100);
+        border-radius: 5px;
+        color: var(--color-gray-500);
+        font-size: var(--font-size-lg);
+        line-height: 1.25;
+        margin: 2rem 0 3rem;
+        max-width: 90%;
+        padding: 0.5em 1ch;
+        position: relative;
+        text-align: left;
+        width: calc(var(--content-width-max) - 2ch);
+
+        &::before {
+            content: '⌕ ';
+            display: inline-block;
+            margin: 0 0.5ch;
+            position: relative;
+            scale: 1.25;
+            top: -0.25em;
+        }
+
+        input {
+            background: transparent;
+            border: solid 2px var(--color-gray-300);
+            border-radius: inherit;
+            color: var(--color-gray-800);
+            font-size: inherit;
+            height: 100%;
+            left: 0;
+            line-height: inherit;
+            padding: inherit;
+            padding-left: 9ch;
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+            &:focus,
+            &:active {
+                background: rgb(255 255 255 / 40%);
+                border-color: var(--color-orange-500);
+                outline: solid 2px rgba(255 255 255 / 50%);
+            }
+        }
+    }
+
+    .yclinks {
+        border-top: solid 1px var(--footer-border-color);
+        font-size: var(--font-size-sm);
+        padding: 1rem 1ch 2rem;
+        text-align: left;
+        word-spacing: 0.5ch;
+        width: calc(var(--content-width-max) - 2ch);
+
+        a {
+            color: #fff;
+            text-decoration-color: rgb(255 255 255 / 50%);
+            text-underline-offset: 0.4em;
+            text-decoration-thickness: 3px;
+            word-spacing: normal;
+            
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: rgb(255 255 255 / 50%);
+                text-decoration-thickness: 3px;
+            }
+        }
+    }
 }
 
 #hnmain > tbody > tr:last-child img[src="s.gif"] + table td {
-    background: #666;
+    background: var(--footer-border-color);
     padding-top: 10px;
 }
-
-#hnmain > tbody > tr:has(.yclinks) > td {
-    padding-bottom: 60px;
-}
-
-#hnmain > tbody > tr:has(.yclinks) a {
-    color: #fff;
-}
-
-#hnmain > tbody > tr:has(.yclinks) form {
-    color: #ddd;
-    margin: 20px 0;
-}
-
+/*
 #hnmain > tbody > tr:has(.yclinks) input[name="q"] {
     background: #999;
     border: solid 1px #aaa;
@@ -41,5 +107,5 @@ Footer
     border: solid 1px #09d1ef;
     box-shadow: none;
     outline: none;
-    /* border-color: #fff; */
 }
+*/
