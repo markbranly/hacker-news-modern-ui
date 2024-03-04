@@ -9,6 +9,12 @@ Footer
     background: var(--footer-background-color);
     color: #fff;
 
+    /* This is the orange line in the classic HN layout. */
+    img[src="s.gif"] + table td {
+        background: var(--footer-border-color);
+        padding-top: 10px;
+    }
+
     /* This wraps the contents of the footer */
     center {
         align-items: center;
@@ -17,6 +23,7 @@ Footer
         flex-direction: column-reverse;
     }
 
+    /* The search form. */
     form[action="//hn.algolia.com/"] {
         background: var(--color-gray-100);
         border-radius: 5px;
@@ -63,6 +70,7 @@ Footer
         }
     }
 
+    /* The utility links in the footer. */
     .yclinks {
         border-top: solid 1px var(--footer-border-color);
         font-size: var(--font-size-sm);
@@ -85,9 +93,4 @@ Footer
             }
         }
     }
-}
-
-#hnmain > tbody > tr:last-child img[src="s.gif"] + table td {
-    background: var(--footer-border-color);
-    padding-top: 10px;
 }
