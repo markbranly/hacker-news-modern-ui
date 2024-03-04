@@ -91,21 +91,3 @@ Footer
     background: var(--footer-border-color);
     padding-top: 10px;
 }
-/*
-#hnmain > tbody > tr:has(.yclinks) input[name="q"] {
-    background: #999;
-    border: solid 1px #aaa;
-    border-radius: 2px;
-    padding: 4px 8px;
-    font-family: var(--font-family-sans);
-    width: 300px;
-}
-
-#hnmain > tbody > tr:has(.yclinks) input[name="q"]:focus,
-#hnmain > tbody > tr:has(.yclinks) input[name="q"]:active {
-    background: #bbb;
-    border: solid 1px #09d1ef;
-    box-shadow: none;
-    outline: none;
-}
-*/
