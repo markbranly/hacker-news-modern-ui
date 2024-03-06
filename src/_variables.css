@@ -50,6 +50,13 @@ Variables
     --font-size-md: 1rem;
     --font-size-lg: 1.2rem;
     --font-size-xl: 1.4rem;
+    /* Layout */
+    --content-width-max: 960px;
+    --footer-background-color: var(--color-gray-500);
+    --footer-border-color: rgb(255 255 255 / 20%);
+    --header-background-color: var(--color-orange-700);
+    --header-border-color: var(--color-orange-500);
+    --header-border-size: 5px;
     /* Buttons  */
     --button-background-color: var(--color-blue-900);
     --button-background-color-hover: var(--color-blue-500);
@@ -60,13 +67,6 @@ Variables
     --votearrow-background-color-hover: var(--button-background-color-hover);
     --votearrow-arrow-color: rgba(255 255 255 / 80%);
     --votearrow-arrow-color-hover: var(--button-text-color-hover);
-    /* Layout */
-    --content-width-max: 960px;
-    --footer-background-color: var(--color-gray-500);
-    --footer-border-color: rgb(255 255 255 / 20%);
-    --header-background-color: var(--color-orange-700);
-    --header-border-color: var(--color-orange-500);
-    --header-border-size: 5px;
     /* Components */
     --comments-link-color: var(--color-blue-500);
     --comments-link-color-hover: var(--color-blue-400);
