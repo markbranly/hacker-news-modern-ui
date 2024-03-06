@@ -63,10 +63,13 @@ Variables
     --button-text-color: #fff;
     --button-text-color-hover: #fff;
     /* Vote Arrows */
-    --votearrow-background-color: var(--button-background-color);
+    --votearrow-arrow-color: #fff;
+    --votearrow-arrow-color-hover: #fff;
+    --votearrow-background-color: var(--color-orange-500);
     --votearrow-background-color-hover: var(--button-background-color-hover);
-    --votearrow-arrow-color: rgba(255 255 255 / 80%);
-    --votearrow-arrow-color-hover: var(--button-text-color-hover);
+    --votearrow-border-size: 0;
+    --votearrow-border-color: var(--button-background-color);
+    --votearrow-border-color-hover: var(--votearrow-background-color-hover);
     /* Components */
     --comments-link-color: var(--color-blue-500);
     --comments-link-color-hover: var(--color-blue-400);
