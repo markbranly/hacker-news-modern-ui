@@ -1,5 +1,4 @@
 src/_variables.css
-src/_fonts.css
 src/_basics.css
 src/_layout.css
 src/_forms.css
