@@ -1,60 +1,138 @@
-/** 
-
+/* 
+===============================================================================
 Submissions
 
-**/
-.athing .title {
-    font-size: 1.2rem;
-    font-family: var(--font-family-sans);
-}
+Common styles for Submissions in both list views and item views.
 
-.athing .title a:hover {
-    color: #333;
-}
-
-.comhead {
-    color: #828282;
-}
-
-.athing td {
-    margin-bottom: 0.25rem;
-}
-
+Submissions are split into two table rows: .title and .subtext 
+===============================================================================
+*/
 .title {
     overflow: visible;
+    
+    .titleline {
+        display: inline-block;
+        font-family: var(--font-family-sans);
+        margin-bottom: 0.5rem;  
+        
+        /* The submission title. */
+        > a {
+            border-radius: 3px;
+            color: #333 !important;
+            display: inline-block;
+            font-size: var(--font-size-xl);
+            line-height: 1;
+            margin-right: 8px;
+            overflow: visible;
+            text-decoration-color: #999;
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+                color: var(--color-blue-500) !important;
+                text-decoration: underline;
+                text-decoration-color: var(--color-blue-200);
+                text-decoration-thickness: 2px;
+            }
+        }
+    
+        .sitebit {
+            color: #6f6f6f;
+            display: inline-block;
+            font-size: var(--ui-link-font-size);
+            white-space: nowrap;
+        }
+    }
 }
 
-.title .titleline {
-    display: inline-block;
-    margin-bottom: 0.25rem;    
-}
+.subtext {
+    --icon-size: 24px;
+    --text-color: var(--ui-link-color); 
 
-.title .titleline > a {
-    border-radius: 3px;
-    color: #333 !important;
-    display: inline-block;
-    line-height: 1;
-    margin-right: 8px;
-    overflow: visible;
-    text-decoration-color: #999;
-}
+    .subline {
+        display: flex;
+        color: transparent; /* Hide the text */
+        align-items: center;
+    }
+    
+    :is(.score, a) {
+        color: var(--text-color);
+        font-size: var(--ui-link-font-size);
+        font-family: var(--font-family-sans);
+    }
 
-.title .titleline > a:hover {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
-    color: var(--color-blue-500) !important;
-    text-decoration: underline;
-    text-decoration-color: var(--color-blue-200);
-    text-decoration-thickness: 2px;
-}
+    .score {
+        line-height: 1.8;
+        margin-top: -0.15em;
+    }
 
-.title .sitebit {
-    white-space: nowrap;
-    display: inline-block;
-}
+    a {
+        /* Set up the icons */
+        &::before {
+            display: inline-block;
+            font-size: var(--icon-size);
+            height: var(--icon-size);
+            line-height: 1;
+            margin-right: 0.1ch;
+            text-align: center;
+            vertical-align: middle;
+            width: var(--icon-size);
+        }
 
-.title .sitebit,
-.subtext .subline {
-    font-size: var(--ui-link-font-size);
-    color: #6f6f6f;
+        &:visited {
+            color: var(--text-color);
+        }
+    }
+
+    /* The user link. */
+    a.hnuser {
+        font-weight: bold;
+        margin-left: -0.5ch;
+
+        &::before {
+            content: '⚇';
+            line-height: 0.925;
+        }
+    }
+
+    /* This is the comments and the age. */
+    a[href^="item"] {   
+        margin: 0.1ch;
+
+        &::before {
+            content: '⪽';
+            line-height: 0.8;
+            scale: 1 1.15;
+        }
+    }
+
+    /* Override properties for the age. */
+    .age a {
+        margin-left: 1.5ch;
+
+        &::before {
+            content: '◷';
+            line-height: 0.75;
+            scale: 1;
+        }
+    }
+
+    /* The Hide/Un-hide Links */
+    a[href^="hide"] {
+        margin-left: 1.5ch;
+        order: 8;
+
+        &::before {
+            content: '⊘';
+            line-height: 0.75;
+        }
+
+        /* The un-hide link */ 
+        &[href*="&un=t"]{
+            &::before {
+                content: '⊕';
+                line-height: 0.95;
+            }
+        }
+    }
 }

@@ -1,7 +1,11 @@
-/** 
-
+/* 
+===============================================================================
 Submission View
 
+Example with submission text:
+https://news.ycombinator.com/item?id=39562984
+
+===============================================================================
 */
 .fatitem .votearrow {
     margin-top: -2px;
@@ -17,4 +21,112 @@ html[op="item"] .toptext {
 
 html[op="item"] .toptext a {
     color: var(--color-blue-500);
+}
+
+.fatitem .subtext {
+    /* All of the submission action links we are converting to icon only. */
+    a:is([href^="hide"], [href^="fave"], .hnpast) {
+        display: inline-block;
+        font-size: 0 !important;
+        height: var(--icon-size);
+        position: relative;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: var(--icon-size);
+
+        &::after {
+            background: rgb(0 0 0);
+            border-radius: 3px;
+            color: #fff;
+            display: none;
+            font-size: var(--font-size-xs) !important;
+            left: 100%;
+            padding: 0.25em 0.5em;
+            position: absolute;
+            top: calc(var(--icon-size) * 0.67);
+            z-index: 100;
+        }
+
+        &:is(:hover,:active,:focus) {
+            color: var(--color-blue-500);
+            text-decoration: none;
+
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    /* This is the comments and the age links. */
+    a[href^="item"] {
+        margin-left: -1ch;
+    }
+
+    /* Override properties for the age. */
+    .age a {
+        margin-left: 1.5ch;
+    }
+
+    /* The Hide/Un-hide Links */
+    a[href^="hide"] {
+        margin-left: 5px;
+
+        &::after {
+            content: 'Hide';
+        }
+
+        /* The un-hide link */ 
+        &[href*="&un=t"]::after {
+            content: 'Un-hide';
+        }
+    }
+
+    /* The Favorite/Un-Favorite Links */
+    a[href^="fave"] {
+        margin-left: 12px;
+        order: 7;
+
+        &::before {
+            content: '♡';
+
+        }
+
+        &::after {
+            content: 'Favorite';
+        }
+
+        &:hover::before {
+            content: '♥';
+        }
+
+        /* The un-favorite link */ 
+        &[href*="&un=t"] {
+            &::before {
+                content: '♥';
+            }
+
+            &:hover::before {
+                content: '♡';
+            }
+
+            &::after {
+                content: 'Un-favorite';
+            }
+        }
+    }
+
+    /* The search past postings link */
+    a.hnpast {
+        order: 9;
+        margin-left: 5px;
+
+        &::before {
+            content: '↩';
+            line-height: 1.2;
+        }
+
+        &::after {
+            content: 'Past submissions';
+        }
+    }
 }
