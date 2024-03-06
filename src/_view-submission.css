@@ -25,7 +25,7 @@ html[op="item"] .toptext a {
 
 .fatitem .subtext {
     /* All of the submission action links we are converting to icon only. */
-    a:is([href^="hide"], [href^="fave"], .hnpast) {
+    a:is([href^="hide"], [href^="fave"], .hnpast) {;
         display: inline-block;
         font-size: 0 !important;
         height: var(--icon-size);
@@ -33,6 +33,10 @@ html[op="item"] .toptext a {
         vertical-align: middle;
         white-space: nowrap;
         width: var(--icon-size);
+
+        &::before {
+            color: var(--ui-icon-action-color)
+        }
 
         &::after {
             background: rgb(0 0 0);
@@ -48,8 +52,11 @@ html[op="item"] .toptext a {
         }
 
         &:is(:hover,:active,:focus) {
-            color: var(--color-blue-500);
             text-decoration: none;
+            
+            &::before {
+                color: var(--ui-icon-action-color-hover);
+            }
 
             &::after {
                 display: block;

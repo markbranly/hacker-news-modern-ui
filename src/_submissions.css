@@ -69,6 +69,7 @@ Submissions are split into two table rows: .title and .subtext
     a {
         /* Set up the icons */
         &::before {
+            color: var(--ui-link-icon-color);
             display: inline-block;
             font-size: var(--icon-size);
             height: var(--icon-size);
@@ -77,6 +78,10 @@ Submissions are split into two table rows: .title and .subtext
             text-align: center;
             vertical-align: middle;
             width: var(--icon-size);
+        }
+
+        &:hover::before {
+            color: var(--ui-link-icon-color-hover);
         }
 
         &:visited {
