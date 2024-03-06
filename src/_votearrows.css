@@ -43,9 +43,3 @@ Vote Arrows
         transition: all 0.3s;
     }
 }
-
-html[op=news] .athing .votearrow,
-html[op=newest] .athing .votearrow,
-html[op=front] .athing .votearrow {
-    margin: -1px 16px 0 10px;
-}

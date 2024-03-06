@@ -16,3 +16,9 @@ table:has(> tbody > .athing):not(.fatitem) {
 table:has(> tbody > .athing):not(.fatitem) .spacer {
     height: 1rem !important;
 }
+
+html[op=news] .athing .votearrow,
+html[op=newest] .athing .votearrow,
+html[op=front] .athing .votearrow {
+    margin: -1px 16px 0 10px;
+}
