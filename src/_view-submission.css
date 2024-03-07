@@ -93,11 +93,6 @@ html[op="item"] .toptext a {
         margin-left: 12px;
         order: 7;
 
-        &::before {
-            content: '♡';
-
-        }
-
         &::after {
             content: 'Favorite';
         }
@@ -107,18 +102,8 @@ html[op="item"] .toptext a {
         }
 
         /* The un-favorite link */ 
-        &[href*="&un=t"] {
-            &::before {
-                content: '♥';
-            }
-
-            &:hover::before {
-                content: '♡';
-            }
-
-            &::after {
-                content: 'Un-favorite';
-            }
+        &[href*="&un=t"]::after {
+            content: 'Un-favorite';
         }
     }
 

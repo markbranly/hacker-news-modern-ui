@@ -158,4 +158,30 @@ Submissions are split into two table rows: .title and .subtext
             }
         }
     }
+
+    /* The Favorite/Un-Favorite Links */
+    a[href^="fave"] {
+        margin-left: 1.2ch;
+        order: 7;
+
+        &::before {
+            content: '♡';
+
+        }
+
+        &:hover::before {
+            content: '♥';
+        }
+
+        /* The un-favorite link */ 
+        &[href*="&un=t"] {
+            &::before {
+                content: '♥';
+            }
+
+            &:hover::before {
+                content: '♡';
+            }
+        }
+    }
 }
