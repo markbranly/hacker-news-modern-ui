@@ -12,7 +12,6 @@ src/_comments.css
 src/_submissions.css
 src/_submission-lists.css
 src/_view-submission.css
-src/_view-show-hn.css
 src/_view-user.css
 src/_view-login.css
 src/_form-new-submission.css
