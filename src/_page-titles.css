@@ -24,27 +24,32 @@ attribute of the #pagespace element. Some are overridden.
     html:is([op="threads"]) &::before {
         text-transform: unset;
     }
+
+    html[op="item"] &::before {
+        content: '';
+    }
 }
 
 /* Below are replacement titles where they are less than optimal. */
+#pagespace::before {
+    html[op="ask"] & {
+        content: 'Ask HN';
+    } 
 
-html[op="ask"] #pagespace::before {
-    content: 'Ask HN';
-} 
-
-html[op="asknew"] #pagespace::before {
-    content: 'New Ask HN Submissions';
-}
-
-html[op="front"] #pagespace::before {
-    content: 'Front';
-}
-
-html[op="show"] #pagespace::before {
-    content: 'Show HN';
-}
-
-html[op="shownew"] #pagespace::before {
-    content: 'New Show HN Submissions';
-
+    html[op="asknew"] & {
+        content: 'New Ask HN Submissions';
+    }
+    
+    html[op="front"] & {
+        content: 'Front';
+    }
+    
+    html[op="show"] & {
+        content: 'Show HN';
+    }
+    
+    html[op="shownew"] & {
+        content: 'New Show HN Submissions';
+    
+    }
 }
