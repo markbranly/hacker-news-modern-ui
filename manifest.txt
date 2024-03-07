@@ -1,6 +1,7 @@
 src/_variables.css
 src/_basics.css
 src/_layout.css
+src/_page-titles.css
 src/_forms.css
 src/_header.css
 src/_footer.css

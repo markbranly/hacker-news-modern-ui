@@ -50,8 +50,12 @@ Variables
     --font-size-md: 1rem;
     --font-size-lg: 1.2rem;
     --font-size-xl: 1.4rem;
+    --font-size-xxl: 2.2rem;
     /* Layout */
     --content-width-max: 960px;
+    --page-title-color: var(--color-yellow-600);
+    --page-title-size: var(--font-size-xxl);
+    --page-title-weight: 400;
     --footer-background-color: var(--color-gray-500);
     --footer-border-color: rgb(255 255 255 / 20%);
     --header-background-color: var(--color-orange-700);
