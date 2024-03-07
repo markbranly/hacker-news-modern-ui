@@ -21,7 +21,7 @@ Submissions are split into two table rows: .title and .subtext
             color: #333 !important;
             display: inline-block;
             font-size: var(--font-size-xl);
-            line-height: 1;
+            line-height: 1.2;
             margin-right: 8px;
             overflow: visible;
             text-decoration-color: #999;
@@ -49,9 +49,11 @@ Submissions are split into two table rows: .title and .subtext
     --icon-size: 24px;
     --text-color: var(--ui-link-color); 
 
+    color: transparent; /* Hide the text */
+    font-family: var(--font-family-sans);
+
     .subline {
         display: flex;
-        color: transparent; /* Hide the text */
         align-items: center;
     }
     
@@ -92,7 +94,7 @@ Submissions are split into two table rows: .title and .subtext
     /* The user link. */
     a.hnuser {
         font-weight: bold;
-        margin-left: -0.5ch;
+        margin-left: -0.3ch;
 
         &::before {
             content: '⚇';
@@ -102,34 +104,50 @@ Submissions are split into two table rows: .title and .subtext
 
     /* This is the comments and the age. */
     a[href^="item"] {   
-        margin: 0.1ch;
+        margin-left: 0;
 
         &::before {
             content: '⪽';
-            line-height: 0.8;
-            scale: 1 1.15;
+            line-height: 0.75;
+            scale: 1.1 1.25;
+            text-align: right;
+            margin-right: 0.25ch;
         }
     }
 
-    /* Override properties for the age. */
-    .age a {
-        margin-left: 1.5ch;
+    /* Override properties for just the age. */
+    .age {
+        /* Normal submissions the age follows the user. */
+        .hnuser + & {
+            margin-left: 1.6ch;
+        }
 
-        &::before {
-            content: '◷';
-            line-height: 0.75;
-            scale: 1;
+        a {
+            margin-left: 0;
+
+            &::before {
+                content: '◷';
+                line-height: 0.75;
+                scale: 1;
+                margin-right: 0.1ch;
+            }
+            
         }
     }
 
     /* The Hide/Un-hide Links */
     a[href^="hide"] {
-        margin-left: 1.5ch;
+        margin-left: 1.3ch;
         order: 8;
+
+        /* Submissions with no user/discussion. */
+        .age + & {
+            margin-left: 0;
+        }
 
         &::before {
             content: '⊘';
-            line-height: 0.75;
+            line-height: 0.775;
         }
 
         /* The un-hide link */ 

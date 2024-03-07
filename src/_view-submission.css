@@ -66,12 +66,12 @@ html[op="item"] .toptext a {
 
     /* This is the comments and the age links. */
     a[href^="item"] {
-        margin-left: -1ch;
+        margin-left: -0.5ch;
     }
 
     /* Override properties for the age. */
     .age a {
-        margin-left: 1.5ch;
+        margin-left: 0;
     }
 
     /* The Hide/Un-hide Links */
