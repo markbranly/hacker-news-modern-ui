@@ -1,9 +1,12 @@
 /*
 ===============================================================================  
 Vote Arrows
+
+This is common styles for all votearrows. Contextual changes should be made in
+their respective context file (submission-lists, comments, etc.)
 =============================================================================== 
 */
-.athing a:has(.votearrow) {
+a:has(.votearrow) {
     
     .votearrow {
         --size: 24px;
@@ -36,7 +39,7 @@ Vote Arrows
         background: var(--votearrow-background-color-hover);
         border-color: var(--votearrow-border-color-hover);
         transform: scale(1.05);
-        box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.2);
+        box-shadow: var(--button-box-shadow-hover);
         transition: all 0.3s;
     }
 }

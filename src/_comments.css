@@ -1,120 +1,230 @@
-/** 
-
+/* 
+===============================================================================
 Comments
 
 Examples:
 - https://news.ycombinator.com/item?id=39560180 (code blocks and links)
-
+===============================================================================
 */
+
 .comment-tree {
+    --comment-margin-top: 0.5rem; 
+
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
     margin-bottom: 40px !important;
+
+    > tbody > tr:last-child td {
+        padding-bottom: 1.75rem;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    /* The container surrounding comhead. */
+    div:has(.comhead) {
+        /* We are overriding inline styling. Gonna need that juice! */
+        margin: var(--comment-margin-top) 0 -1rem !important;
+        transition: margin-bottom 0.3s;
+    }
+    
+    /* Collapsed comments. */
+    .comtr.coll {
+        div:has(.comhead) {
+            margin-bottom: 0 !important;
+            transition: margin-bottom 0.3s;
+        }
+
+        .votelinks.nosee {
+            filter: saturate(0) brightness(1.75);
+            visibility: visible;
+            
+        }
+    }
+
+    a .votearrow {
+        --size: 20px; 
+
+        margin: var(--comment-margin-top) 1ch 0;
+    }
 }
 
-.comment-tree > tbody > tr:first-child > td {
-    padding-top: 10px;
+/* The comment head with the comment meta. */
+.comhead {
+    word-spacing: 0.75ch;
+
+    a:link {
+        color: var(--ui-link-color);
+        font-family: var(--font-family-sans);
+        font-size: var(--ui-link-font-size);
+        word-spacing: normal;
+    
+        &:hover {
+            color: var(--ui-link-color-hover);
+            text-decoration-color: var(--ui-link-underline-color-hover);
+            text-underline-offset: 0.1em;
+            text-decoration-skip-ink: none;
+            text-decoration-thickness: var(--ui-link-underline-thickness-hover);
+        }
+    }
+
+    a[href^="user?id"] {
+        font-weight: bold;
+    }
+    
+    .navs a.togg {
+        display: inline-block;
+        font-weight: 900;
+        margin-left: 0.5ch;
+
+        &:hover {
+            color: var(--ui-link-underline-color-hover) !important;
+            text-decoration: none;
+        }
+
+        /* Collapsed comments */
+        .comtr.coll & {
+            color: var(--color-gray-800);
+        }
+    }
 }
 
+/* The comment proper. */
 .comment {
-    font-size: 15px;
+    border-left: solid 2px rbg(0 0 0 / 5%);
+    color: var(--reading-copy-color);
+    font-size: var(--reading-copy-size);
     font-family: var(--font-family-sans);
-    ;
-    color: #555;
-    display: inline-block;
-    padding: 5px 20px 10px 0;
-    line-height: 1.5;
+    line-height: var(--reading-copy-line-height);
+    max-width: var(--reading-copy-width);
+    padding: 0.5rem 1.5ch 1rem 0;
+    
+    &:not(:noshow) {
+        display: inline-block;
+    }
+
+    &:hover {
+        --background: rgb(255 255 255 / 90%);
+
+        background: var(--background);
+        box-shadow: -5px 0 0 5px var(--background);
+    }
+
+    p {
+        margin-top: 1.1em;
+    }
+
+    /* .commtext should just be the comment body, excluding the reply link. */
+    .commtext a {
+        &:link {
+            color: var(--content-link-color);
+            font-weight: bold;
+            text-decoration-color: var(--content-link-underline-color);
+            text-decoration-thickness: var(--content-link-underline-thickness);
+            text-decoration-skip-ink: none;
+            text-underline-offset: 0.15em;
+        }
+
+        &:visited {
+            color: var(--content-link-color-visited);
+            text-decoration-color: var(--content-link-underline-color-visited);
+        }
+        
+        &:is(:link, :visited):hover {
+            color: var(--content-link-color-hover);
+            text-decoration-color: var(--content-link-underline-color-hover);
+            text-decoration-thickness: var(--content-link-underline-thickness-hover);
+        }
+    }
+
+    pre {
+        --shadow-color: var(--color-gray-200);
+
+        background: var(--color-gray-700);
+        box-shadow: 2px 2px 0 2px var(--shadow-color);
+        border-radius: 8px;
+        color: var(--color-blue-100);
+        margin: 1.75rem 0;
+        overflow: auto;
+        padding: 1em 1ch;
+        white-space: pre;
+    }
+
+    pre:hover {
+        --shadow-color: var(--color-yellow-200);
+        
+        background: var(--color-yellow-900);
+        color: var(--color-yellow-100);
+    }
+
+    pre,
+    code {
+        font-family: var(--font-family-mono);
+    }
 }
 
-.comment:hover {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: -5px 0 0 5px rgba(255, 255, 255, 0.9);
+/* Reply links. */
+.reply p {
+    /* Links are wrapped in <u> */
+    u {
+        text-decoration: none;
+    }
+    
+    a {
+        &:link {
+            border-radius: 3px;
+            color: var(--content-link-color);
+            display: inline-block;
+            font-size: var(--ui-link-font-size);
+            font-weight: bold;
+            padding: 0.25em 0.75ch 0.25em 0.5ch;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        
+        &::before {
+            color: var(--content-link-underline-color);
+            content: var(--icon-right-arrow-hook);
+            display: inline-block;
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 0.5;
+            position: relative;
+            top: 0.2em;
+            transition: all .3s;
+        }
+
+        &:hover {
+            background: var(--button-background-color-hover);
+            box-shadow: var(--button-box-shadow-hover);
+            /* Sometimes, reply links are within .commtext. Let's juice them to be sure. */
+            color: var(--button-text-color-hover) !important; 
+
+            &::before {
+                color: var(--button-text-color-hover);
+            }
+        }
+    }
 }
 
-.comment-tree .votearrow {
-    margin-right: 3px;
-}
+/* Indentation Lines */
+.ind {
+    --line-color: rgb(0 0 0 / 5%);
+    --line-start: 30px;
+    --line-width: 3px;
+    --line-end: calc(var(--line-start) + var(--line-width));
+    --indent-width: 40px;
 
-.comment-tree .votearrow::before {
-    font-size: 24px;
-    height: 18px;
-    width: 18px;
-    padding-top: 5px;
-    top: -4px;
-    border-radius: 2px;
-}
-
-.comhead a[href^="user?id"] {
-    font-weight: bold;
-}
-
-.comhead .navs a.togg {
-    display: inline-block;
-    font-weight: 700;
-    margin-left: 0.5ch;
-}
-
-.comhead .navs a.togg:hover {
-    color: var(--ui-link-underline-color) !important;
-    text-decoration: none;
-}
-
-.comment p {
-    margin-top: 1em;
-}
-
-.comment a {
-    color: var(--comments-link-color) !important;
-    font-weight: bold;
-}
-
-.comment a:visited {
-    color: var(--comments-link-color-visited) !important;
-}
-
-.comment a:hover {
-    color: var(--comments-link-color-hover) !important;
-}
-
-.comment pre,
-.comment code {
-    font-family: var(--font-family-mono);
-}
-
-.comment pre {
-    background: #f0f0f0;
-    border: solid 1px #e0e0e0;
-    padding: 20px 10px;
-    width: 600px !important;
-    max-width: 90% !important;
-}
-
-.reply p u {
-    text-decoration: none;
-}
-
-.reply p a:link {
-    color: var(--color-blue-900) !important;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.reply p a::before {
-    content: '↪';
-    display: inline-block;
-    position: relative;
-    top: 4px;
-
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 0.5;
-    color: var(--color-blue-200);
-    transition: all .3s;
-}
-
-.reply p a:hover,
-.reply p a:hover::before {
-    color: var(--color-blue-500) !important;
-    transition: all .3s;
+    background-image: repeating-linear-gradient(
+        to right, 
+        transparent, 
+        transparent var(--line-start), 
+        var(--line-color) var(--line-start), 
+        var(--line-color) var(--line-end), 
+        transparent var(--line-end),
+        transparent var(--indent-width)
+    );
 }

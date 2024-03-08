@@ -101,7 +101,11 @@ Variables
     --ui-link-font-size: var(--font-size-sm);
     --ui-link-icon-color: inherit;
     --ui-link-icon-color-hover: inherit;
-    --ui-link-underline-color: var(--color-blue-500);
+    --ui-link-underline-color-hover: var(--color-blue-500);
+    --ui-link-underline-thickness: 0.15em;
+    --ui-link-underline-thickness-hover: 0.25em;
     --ui-icon-action-color: var(--ui-link-icon-color);
     --ui-icon-action-color-hover: var(--color-blue-500);
+    /* Icons */
+    --icon-right-arrow-hook: '↪';
 }
