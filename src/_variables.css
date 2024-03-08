@@ -14,6 +14,7 @@ Variables
     --color-orange-700: #913d14;
     --color-orange-800: #61280e;
     --color-orange-900: #301407;
+    --color-beige-100: #f6f6ef;
     --color-blue-100: #e9f3fb;
     --color-blue-200: #a8d1ed;
     --color-blue-300: #7db9e4;
@@ -52,10 +53,6 @@ Variables
     --font-size-xl: 1.4rem;
     --font-size-xxl: 2.2rem;
     /* Layout */
-    --content-width-max: 960px;
-    --page-title-color: var(--color-yellow-600);
-    --page-title-size: var(--font-size-xxl);
-    --page-title-weight: 400;
     --footer-background-color: var(--color-gray-500);
     --footer-border-color: rgb(255 255 255 / 20%);
     --header-background-color: var(--color-orange-700);
@@ -66,6 +63,7 @@ Variables
     --button-background-color-hover: var(--color-blue-500);
     --button-text-color: #fff;
     --button-text-color-hover: #fff;
+    --button-box-shadow-hover: 3px 3px 0 1px rgba(0, 0, 0, 0.2);
     /* Vote Arrows */
     --votearrow-arrow-color: #fff;
     --votearrow-arrow-color-hover: #fff;
@@ -74,10 +72,30 @@ Variables
     --votearrow-border-size: 0;
     --votearrow-border-color: var(--button-background-color);
     --votearrow-border-color-hover: var(--votearrow-background-color-hover);
-    /* Components */
+    /* Miscellaneous Content */
+    --content-link-color: var(--color-blue-800);
+    --content-link-color-hover: var(--color-gray-600);
+    --content-link-color-visited: var(--color-gray-400);
+    --content-link-underline-color: var(--color-blue-300);
+    --content-link-underline-color-hover: var(--color-orange-400);
+    --content-link-underline-color-visited: var(--color-gray-200);
+    --content-link-underline-thickness: 0.25em;
+    --content-link-underline-thickness-hover: 0.4em;
+    --content-width-max: 960px;
+    --page-title-color: var(--color-yellow-600);
+    --page-title-size: var(--font-size-xxl);
+    --page-title-weight: 400;
+    --reading-copy-color: var(--color-gray-600);
+    --reading-copy-line-height: 1.5;
+    --reading-copy-size: var(--font-size-md);
+    --reading-copy-width: 80ch;
+    --subhead-size: var(--font-size-xl);
+    --subhead-line-height: 1.4;
+    /* Comments */
     --comments-link-color: var(--color-blue-500);
     --comments-link-color-hover: var(--color-blue-400);
     --comments-link-color-visited: var(--color-blue-800);
+    /* UI Links */
     --ui-link-color: var(--color-gray-400);
     --ui-link-color-hover: var(--color-blue-900);
     --ui-link-font-size: var(--font-size-sm);

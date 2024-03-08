@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background: rgb(246, 246, 239);
+    background: var(--color-beige-100);
     padding: 10% 40%;
     margin: 0;
     font-family: var(--font-family-sans);
@@ -24,6 +24,10 @@ td {
     font-family: var(--font-family-sans);
 }
 
-a {
-    transition: all 0.3s;
+a:is(:link, :visited, :hover) {
+    transition: color,text-decoration-color,text-decoration-thickness 0.3s;
+}
+
+ul {
+    padding-left: 2ch;
 }

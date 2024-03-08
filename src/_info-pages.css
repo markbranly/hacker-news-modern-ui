@@ -1,0 +1,82 @@
+/*
+===============================================================================
+Info Pages
+
+These are pages like Guidelines and FAQ.
+===============================================================================
+*/
+
+/* These are all the info pages */
+body > center > table[width="500"] {
+    width: var(--reading-copy-width);
+    
+    /* This is the cell that contains the content. */
+    td[bgcolor="#fafaf0"] {
+        background: none;
+        color: var(--reading-copy-color);
+        font-size: var(--font-size-md);
+        line-height: var(--reading-copy-line-height);
+        padding-bottom: 4rem;
+    }
+
+    /* The y-Combinator logo. */
+    img[src="yc500.gif"] {
+        border: solid 10px #fff;
+        width: 200px;
+    }
+
+    /* This should be the page title */ 
+    td[bgcolor="#fafaf0"] >  b:first-of-type {
+        color: var(--page-title-color);
+        display: block;
+        font-size: var(--page-title-size);
+        font-weight: var(--page-title-weight);
+        margin: 1rem 0 0;
+
+        &:has(+ br) {
+            margin-bottom: -2rem;
+        }
+    }
+
+    /* These are sub-headings. */
+    p b:first-child:last-child,
+    b:has(+ p), 
+    b:has(+ br + br) {
+        display: block;
+        font-size: var(--font-size-xl);
+        line-height: 1.4;
+        margin-top: 2.5rem;
+
+        /* The paragraph element that contains the subhead */
+        p:has(&) {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    p {
+        margin: 0 0 1.5rem;
+    }
+
+    /* Content Links */
+    a {
+        &:link {
+            color: var(--content-link-color);
+            font-weight: bold;
+            text-decoration-color: var(--content-link-underline-color);
+            text-decoration-thickness: var(--content-link-underline-thickness);
+            text-decoration-skip-ink: none;
+            text-underline-offset: 0.15em;
+        }
+
+        &:visited {
+            color: var(--content-link-color-visited);
+            text-decoration-color: var(--content-link-underline-color-visited);
+        }
+        
+        &:is(:link, :visited):hover {
+            color: var(--content-link-color-hover);
+            text-decoration-color: var(--content-link-underline-color-hover);
+            text-decoration-thickness: var(--content-link-underline-thickness-hover);
+        }
+    }
+}

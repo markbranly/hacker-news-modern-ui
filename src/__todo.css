@@ -5,21 +5,8 @@ Other
 * TODO: Identify and sort these.
 
 **/
-body > center > table[width="500"] {
-    /* These are all the info pages */
-}
 
-table[width="500"] td[bgcolor="#fafaf0"] {
-    background: none;
-}
 
-table[width="500"] img[src="yc500.gif"] {
-    border: solid 10px #fff;
-    width: 18px;
-    padding: 0 18px 0 0;
-    background: url(/favicon.ico) no-repeat;
-    background-size: contain;
-}
 
 /** 
 

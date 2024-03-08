@@ -11,6 +11,7 @@ src/_ui-links.css
 src/_comments.css
 src/_submissions.css
 src/_submission-lists.css
+src/_info-pages.css
 src/_view-submission.css
 src/_view-user.css
 src/_view-login.css
