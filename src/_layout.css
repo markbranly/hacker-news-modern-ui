@@ -1,38 +1,8 @@
-/** 
-
+/* 
+===============================================================================
 Layout
-
+===============================================================================
 */
-html[op="x"] body,
-html[op="newest"] body,
-html[op="news"] body,
-html[op="item"] body,
-html[op="reply"] body,
-html[op="jobs"] body,
-html[op="show"] body,
-html[op="ask"] body,
-html[op="submit"] body,
-html[op="user"] body,
-html[op="submitted"] body,
-html[op="favorites"] body,
-html[op="threads"] body,
-html[op="lists"] body,
-html[op="hidden"] body,
-html[op="newcomments"] body,
-html[op="bestcomments"] body,
-html[op="noobstories"] body,
-html[op="noobcomments"] body,
-html[op="leaders"] body,
-html[op="front"] body,
-html[op="best"] body,
-html[op="active"] body,
-html[op="upvoted"] body,
-html[op="bestcomments"] body,
-html[op="changepw"] body,
-body[bgcolor="#ffffff"] {
-    padding: 0;
-}
-
 #hnmain {
     width: 100%;
 }
