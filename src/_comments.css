@@ -15,6 +15,7 @@ Examples:
     border-radius: 5px;
     border-spacing: 0;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
+    box-sizing: border-box;
     margin-bottom: 40px !important;
 
     &:not(:has(td)) {
@@ -189,6 +190,39 @@ Examples:
     pre,
     code {
         font-family: var(--font-family-mono);
+    }
+
+    /* Downvoted comments. */
+    .commtext:is(.c5a, .c73, .c82, .c88, .c9c, .cae, .cbe, .cce, .cdd) {
+        --border-radius: 5px;
+        --border-color: var(--color-orange-800);
+
+        background: rgb(0 0 0 / 2%);
+        border: solid 1px var(--border-color);
+        border-radius: var(--border-radius);
+        color: var(--color-orange-800);
+        display: block;
+        opacity: 0.775;
+        padding: 0.25rem 0.75ch 2rem;
+        position: relative;
+
+        &::after {
+            background: var(--border-color);
+            bottom: 0;
+            border-radius: var(--border-radius) 0 0;
+            color: var(--color-yellow-100);
+            content: '⨺ Downvoted';
+            display: inline-block;
+            font-size: var(--font-size-xs);
+            padding: 0.25rem 0.75ch;
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    /* Nesting the hover state not working here. */
+    .commtext:is(.c5a, .c73, .c82, .c88, .c9c, .cae, .cbe, .cce, .cdd):hover {
+        opacity: 1;
     }
 }
 
