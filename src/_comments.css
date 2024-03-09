@@ -17,7 +17,7 @@ Examples:
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
     margin-bottom: 40px !important;
 
-    &:empty {
+    &:not(:has(td)) {
         display: none;
     }
 
