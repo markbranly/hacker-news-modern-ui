@@ -82,6 +82,7 @@ Variables
     --content-link-underline-thickness: 0.25em;
     --content-link-underline-thickness-hover: 0.4em;
     --content-width-max: 960px;
+    --hr-size: 5px;
     --page-title-color: var(--color-yellow-600);
     --page-title-size: var(--font-size-xxl);
     --page-title-weight: 400;
