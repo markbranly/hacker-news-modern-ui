@@ -110,7 +110,6 @@ Examples:
 
 /* The comment proper. */
 .comment {
-    border-left: solid 2px rbg(0 0 0 / 5%);
     color: var(--reading-copy-color);
     font-size: var(--reading-copy-size);
     font-family: var(--font-family-sans);
