@@ -7,118 +7,170 @@ https://news.ycombinator.com/item?id=39562984
 
 ===============================================================================
 */
-.fatitem .votearrow {
-    margin-top: -2px;
-}
 
-html[op="item"] .toptext {
-    color: #555;
-    font-size: 1.1rem;
-    font-weight: 300;
-    line-height: 1.33;
-    margin: 3rem 0 4rem;
-}
-
-html[op="item"] .toptext a {
-    color: var(--color-blue-500);
-}
-
-.fatitem .subtext {
-    /* All of the submission action links we are converting to icon only. */
-    a:is([href^="hide"], [href^="fave"], .hnpast) {;
-        display: inline-block;
-        font-size: 0 !important;
-        height: var(--icon-size);
-        position: relative;
-        vertical-align: middle;
-        white-space: nowrap;
-        width: var(--icon-size);
-
-        &::before {
-            color: var(--ui-icon-action-color)
+/* fatitem is a table that contains the submission and the comment form. */
+html[op="item"] .fatitem {
+    /* Fix some issues with votearrow spacing. */
+    .votelinks {
+        /* The selector that originally sets this has to be _very_ specific. Juice it! */
+        padding: 0 !important;    
+        
+        center {
+            text-align: left;
         }
+    }
 
-        &::after {
-            background: rgb(0 0 0);
-            border-radius: 3px;
-            color: #fff;
-            display: none;
-            font-size: var(--font-size-xs) !important;
-            left: 100%;
-            padding: 0.25em 0.5em;
-            position: absolute;
-            top: calc(var(--icon-size) * 0.67);
-            z-index: 100;
-        }
+    /* The submission action links. */
+    .subtext {
+        /* All of the submission action links we are converting to icon only. */
+        a:is([href^="hide"], [href^="fave"], .hnpast) {;
+            display: inline-block;
+            font-size: 0 !important;
+            height: var(--icon-size);
+            position: relative;
+            vertical-align: middle;
+            white-space: nowrap;
+            width: var(--icon-size);
 
-        &:is(:hover,:active,:focus) {
-            text-decoration: none;
-            
             &::before {
-                color: var(--ui-icon-action-color-hover);
+                color: var(--ui-icon-action-color)
             }
 
             &::after {
-                display: block;
+                background: rgb(0 0 0);
+                border-radius: 3px;
+                color: #fff;
+                display: none;
+                font-size: var(--font-size-xs) !important;
+                left: 100%;
+                padding: 0.25em 0.5em;
+                position: absolute;
+                top: calc(var(--icon-size) * 0.67);
+                z-index: 100;
+            }
+
+            &:is(:hover,:active,:focus) {
+                text-decoration: none;
+                
+                &::before {
+                    color: var(--ui-icon-action-color-hover);
+                }
+
+                &::after {
+                    display: block;
+                }
+            }
+        }
+
+        /* This is the comments and the age links. */
+        a[href^="item"] {
+            margin-left: -0.5ch;
+        }
+
+        /* Override properties for the age. */
+        .age a {
+            margin-left: 0;
+        }
+
+        /* The Hide/Un-hide Links */
+        a[href^="hide"] {
+            margin-left: 5px;
+
+            &::after {
+                content: 'Hide';
+            }
+
+            /* The un-hide link */ 
+            &[href*="&un=t"]::after {
+                content: 'Un-hide';
+            }
+        }
+
+        /* The Favorite/Un-Favorite Links */
+        a[href^="fave"] {
+            margin-left: 12px;
+            order: 7;
+
+            &::after {
+                content: 'Favorite';
+            }
+
+            /* The un-favorite link */ 
+            &[href*="&un=t"]::after {
+                content: 'Un-favorite';
+            }
+        }
+
+        /* The search past postings link */
+        a.hnpast {
+            order: 9;
+            margin-left: 5px;
+
+            &::before {
+                content: '↩';
+                line-height: 1.2;
+            }
+
+            &::after {
+                content: 'Past submissions';
             }
         }
     }
 
-    /* This is the comments and the age links. */
-    a[href^="item"] {
-        margin-left: -0.5ch;
+    /* This is the submission content, the "post" if you will. Implements reading copy. */
+    .toptext {
+        color: var(--reading-copy-color);
+        font-size: var(--reading-copy-size);
+        font-family: var(--font-family-sans);
+        line-height: var(--reading-copy-line-height);
+        max-width: var(--reading-copy-width);
+        margin: 2rem 0;
     }
 
-    /* Override properties for the age. */
-    .age a {
-        margin-left: 0;
-    }
-
-    /* The Hide/Un-hide Links */
-    a[href^="hide"] {
-        margin-left: 5px;
-
-        &::after {
-            content: 'Hide';
-        }
-
-        /* The un-hide link */ 
-        &[href*="&un=t"]::after {
-            content: 'Un-hide';
-        }
-    }
-
-    /* The Favorite/Un-Favorite Links */
-    a[href^="fave"] {
-        margin-left: 12px;
-        order: 7;
-
-        &::after {
-            content: 'Favorite';
-        }
-
-        &:hover::before {
-            content: '♥';
-        }
-
-        /* The un-favorite link */ 
-        &[href*="&un=t"]::after {
-            content: 'Un-favorite';
-        }
-    }
-
-    /* The search past postings link */
-    a.hnpast {
-        order: 9;
-        margin-left: 5px;
+    /* The comment form, of course . */
+    form[action="comment"] {
+        border-top: solid var(--hr-size) rgb(0 0 0 / 5%);
+        color: var(--color-gray-400);
+        display: flex;
+        flex-direction: column;
+        font-size: var(--reading-copy-size);
+        margin-top: 1.5rem;
+        max-width: var(--reading-copy-width);
+        padding-top: 1.5rem;
 
         &::before {
-            content: '↩';
-            line-height: 1.2;
+            content: 'Join the conversation!';
+            display: block;
+            font-size: var(--font-size-lg);
+            margin-bottom: 1rem;
+            order: 0;
         }
 
         &::after {
-            content: 'Past submissions';
+            content: 'Formatting options: https://news.ycombinator.com/formatdoc';
+            cursor: not-allowed;
+            display: block;
+            font-size: var(--font-size-xs);
+            margin-bottom: 0.5rem;
+            order: 1;
+        }
+
+        textarea {
+            margin-bottom: 1rem;
+            order: 2;
+        }
+
+        input[type="submit"] {
+            order: 3;
+            width: max-content;
         }
     }
+
+    /* The comment form when there are no comments. */
+    &:has(~ .comment-tree:not(:has(td))) form[action="comment"]::before {
+        content: 'Be the first to comment!';
+    }
 }
+
+
+
