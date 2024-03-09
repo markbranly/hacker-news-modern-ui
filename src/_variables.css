@@ -91,10 +91,6 @@ Variables
     --reading-copy-width: 80ch;
     --subhead-size: var(--font-size-xl);
     --subhead-line-height: 1.4;
-    /* Comments */
-    --comments-link-color: var(--color-blue-500);
-    --comments-link-color-hover: var(--color-blue-400);
-    --comments-link-color-visited: var(--color-blue-800);
     /* UI Links */
     --ui-link-color: var(--color-gray-400);
     --ui-link-color-hover: var(--color-blue-900);
