@@ -11,12 +11,28 @@ Examples:
     --comment-margin-top: 0.5rem; 
 
     background: rgba(255, 255, 255, 0.5);
+    border-collapse: collapse;
     border-radius: 5px;
+    border-spacing: 0;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
     margin-bottom: 40px !important;
 
-    > tbody > tr:last-child td {
-        padding-bottom: 1.75rem;
+    &:empty {
+        display: none;
+    }
+
+    > tbody > tr {
+        > td {
+            padding: 0;
+        }
+        
+        &:first-child td {
+            padding-top: 0.5rem;
+        }
+        
+        &:last-child td {
+            padding-bottom: 2rem;
+        }
     }
 
     table {
@@ -213,7 +229,7 @@ Examples:
 /* Indentation Lines */
 .ind {
     --line-color: rgb(0 0 0 / 5%);
-    --line-start: 30px;
+    --line-start: 36px;
     --line-width: 3px;
     --line-end: calc(var(--line-start) + var(--line-width));
     --indent-width: 40px;
