@@ -1,0 +1,43 @@
+/* 
+===============================================================================
+Page Descriptions
+
+This is the lead text just below the page title. 
+
+===============================================================================
+*/
+#pagespace + tr > td > div {
+    color: var(--reading-copy-color);
+    font-size: var(--reading-copy-size);
+    line-height: var(--reading-copy-line-height);
+    font-weight: normal;
+    max-width: var(--content-width-max);
+    margin: 0 auto 3rem !important;
+
+    a {
+        &:link {
+            color: var(--content-link-color);
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: var(--content-link-underline-color);
+            text-decoration-thickness: var(--content-link-underline-thickness);
+            text-decoration-skip-ink: none;
+            text-underline-offset: 0.15em;
+        }
+
+        &:visited {
+            color: var(--content-link-color-visited);
+            text-decoration-color: var(--content-link-underline-color-visited);
+        }
+        
+        &:is(:link, :visited):hover {
+            color: var(--content-link-color-hover);
+            text-decoration-color: var(--content-link-underline-color-hover);
+            text-decoration-thickness: var(--content-link-underline-thickness-hover);
+        }
+
+        u {
+            text-decoration: none;
+        }
+    }
+}
