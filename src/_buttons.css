@@ -1,21 +1,47 @@
-input[type=submit] {
+/* 
+===============================================================================
+Buttons
+===============================================================================
+*/
+.morelink,
+input[type="submit"] {
     background: var(--button-background-color);
-    color: var(--button-text-color);
     border: none;
     border-radius: 3px;
-    font-size: 14px;
-    font-family: var(--font-family-sans);
-    line-height: 1.25;
-    padding: 7px 14px;
-    text-transform: uppercase;
+    /* Need to ensure that this isn't overridden. Bring the juice! */
+    color: var(--button-text-color) !important;
     cursor: pointer;
+    display: inline-block;
+    font-family: var(--font-family-sans);
+    font-size: var(--button-font-size);
+    line-height: 1.25;
+    padding: 0.5em 1.5ch;
+    text-transform: capitalize;
     transition: all 0.3s;
+}
 
-    &:hover {
-        background: var(--button-background-color-hover);
-        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
-        color: var(--button-text-color-hover);
-        transition: all 0.3s;
-        transform: scale(1.05);
+/* Sadly, these cannot be nested, nor do they work with `is:()`. Maybe a browser bug. */
+.morelink:hover,
+input[type="submit"]:hover {
+    background: var(--button-background-color-hover);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    color: var(--button-text-color-hover);
+    transition: all 0.3s;
+    transform: scale(1.05);
+}
+
+.morelink {
+    &::after {
+        content: '⟩';
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 0.5ch;
+        transform: scaleX(1.5);
+        transition: all 0.2s;
+    }
+
+    &:hover::after {
+        transform: scaleY(.75) scaleX(1.75) translateX(0.25ch);
+        transition: all 0.5s;
     }
 }

@@ -59,8 +59,9 @@ Variables
     --header-border-color: var(--color-orange-500);
     --header-border-size: 5px;
     /* Buttons  */
-    --button-background-color: var(--color-blue-900);
+    --button-background-color: var(--color-blue-700);
     --button-background-color-hover: var(--color-blue-500);
+    --button-font-size: var(--font-size-md);
     --button-text-color: #fff;
     --button-text-color-hover: #fff;
     --button-box-shadow-hover: 3px 3px 0 1px rgba(0, 0, 0, 0.2);
@@ -103,6 +104,11 @@ Variables
     --ui-link-underline-thickness-hover: 0.25em;
     --ui-icon-action-color: var(--ui-link-icon-color);
     --ui-icon-action-color-hover: var(--color-blue-500);
+    /* Forms */
+    --form-label-color: var(--color-gray-400);
+    --form-label-size: var(--font-size-md);
+    --form-label-weight: 400;
+    --form-help-text-size: var(--font-size-xs);
     /* Icons */
     --icon-right-arrow-hook: '↪';
 }
