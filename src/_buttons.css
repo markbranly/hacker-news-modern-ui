@@ -24,7 +24,7 @@ input[type="submit"] {
 .morelink:hover,
 input[type="submit"]:hover {
     background: var(--button-background-color-hover);
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: var(--button-box-shadow-hover);
     color: var(--button-text-color-hover);
     transition: all 0.3s;
     transform: scale(1.05);
