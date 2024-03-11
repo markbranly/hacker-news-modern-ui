@@ -1,0 +1,57 @@
+/* 
+===============================================================================
+Lists Page
+
+https://news.ycombinator.com/lists
+===============================================================================
+*/
+
+html[op="lists"] #pagespace + tr table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 4rem;
+
+    @media (min-width: 960px) {
+        tbody {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+
+    /* Each row is a List item. */
+    tr {
+        display: flex;
+        flex-direction: column;
+        line-height: var(--reading-copy-line-height);
+
+        td:first-child {
+            font-size: var(--font-size-lg);
+            padding-bottom: 0.25em;
+            text-transform: capitalize;
+        }
+
+        td:nth-child(2) {
+            color: var(--reading-copy-color);
+            font-size: var(--reading-copy-size);
+            padding: 0 2ch 2rem 0;
+        }
+    }
+
+    a {
+        color: var(--content-link-color);
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color: var(--content-link-underline-color);
+        text-decoration-skip-ink: none;
+        text-decoration-thickness: var(--content-link-underline-thickness);
+        text-underline-offset: 0.1em;
+        
+        &:hover {
+            color: var(--content-link-color);
+            text-decoration-color: var(--content-link-underline-color-hover);
+            text-decoration-thickness: var(--content-link-underline-thickness-hover);
+        }
+    }
+
+}
