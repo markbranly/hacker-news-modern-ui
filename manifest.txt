@@ -15,6 +15,7 @@ src/_view-submission.css
 src/_view-user.css
 src/_view-login.css
 src/_view-lists.css
+src/_view-formatdoc.css
 src/_form-new-submission.css
 src/_form-user-edit.css
 src/__todo.css
