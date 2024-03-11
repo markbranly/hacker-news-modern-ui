@@ -22,6 +22,7 @@ body > center > table[width="500"] {
     /* The y-Combinator logo. */
     img[src="yc500.gif"] {
         border: solid 10px #fff;
+        height: auto;
         width: 200px;
     }
 
