@@ -1,38 +1,81 @@
-/** 
-
+/*
+===============================================================================
 User Profile Edit Form
-
+===============================================================================
 */
-.profileform td {
-    font-size: 16px;
-}
+.profileform {
+    --left-col-width: 14ch;
 
-.profileform::before {
-    display: block;
-    content: 'User Profile';
-    font-size: 36px;
-    margin: 0 0 20px 84px;
-}
+    font-size: var(--form-label-size);
+    margin-inline: auto;
+    width: var(--content-width-max);
 
-.profileform td {
-    padding-bottom: 10px;
-}
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
 
-.profileform tr > td:first-child {
-    vertical-align: top;
+    /* The labels. */
+    tr > td:first-child {
+        box-sizing: border-box;
+        color: var(--form-label-color);
+        display: block;
+        font-size: var(--form-label-size);
+        font-weight: var(--form-label-weight);
+        padding-right: 1ch;
+        padding-top: 0.5rem;
+        text-transform: capitalize;
+        width: var(--left-col-width);
+    }
 
-    padding-top: 6px;
-    width: 80px;
+    /* The 2nd and 3rd rows don't have fields or extra line-height to add vertical padding. */
+    tbody tr:is(:nth-child(2), :nth-child(3)) td:last-child {
+        padding-top: 0.5rem;
+    }
 
-    font-size: 12px;
-    text-align: right;
-    text-transform: capitalize;
-}
+    td:has(> textarea[name="about"]) {
+        /* Overriding inline style. Got juice? */
+        overflow: visible !important;
+        padding-bottom: 2rem;
+    }
 
-.profileform textarea {
-    display: block;
-}
+    textarea {
+        margin-bottom: 0;
+    }
 
-.profileform input[type="submit"] {
-    margin-left: 80px;
+    /* Helptext about "About". */
+    a[href="formatdoc"] {
+        /* Color and size are already set by User Profile view. Time to bust out the juice! */
+        color: var(--color-blue-500) !important;
+        font-size: var(--form-helptext-size) !important;
+        text-transform: capitalize;
+
+        &:hover {
+            color: var(--color-blue-700) !important;
+            text-decoration: underline;
+        }
+
+        font {
+            /* Color and size are set inline. Hope you brought some extra juice! */
+            font-size: inherit !important;
+            color: inherit !important;
+        }
+    }
+
+    /* Helptext about email. */
+    tr:has(> td > font[size="2"]) {
+        td {
+            padding: 0;
+        }
+
+        font {
+            color: var(--form-helptext-color);
+            font-size: var(--form-helptext-size);
+        }
+    }
+
+
+    input[type="submit"] {
+        margin-left: var(--left-col-width);
+    }
 }

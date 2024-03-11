@@ -1,20 +1,40 @@
-/** 
-
+/*
+===============================================================================
 User Profile View
-
+===============================================================================
 */
-html[op="user"] table tbody tr:nth-child(3) a[href^="user?id="] {
-    font-size: 24px;
-    line-height: 1;
-    font-weight: bold;
-}
+html[op="user"] tbody:has(> .athing) {
+    tr > td:first-child {
+        text-transform: capitalize;
+    }
 
-html[op="user"] #hnmain > tbody tr:nth-child(3) > td > table td {
-    vertical-align: top;
-    padding: 10px;
-}
+    td {
+        font-size: var(--reading-copy-size);
+        padding-bottom: 1rem;
+        text-align: left;
+    }
 
-html[op="user"] #hnmain > tbody > tr > td > table td[valign="top"] {
-    font-size: 12px;
-    text-align: right;
+
+    a {
+        color: var(--ui-link-color);
+        font-family: var(--font-family-sans);
+        font-size: var(--reading-copy-size);
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        text-decoration-thickness: var(--ui-link-underline-thickness);
+    
+        &:hover {
+            color: var(--ui-link-color-hover);
+            text-decoration-color: var(--ui-link-underline-color-hover);
+            text-underline-offset: 0.1em;
+            text-decoration-skip-ink: none;
+            text-decoration-thickness: var(--ui-link-underline-thickness-hover);
+        }
+    }
+
+    .hnuser {
+        font-size: var(--font-size-xl);
+        font-weight: bold;
+    }
+
 }
