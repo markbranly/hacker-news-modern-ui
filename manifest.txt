@@ -7,7 +7,6 @@ src/_header.css
 src/_footer.css
 src/_components.css
 src/_votearrows.css
-src/_ui-links.css
 src/_comments.css
 src/_submissions.css
 src/_submission-lists.css

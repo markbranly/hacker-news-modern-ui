@@ -69,6 +69,18 @@ Submissions are split into two table rows: .title and .subtext
     }
 
     a {
+        color: var(--ui-link-color);
+        font-family: var(--font-family-sans);
+        font-size: var(--ui-link-font-size);
+    
+        &:hover {
+            color: var(--ui-link-color-hover);
+            text-decoration-color: var(--ui-link-underline-color-hover);
+            text-underline-offset: 0.1em;
+            text-decoration-skip-ink: none;
+            text-decoration-thickness: var(--ui-link-underline-thickness-hover);
+        }
+
         /* Set up the icons */
         &::before {
             color: var(--ui-link-icon-color);
@@ -84,10 +96,6 @@ Submissions are split into two table rows: .title and .subtext
 
         &:hover::before {
             color: var(--ui-link-icon-color-hover);
-        }
-
-        &:visited {
-            color: var(--text-color);
         }
     }
 
