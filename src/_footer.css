@@ -73,7 +73,7 @@ Footer
     /* The utility links in the footer. */
     .yclinks {
         border-top: solid var(--hr-size) var(--footer-border-color);
-        font-famil: var(--font-family-sans);
+        font-family: var(--font-family-sans);
         font-size: var(--font-size-md);
         padding: 1rem 1ch 2rem;
         text-align: left;
