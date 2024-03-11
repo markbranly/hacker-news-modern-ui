@@ -21,10 +21,23 @@ attribute of the #pagespace element. Some are overridden.
         text-transform: capitalize;
     }
 
+    /* User comments page. The title starts with username. */
     html:is([op="threads"]) &::before {
         text-transform: unset;
     }
 
+    /* User profile page. Title contains username but starts with "Profile:" */
+    html:is([op="user"]) & {
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+        &::before {
+            text-transform: unset;
+        }
+    }
+
+    /* No titles on submissions. */
     html[op="item"] &::before {
         content: '';
     }
