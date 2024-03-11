@@ -8,25 +8,23 @@ input:is([type="text"], [type="url"], [type="password"]),
 textarea,
 select {
     background: #fff;
+    border: solid 1px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     font-size: var(--font-size-lg);
     font-family: var(--font-family-sans);
     line-height: 1.5;
+    padding: 0.25em 0.5ch;
+    transition: all 0.3s;
 
     &:is(:focus, :focus-visible) {
         box-shadow: none;
         border-color: var(--color-blue-500);
         outline: 3px solid var(--color-blue-200);
     }
-}
 
-input:is([type="text"], [type="url"], [type="password"]),
-textarea {
-    padding: 0.25em 0.5ch;
-    border-radius: 3px;
-    border: solid 1px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
-    width: 100%;
+    &:not(select) {
+        width: 100%;
+    }
 }
 
 textarea {
