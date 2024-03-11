@@ -35,9 +35,9 @@ This is the lead text just below the page title.
             text-decoration-color: var(--content-link-underline-color-hover);
             text-decoration-thickness: var(--content-link-underline-thickness-hover);
         }
-
-        u {
-            text-decoration: none;
-        }
+    }
+    
+    :is(u, .hnmore) {
+        text-decoration: none;
     }
 }
