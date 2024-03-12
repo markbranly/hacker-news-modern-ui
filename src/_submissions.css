@@ -219,14 +219,13 @@ Submissions are split into two table rows: .title and .subtext
         margin-left: 1.75ch;
         order: 10;
 
-
         &::before {
             content: '⏣';
             line-height: 0.7;
         }
     }
     
-    /* The Edit Link */
+    /* The Delete Link */
     a[href^="delete"] {
         margin-left: 1.75ch;
         order: 11;
