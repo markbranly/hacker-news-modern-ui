@@ -23,7 +23,7 @@ html[op="item"] .fatitem {
     /* The submission action links. */
     .subtext {
         /* All of the submission action links we are converting to icon only. */
-        a:is([href^="hide"], [href^="fave"], .hnpast) {;
+        a:is([href^="hide"], [href^="fave"], .hnpast, [href^="edit"], [href^="delete"]) {;
             display: inline-block;
             font-size: 0 !important;
             height: var(--icon-size);
@@ -107,6 +107,32 @@ html[op="item"] .fatitem {
 
             &::after {
                 content: 'Past submissions';
+            }
+        }
+
+        /* The edit link */
+        a[href^="edit"] {
+            margin-left: 20px;
+            
+            &::before {
+                line-height: 0.775;
+            }
+
+            &::after {
+                content: 'Edit';
+            }
+        }
+
+        /* The delete link */
+        a[href^="delete"] {
+            margin-left: 5px;
+           
+            &::before {
+                line-height: 1;
+            }
+
+            &::after {
+                content: 'Delete';
             }
         }
     }
