@@ -34,6 +34,7 @@ Includes the standard header and logo-only headers found on a few pages.
         color: rgba(255, 255, 255, 1);
         margin-left: 1ch;
         text-decoration-color: var(--underline-color);
+        text-underline-offset: 0.2em;
         transition: all 0.25s;
 
         &:hover {
@@ -71,7 +72,10 @@ tr:has(> td > .pagetop .hnname) {
     .hnname {
         display: inline-block;
         margin: 0 20px 0 5px;
-        font-size: var(--font-size-lg);
+        
+        a {
+            font-size: var(--font-size-lg);
+        }
     }
 }
 
@@ -80,6 +84,10 @@ tr:has(> td > .pagetop .hnname) {
     &:has(.hnname) a {
         font-weight: bold;
         text-transform: capitalize;
+
+        @media (min-width: 1024px) {
+            font-size: var(--font-size-md);
+        }
     }
 
     a[href="newest"] {
@@ -108,14 +116,17 @@ tr:has(> td > .pagetop .hnname) {
         background: var(--button-background-color);
         border-radius: 3px;
         display: inline-block;
-        margin-left: 2ch;
+        margin-left: 1.5ch;
         padding: 0.5em 0.75em;
-        scale: 1.2; /* Using scale as to not influence the total height of header */
         text-decoration: none;
         transition: all 0.3s;
 
+        @media (max-width: 1023px) {
+            scale: 1.2; /* Using scale as to not influence the total height of header */
+        }
+
         &::before {
-            content: '⊕';
+            content: var(--icon-circle-plus);
             display: inline-block;
             font-weight: normal;
             margin-right: 0.5ch;
@@ -127,11 +138,15 @@ tr:has(> td > .pagetop .hnname) {
             background: var(--button-background-color-hover);
             box-shadow: var(--button-box-shadow-hover);
             text-decoration: none;
-            scale: 1.3;
+            scale: 1.05;
 
             &::before {
                 opacity: 1;
                 transition: all 0.3s;
+            }
+
+            @media (max-width: 1023px) {
+                scale: 1.3;
             }
         }
     }

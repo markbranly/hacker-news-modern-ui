@@ -113,5 +113,7 @@ Variables
     --form-helptext-color: var(--color-gray-700);
     --form-helptext-size: var(--font-size-sm);
     /* Icons */
+    --icon-circle-plus: '⊕';
+    --icon-new-indicator: '✧';
     --icon-right-arrow-hook: '↪';
 }
