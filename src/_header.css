@@ -53,10 +53,8 @@ tr:has(> td > .pagetop .hnname) {
 
         img {
             box-sizing: border-box;
-            background: url(/favicon.ico) no-repeat;
             background-size: contain;
             overflow: hidden;
-            padding: 0 16px 0 0;
             transform: scale(2);
             transition: transform 0.3s;
         }
