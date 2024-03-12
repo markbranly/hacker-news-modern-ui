@@ -28,6 +28,7 @@ Includes the standard header and logo-only headers found on a few pages.
 
     a,
     a:visited {
+        --underline-thickness: 3px;
         --underline-color: rgba(255 255 255 / 50%);
     
         color: #fff;
@@ -35,13 +36,14 @@ Includes the standard header and logo-only headers found on a few pages.
         margin-left: 1ch;
         text-decoration-color: var(--underline-color);
         text-underline-offset: 0.2em;
+        text-decoration-thickness: var(--underline-thickness);
         transition: all 0.25s;
-
+        
         &:hover {
             color: #fff;
             text-decoration: underline;
             text-decoration-color: var(--underline-color);
-            text-decoration-thickness: 3px;
+            text-decoration-thickness: var(--underline-thickness);;
             transition: all 0.25s;
         }
     }
@@ -154,6 +156,23 @@ tr:has(> td > .pagetop .hnname) {
     /* This is the page title on a smattering of pages, like a user's upvoted submissions. */
     font[color="#ffffff"] {
         display: none;
+    }
+}
+
+/* Main Nav current page indicators. */
+html[op="news"] .pagetop a[href="newest"],
+html[op="threads"] .pagetop a[href^="threads"],
+html[op="front"] .pagetop a[href^="front"],
+html[op="newcomments"] .pagetop a[href^="newcomments"],
+html[op="ask"] .pagetop a[href^="ask"],
+html[op="show"] .pagetop a[href^="show"],
+html[op="jobs"] .pagetop a[href="jobs"] {
+    text-decoration: underline;
+    text-decoration-color: #fff;
+    text-decoration-thickness: var(--underline-thickness);
+
+    &:hover {
+        text-decoration-color: var(--underline-color);
     }
 }
 
