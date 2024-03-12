@@ -183,7 +183,7 @@ tr:has(> td > .pagetop .hnname) {
     #logout {
         border: solid 1px #fff;
         display: inline-block;
-        text-transform: uppercase;
+        text-transform: capitalize;
         padding: 0.25em 0.5em;
         border-radius: 3px;
 
