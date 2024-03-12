@@ -87,22 +87,34 @@ tr:has(> td > .pagetop .hnname) {
     }
 
     a[href="submit"] {
-        background: var(--color-blue-600);
+        background: var(--button-background-color);
         border-radius: 3px;
         display: inline-block;
         margin-left: 2ch;
         padding: 0.5em 0.75em;
-        scale: 1.2;
+        scale: 1.2; /* Using scale as to not influence the total height of header */
+        text-decoration: none;
+        transition: all 0.3s;
 
         &::before {
-            content: '+ ';
+            content: '⊕';
+            display: inline-block;
+            font-weight: normal;
+            margin-right: 0.5ch;
+            opacity: 0.75;
+            scale: 1.3;
         }
 
         &:hover {
-            background: var(--color-blue-800);
-            box-shadow: 0.25ch 0.25ch 1ch 0 var(--color-orange-700);
+            background: var(--button-background-color-hover);
+            box-shadow: var(--button-box-shadow-hover);
             text-decoration: none;
             scale: 1.3;
+
+            &::before {
+                opacity: 1;
+                transition: all 0.3s;
+            }
         }
     }
 
