@@ -7,6 +7,16 @@ Common styles for Submissions in both list views and item views.
 Submissions are split into two table rows: .title and .subtext 
 ===============================================================================
 */
+
+/* When viewing your own posts, the votearrows are just asterisks. */
+.votelinks font[color="#ff6600"] {
+    font-weight: bold;
+    scale: 2;
+    display: inline-block;
+    position: relative;
+    top: 0.5em;
+}
+
 .title {
     overflow: visible;
     
@@ -201,6 +211,30 @@ Submissions are split into two table rows: .title and .subtext
             &:hover::before {
                 content: '♡';
             }
+        }
+    }
+
+    /* The Edit Link */
+    a[href^="edit"] {
+        margin-left: 1.75ch;
+        order: 10;
+
+
+        &::before {
+            content: '⏣';
+            line-height: 0.7;
+        }
+    }
+    
+    /* The Edit Link */
+    a[href^="delete"] {
+        margin-left: 1.75ch;
+        order: 11;
+
+
+        &::before {
+            content: '⊗';
+            line-height: 0.9;
         }
     }
 }
