@@ -21,11 +21,17 @@ body {
 }
 
 td {
+    color: var(--reading-copy-color);
     font-family: var(--font-family-sans);
+    font-size: var(--reading-copy-size);
 }
 
 a:is(:link, :visited, :hover) {
     transition: color,text-decoration-color,text-decoration-thickness 0.3s;
+
+    u {
+        text-decoration: none !important;
+    }
 }
 
 ul {
