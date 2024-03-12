@@ -94,7 +94,7 @@ Examples:
 
         /* New users are green. */
         font[color="#3c963c"]::after {
-            content: '✧';
+            content: var(--icon-new-indicator);
             display: inline-block;
             left: -0.1ch;
             position: relative;
