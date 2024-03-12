@@ -167,6 +167,17 @@ Submissions are split into two table rows: .title and .subtext
         }
     }
 
+    /* The search past postings link */
+    a.hnpast {
+        order: 9;
+        margin-left: 1.5ch;
+
+        &::before {
+            content: '↩';
+            line-height: 1.2;
+        }
+    }
+
     /* The Favorite/Un-Favorite Links */
     a[href^="fave"] {
         margin-left: 1.2ch;

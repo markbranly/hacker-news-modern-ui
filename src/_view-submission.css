@@ -103,13 +103,7 @@ html[op="item"] .fatitem {
 
         /* The search past postings link */
         a.hnpast {
-            order: 9;
             margin-left: 5px;
-
-            &::before {
-                content: '↩';
-                line-height: 1.2;
-            }
 
             &::after {
                 content: 'Past submissions';
