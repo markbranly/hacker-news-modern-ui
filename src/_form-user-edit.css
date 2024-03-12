@@ -36,7 +36,8 @@ User Profile Edit Form
     td:has(> textarea[name="about"]) {
         /* Overriding inline style. Got juice? */
         overflow: visible !important;
-        padding-bottom: 2rem;
+        /* Inheritting from very specific selector. Juice-y! */
+        padding-bottom: 2rem !important;
     }
 
     textarea {
