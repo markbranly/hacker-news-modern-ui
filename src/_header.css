@@ -144,3 +144,24 @@ tr:has(> td > .pagetop .hnname) {
         }
     }
 }
+
+/* Logo-only headers on these pages. */
+html:is([op="formatdoc"], [op="submit"], [op="delete-confirm"]) {
+    a[href="https://news.ycombinator.com"] {
+        display: inline-block;
+        transition: scale 0.3s; 
+        
+        img {
+            background: #fff;
+            border: solid 2px #fff !important;
+            height: 32px;
+            width: 32px;
+        }
+        
+        &:hover {
+            scale: 1.1;
+            filter: hue-rotate(180deg);
+            transition: scale 0.3s;
+        }
+    }
+}
