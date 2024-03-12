@@ -1,30 +1,67 @@
-/** 
-
+/*
+===============================================================================
 Submit Post Form
-
+===============================================================================
 */
-.profileform,
+
 form[action="/r"] {
-    margin: auto;
+    font-weight: normal;
 
-    padding: 0 20px 60px 20px;
-    max-width: 480px;
-}
+    /* Inside the cell, but outside the form is where messages are displayed. */
+    td:has(&) {
+        display: block;
+        font-weight: bold;
+        margin: auto;
+        max-width: var(--content-width-max);
+        padding: 0 1.5ch 4rem;
+    }
 
-form[action="/r"]::before {
-    content: 'Submit';
-    font-size: 36px;
-}
+    :is(table, tbody, tr, td) {
+        display: block;
+        max-width: var(--reading-copy-width);
+    }
 
-form[action="/r"] td {
-    display: block;
-    width: 100%;
-}
+    tr > td:first-child {
+        color: var(--form-label-color);
+        font-size: var(--form-label-size);
+        font-weight: var(--form-label-weight);
+        padding-top: 0.5rem;
+        text-transform: capitalize;
+    }
 
-form[action="/r"] tr > td:first-child {
-    padding-top: 8px;
+    input[name="title"] + span {
+        color: var(--color-red-500);
+        display: inline-block;
+        font-size: var(--form-helptext-size);
+        /* Margin is set inline, Dog. Better pour some juice! */
+        margin-left: 0 !important;
+    }
 
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: capitalize;
+    td:has(> input[type="submit"]) {
+        padding-bottom: 2rem;
+    }
+
+    /* Content Links */
+    a {
+        &:link {
+            color: var(--content-link-color);
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: var(--content-link-underline-color);
+            text-decoration-thickness: var(--content-link-underline-thickness);
+            text-decoration-skip-ink: none;
+            text-underline-offset: 0.15em;
+        }
+
+        &:visited {
+            color: var(--content-link-color-visited);
+            text-decoration-color: var(--content-link-underline-color-visited);
+        }
+        
+        &:is(:link, :visited):hover {
+            color: var(--content-link-color-hover);
+            text-decoration-color: var(--content-link-underline-color-hover);
+            text-decoration-thickness: var(--content-link-underline-thickness-hover);
+        }
+    }   
 }
