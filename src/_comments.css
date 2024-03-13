@@ -86,6 +86,10 @@ Examples:
             text-decoration-skip-ink: none;
             text-decoration-thickness: var(--ui-link-underline-thickness-hover);
         }
+
+        &[href^="user"] {
+            font-weight: bold;
+        }
     }
     
     .navs a.togg {
