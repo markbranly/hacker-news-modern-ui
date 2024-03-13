@@ -18,11 +18,11 @@ Submissions are split into two table rows: .title and .subtext
 }
 
 .title {
+    font-family: var(--font-family-sans);
     overflow: visible;
     
     .titleline {
         display: inline-block;
-        font-family: var(--font-family-sans);
         margin-bottom: 0.5rem;  
         
         /* The submission title. */
