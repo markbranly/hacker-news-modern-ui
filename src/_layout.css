@@ -5,33 +5,22 @@ Layout
 */
 #hnmain {
     width: 100%;
-}
 
-/* If there is no footer, add a bottom border for a smoother transition. */
-#hnmain:not(:has(.yclinks)) {
-    border-bottom: solid 10px #888;
-}
-
-#hnmain > tbody > tr:first-child > td {
-    padding: 20px;
-}
-
-#hnmain > tbody > tr:first-child > td table td {
-    vertical-align: top;
-}
-
-#hnmain > tbody > tr:nth-child(2) {
-    height: 30px !important;
-}
-
-#hnmain > tbody > tr:nth-child(3) > td > table {
-    max-width: 960px;
-    margin: auto
-}
-
-@media (min-width: 960px) {
-    #hnmain > tbody > tr:nth-child(3) > td > table {
-        width: 960px;
+    /* If there is no footer, add a bottom border for a smoother transition. */
+    &:not(:has(.yclinks)) {
+        border-bottom: solid 10px var(--color-gray-300);
     }
 
+    /* Main Content. */
+    /* This is _usually_ the main content well. */ 
+    > tbody > tr:nth-child(3) > td > table, 
+    /* On threads, each comment has a table that can act as the main content well.  */
+    html[op="threads"] & .comtr table {
+        max-width: var(--content-width-max);
+        margin-inline: auto;
+
+        @media (min-width: 960px) {
+            width: var(--content-width-max);
+        }
+    }
 }

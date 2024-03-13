@@ -10,6 +10,7 @@ Includes the standard header and logo-only headers found on a few pages.
 #hnmain > tbody > tr:first-child td[bgcolor="#ff6600"] {
     background: var(--color-orange-600) !important;
     border-bottom: solid var(--header-border-size) var(--header-border-color);
+    padding: 1.25rem;
 
     td:has(.pagetop) {
         vertical-align: middle;
