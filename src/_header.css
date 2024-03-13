@@ -161,7 +161,7 @@ tr:has(> td > .pagetop .hnname) {
 }
 
 /* Main Nav current page indicators. */
-html[op="news"] .pagetop a[href="newest"],
+html[op="newest"] .pagetop a[href="newest"],
 html[op="threads"] .pagetop a[href^="threads"],
 html[op="front"] .pagetop a[href^="front"],
 html[op="newcomments"] .pagetop a[href^="newcomments"],
