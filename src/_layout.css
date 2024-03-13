@@ -15,7 +15,9 @@ Layout
     /* This is _usually_ the main content well. */ 
     > tbody > tr:nth-child(3) > td > table, 
     /* On threads, each comment has a table that can act as the main content well.  */
-    html[op="threads"] & .comtr table {
+    html[op="threads"] & .comtr table,
+    /* On reply, there is an empty 3rd `tr`. */
+    html[op="threads"] & .fatitem {
         max-width: var(--content-width-max);
         margin-inline: auto;
 
