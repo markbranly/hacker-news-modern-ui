@@ -87,21 +87,6 @@ Examples:
             text-decoration-thickness: var(--ui-link-underline-thickness-hover);
         }
     }
-
-    /* The username link */
-    a[href^="user?id"] {
-        font-weight: bold;
-
-        /* New users are green. */
-        font[color="#3c963c"]::after {
-            content: var(--icon-new-indicator);
-            display: inline-block;
-            left: -0.1ch;
-            position: relative;
-            scale: 1.1;
-            top: -0.35em;
-        }
-    }
     
     .navs a.togg {
         display: inline-block;

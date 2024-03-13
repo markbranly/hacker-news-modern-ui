@@ -237,3 +237,13 @@ Submissions are split into two table rows: .title and .subtext
         }
     }
 }
+
+/* The username link. New users are green. */
+a[href^="user?id"] font[color="#3c963c"]::after {
+    content: var(--icon-new-indicator);
+    display: inline-block;
+    left: -0.1ch;
+    position: relative;
+    scale: 1.1;
+    top: -0.35em;
+}
