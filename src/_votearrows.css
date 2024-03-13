@@ -22,7 +22,7 @@ a:has(.votearrow) {
 
         &::before {
             box-sizing: border-box;
-            content: '▴';
+            content: var(--icon-upvote);
             display: inline-block;
             font-family: sans-serif;
             font-size: calc(1.25 * var(--size));

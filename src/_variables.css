@@ -114,7 +114,18 @@ Variables
     --form-helptext-size: var(--font-size-sm);
     /* Icons */
     --icon-circle-plus: '⊕';
+    --icon-circle-division-slash: '⊘';
+    --icon-circle-x: '⊗';
+    --icon-clock: '◷';
+    --icon-comment: '⪽';
+    --icon-heart-outline: '♡';
+    --icon-heart-solid: '♥';
+    --icon-hexnut: '⏣';
+    --icon-left-arrow-hook: '↩';
     --icon-new-indicator: '✧';
     --icon-right-arrow-hook: '↪';
+    --icon-search: '⌕';
     --icon-unvote: '⨻';
+    --icon-upvote: '▴';
+    --icon-user: '⚇';
 }

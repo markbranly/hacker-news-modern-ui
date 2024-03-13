@@ -115,7 +115,7 @@ Submissions are split into two table rows: .title and .subtext
         margin-left: -0.3ch;
 
         &::before {
-            content: '⚇';
+            content: var(--icon-user);
             line-height: 0.925;
         }
     }
@@ -125,7 +125,7 @@ Submissions are split into two table rows: .title and .subtext
         margin-left: 0;
 
         &::before {
-            content: '⪽';
+            content: var(--icon-comment);
             line-height: 0.75;
             scale: 1.1 1.25;
             text-align: right;
@@ -144,7 +144,7 @@ Submissions are split into two table rows: .title and .subtext
             margin-left: 0;
 
             &::before {
-                content: '◷';
+                content: var(--icon-clock);
                 line-height: 0.75;
                 scale: 1;
                 margin-right: 0.1ch;
@@ -176,14 +176,14 @@ Submissions are split into two table rows: .title and .subtext
         }
 
         &::before {
-            content: '⊘';
+            content: var(--icon-circle-division-slash);
             line-height: 0.775;
         }
 
         /* The un-hide link */ 
         &[href*="&un=t"]{
             &::before {
-                content: '⊕';
+                content: var(--icon-circle-plus);
                 line-height: 0.95;
             }
         }
@@ -195,7 +195,7 @@ Submissions are split into two table rows: .title and .subtext
         margin-left: 1.5ch;
 
         &::before {
-            content: '↩';
+            content: var(--icon-left-arrow-hook);
             line-height: 1.2;
         }
     }
@@ -206,22 +206,22 @@ Submissions are split into two table rows: .title and .subtext
         order: 7;
 
         &::before {
-            content: '♡';
+            content: var(--icon-heart-outline);
 
         }
 
         &:hover::before {
-            content: '♥';
+            content: var(--icon-heart-solid);
         }
 
         /* The un-favorite link */ 
         &[href*="&un=t"] {
             &::before {
-                content: '♥';
+                content: var(--icon-heart-solid);
             }
 
             &:hover::before {
-                content: '♡';
+                content: var(--icon-heart-outline);
             }
         }
     }
@@ -232,7 +232,7 @@ Submissions are split into two table rows: .title and .subtext
         order: 10;
 
         &::before {
-            content: '⏣';
+            content: var(--icon-hexnut);
             line-height: 0.7;
         }
     }
@@ -244,7 +244,7 @@ Submissions are split into two table rows: .title and .subtext
 
 
         &::before {
-            content: '⊗';
+            content: var(--icon-circle-x);
             line-height: 0.9;
         }
     }

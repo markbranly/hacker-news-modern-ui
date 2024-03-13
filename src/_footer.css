@@ -38,7 +38,7 @@ Footer
         width: calc(var(--content-width-max) - 2ch);
 
         &::before {
-            content: '⌕ ';
+            content: var(--icon-search);
             display: inline-block;
             margin: 0 0.5ch;
             position: relative;
