@@ -6,10 +6,10 @@ Submission Lists
 
 /* The table/list of submissions */
 table:has(> tbody > .athing > .title > .rank) {
-    margin: 2rem auto 4rem !important;
+    margin-block: 2rem 4rem !important;
     
     .votelinks {
-        padding: 0 0.5rem;
+        padding: 0 0.5rem 0 0;
     }
 
     .spacer {
@@ -19,12 +19,20 @@ table:has(> tbody > .athing > .title > .rank) {
 
 /* The first row of a submission within a list (only lists have ranks). */
 .athing:has(> .title > .rank) {
+    .title {
+        position: relative;
+    }
+
     .rank {
         display: inline-block;
         font-size: 0.9rem;
+        left: -4ch;
         margin-top: 0.3em;
         opacity: 0;
+        position: absolute;
+        text-align: right;
         transition: all 0.3s;
+        width: 3ch;
     }
     
     &:has(:hover,:active,:focus,:focus-visible) .rank {
