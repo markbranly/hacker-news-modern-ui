@@ -200,7 +200,7 @@ Examples:
             bottom: 0;
             border-radius: var(--border-radius) 0 0;
             color: var(--color-yellow-100);
-            content: '⨺ Downvoted';
+            content: var(--icon-downvote) ' Downvoted';
             display: inline-block;
             font-size: var(--font-size-xs);
             padding: 0.25rem 0.75ch;
