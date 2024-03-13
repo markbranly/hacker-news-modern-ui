@@ -28,4 +28,7 @@ Layout
     }
 }
 
-
+/* Leaders page layout fix. Does this belong here? */
+html[op="leaders"] .athing > td:first-child {
+    width: 3ch;
+}
