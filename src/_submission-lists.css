@@ -6,7 +6,7 @@ Submission Lists
 
 /* The table/list of submissions */
 table:has(> tbody > .athing > .title > .rank) {
-    margin-block: 2rem 4rem !important;
+    margin-block: 2rem var(--content-margin-bottom) !important;
     
     .votelinks {
         padding: 0 0.5rem 0 0;

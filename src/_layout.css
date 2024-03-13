@@ -20,6 +20,7 @@ Layout
     html[op="threads"] & .fatitem {
         max-width: var(--content-width-max);
         margin-inline: auto;
+        margin-bottom: var(--content-margin-bottom);
 
         @media (min-width: 960px) {
             width: var(--content-width-max);
