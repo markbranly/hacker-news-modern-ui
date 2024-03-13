@@ -153,6 +153,18 @@ Submissions are split into two table rows: .title and .subtext
         }
     }
 
+    /* The Unvote link */
+    span:has(> a[href^="vote"]) {
+        order: 5;
+        margin-left: 1ch; 
+
+        a::before {
+            content: var(--icon-unvote);
+            line-height: 0.9;
+            scale: 0.875;
+        }
+    }
+
     /* The Hide/Un-hide Links */
     a[href^="hide"] {
         margin-left: 1.3ch;

@@ -23,7 +23,7 @@ html[op="item"] .fatitem {
     /* The submission action links. */
     .subtext {
         /* All of the submission action links we are converting to icon only. */
-        a:is([href^="hide"], [href^="fave"], .hnpast, [href^="edit"], [href^="delete"]) {;
+        a:is([href^="hide"], [href^="fave"], .hnpast, [href^="edit"], [href^="delete"], [href^="vote"]) {;
             display: inline-block;
             font-size: 0 !important;
             height: var(--icon-size);
@@ -83,6 +83,15 @@ html[op="item"] .fatitem {
             /* The un-hide link */ 
             &[href*="&un=t"]::after {
                 content: 'Un-hide';
+            }
+        }
+
+        /* The Unvote link */
+        span:has(> a[href^="vote"]) {
+            margin-right: -6px;
+            
+            a::after {
+                content: 'Unvote';
             }
         }
 
