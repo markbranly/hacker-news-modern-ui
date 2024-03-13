@@ -1,13 +1,60 @@
-/** 
+/* 
+===============================================================================
+User Login
 
-Login Page
+Covers the login + create account page and the password reset page.
+===============================================================================
+*/
 
-**/
-a[href="forgot"] {
-    color: var(--color-blue-500);
-    text-decoration: none;
+/* `form[action="/x"]` is the password reset form. */
+html:has(form[action="login"], form[action="/x"]) {
+    background-color: var(--color-beige-100);
+
+    /* There is no other container. */
+    body {
+        margin: 4rem auto;
+        max-width: 480px;
+    }
+
+    /* These are headings. */
+    b {
+        color: var(--color-gray-400);
+        display: block;
+        font-size: var(--font-size-lg);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Let's control the spacing ourselves _after_ the first heading. */
+    b ~ br { 
+        display: none;
+    }
+
+    form {
+        border: solid 1px rgb(0 0 0 / 20%);
+        border-radius: 5px;
+        padding: 1rem;
+
+        table,
+        input:is([type="text"], [type="password"]) {
+            width: 100%;
+        }
+
+        td:first-of-type {
+            text-transform: capitalize;
+            width: 9ch;
+        }
+    }
+
+    a[href="forgot"] {
+        display: inline-block;
+        color: var(--color-blue-500);
+        margin-bottom: 3rem;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
-a[href="forgot"]:hover {
-    text-decoration: underline;
-}
+
