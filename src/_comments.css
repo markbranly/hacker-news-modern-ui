@@ -81,7 +81,7 @@ Examples:
     font-size: var(--ui-link-font-size);
     word-spacing: 0.25ch;
 
-    html[op="item"] & {
+    .comment-tree & {
         word-spacing: 0.75ch;
     }
 
