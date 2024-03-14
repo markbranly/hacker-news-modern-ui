@@ -194,12 +194,14 @@ html[op="item"] .fatitem {
             width: max-content;
         }
     }
-
-    /* The comment form when there are no comments. */
-    &:has(~ .comment-tree:not(:has(td))) form[action="comment"]::before {
-        content: 'Be the first to comment!';
-    }
+}
+    
+/* The comment form of a submission when there are no comments. */
+html[op="item"] body:has(.comment-tree):not(:has(.comment-tree .comment)) form[action="comment"]::before {
+    content: 'Be the first to comment!';
 }
 
-
-
+/* The comment form of a comment's view page. */
+html[op="item"] body:has(.fatitem .comment) form[action="comment"]::before {
+    content: 'Reply';
+}
