@@ -21,8 +21,6 @@ This is the lead text just below the page title.
             text-decoration: underline;
             text-decoration-color: var(--content-link-underline-color);
             text-decoration-thickness: var(--content-link-underline-thickness);
-            text-decoration-skip-ink: none;
-            text-underline-offset: 0.15em;
         }
 
         &:visited {

@@ -43,9 +43,7 @@ html[op="lists"] #pagespace + tr table {
         font-weight: bold;
         text-decoration: underline;
         text-decoration-color: var(--content-link-underline-color);
-        text-decoration-skip-ink: none;
         text-decoration-thickness: var(--content-link-underline-thickness);
-        text-underline-offset: 0.1em;
         
         &:hover {
             color: var(--content-link-color);

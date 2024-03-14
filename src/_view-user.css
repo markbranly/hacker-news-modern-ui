@@ -20,9 +20,7 @@ html[op="user"] tbody:has(> .athing) {
         font-family: var(--font-family-sans);
         font-size: var(--reading-copy-size);
         text-decoration: underline;
-        text-decoration-skip-ink: none;
         text-decoration-thickness: var(--ui-link-underline-thickness);
-        text-underline-offset: 0.1em;
     
         &:hover {
             color: var(--ui-link-color-hover);

@@ -36,7 +36,6 @@ Includes the standard header and logo-only headers found on a few pages.
         color: rgba(255, 255, 255, 1);
         margin-left: 1ch;
         text-decoration-color: var(--underline-color);
-        text-underline-offset: 0.2em;
         text-decoration-thickness: var(--underline-thickness);
         transition: all 0.25s;
         

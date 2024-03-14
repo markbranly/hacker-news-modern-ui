@@ -27,6 +27,8 @@ td {
 }
 
 a:is(:link, :visited, :hover) {
+    text-underline-offset: 0.25em;
+    text-decoration-skip-ink: none;
     transition: color,text-decoration-color,text-decoration-thickness 0.3s;
 
     u {
