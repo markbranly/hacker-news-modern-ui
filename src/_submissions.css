@@ -37,12 +37,13 @@ Submissions are split into two table rows: .title and .subtext
             text-decoration-color: #999;
             
             &:hover {
-                background: rgba(255, 255, 255, 0.8);
-                box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
-                color: var(--color-blue-500) !important;
+                background: #fff;
+                box-shadow: 0 0 0 5px #fff;
+                color: var(--color-blue-600) !important;
                 text-decoration: underline;
                 text-decoration-color: var(--color-blue-200);
-                text-decoration-thickness: 2px;
+                text-decoration-thickness: 4px;
+                text-underline-offset: 0.2em;
             }
         }
     
