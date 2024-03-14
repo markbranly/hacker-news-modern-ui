@@ -67,17 +67,27 @@ Examples:
             visibility: visible;
             
         }
-    }
+    } 
 
     /* Votearrows in the comment tree context. */
     a .votearrow {
-        margin: var(--comment-margin-top) 1ch 0;
+        margin: var(--comment-margin-top) 1ch 0 !important;
     }
 }
 
 /* The comment head with the comment meta. */
 .comhead {
-    word-spacing: 0.75ch;
+    font-family: var(--font-family-sans);
+    font-size: var(--ui-link-font-size);
+    word-spacing: 0.25ch;
+
+    html[op="item"] & {
+        word-spacing: 0.75ch;
+    }
+
+    .score {
+        word-spacing: normal;
+    }
 
     a:link {
         color: var(--ui-link-color);
@@ -278,4 +288,23 @@ Examples:
         transparent var(--line-end),
         transparent var(--indent-width)
     );
+}
+
+/* Threads page fixes. */
+html[op="threads"] #hnmain  {
+    .comtr table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 0;
+    
+        .votelinks font[color="#ff6600"] {
+            margin-left: 0;
+            line-height: 0.9;
+        }
+    }
+    
+    /*  The second to last row of the #hnmain table should be the last comment. */
+    > tbody > tr:nth-last-of-type(2) table {
+        margin-bottom: var(--content-margin-bottom);
+    }
 }

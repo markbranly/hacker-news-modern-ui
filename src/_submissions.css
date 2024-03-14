@@ -8,13 +8,15 @@ Submissions are split into two table rows: .title and .subtext
 ===============================================================================
 */
 
-/* When viewing your own posts, the votearrows are just asterisks. */
+/* When viewing your own posts (and comments), the votearrows are just asterisks. */
 .votelinks font[color="#ff6600"] {
     font-weight: bold;
-    scale: 2;
+    scale: 1.5;
     display: inline-block;
+    margin-inline: 1ch;
     position: relative;
     top: 0.5em;
+    width: 20px;
 }
 
 .title {
