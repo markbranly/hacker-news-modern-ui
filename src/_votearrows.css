@@ -42,4 +42,12 @@ a:has(.votearrow) {
         box-shadow: var(--button-box-shadow-hover);
         transition: all 0.3s;
     }
+
+    /* These are upvoted submissions and comments. */
+    &.clicky.nosee {
+        --votearrow-arrow-color: var(--votearrow-arrow-color-upvoted);
+        --votearrow-background-color: var(--votearrow-background-color-upvoted);
+        
+        visibility: visible;
+    }
 }

@@ -62,7 +62,8 @@ Examples:
             transition: margin-bottom 0.3s;
         }
 
-        .votelinks.nosee {
+        /* Collapsed but not upvoted comments. */
+        .votelinks.nosee:not(:has(a.nosee)) {
             filter: saturate(0) brightness(1.75);
             visibility: visible;
             

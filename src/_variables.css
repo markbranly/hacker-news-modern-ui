@@ -24,6 +24,8 @@ Variables
     --color-blue-700: #17537e;
     --color-blue-800: #0f3854;
     --color-blue-900: #081c2a;
+    --color-gold-500: #e6af0d;
+    --color-gold-800: #5c4605;
     --color-gray-100: #d7d9dc;
     --color-gray-200: #afb3b9;
     --color-gray-300: #878d97;
@@ -72,8 +74,10 @@ Variables
     /* Vote Arrows */
     --votearrow-arrow-color: #fff;
     --votearrow-arrow-color-hover: #fff;
+    --votearrow-arrow-color-upvoted: var(--color-gold-800);
     --votearrow-background-color: var(--color-orange-500);
     --votearrow-background-color-hover: var(--button-background-color-hover);
+    --votearrow-background-color-upvoted: var(--color-gold-500);
     --votearrow-border-size: 0;
     --votearrow-border-color: var(--button-background-color);
     --votearrow-border-color-hover: var(--votearrow-background-color-hover);
