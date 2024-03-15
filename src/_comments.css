@@ -221,6 +221,7 @@ Examples:
     .commtext:is(.c5a, .c73, .c82, .c88, .c9c, .cae, .cbe, .cce, .cdd) {
         --border-radius: 5px;
         --border-color: var(--color-orange-800);
+        --label-content: var(--icon-downvote) ' Downvoted';
 
         background: rgb(0 0 0 / 2%);
         border: solid 1px var(--border-color);
@@ -236,12 +237,48 @@ Examples:
             bottom: 0;
             border-radius: var(--border-radius) 0 0;
             color: var(--color-yellow-100);
-            content: var(--icon-downvote) ' Downvoted';
+            content: var(--label-content);
             display: inline-block;
             font-size: var(--font-size-xs);
             padding: 0.25rem 0.75ch;
             position: absolute;
             right: 0;
+        }
+
+        &.c5a::after {
+            content: var(--label-content) ' (L1)';
+        }
+
+        &.c73::after {
+            content: var(--label-content) ' (L2)';
+        }
+
+        &.c82::after {
+            content: var(--label-content) ' (L3)';
+        }
+
+        &.c88::after {
+            content: var(--label-content) ' (L4)';
+        }
+
+        &.c9c::after {
+            content: var(--label-content) ' (L5)';
+        }
+
+        &.cae::after {
+            content: var(--label-content) ' (L6)';
+        }
+
+        &.cbe::after {
+            content: var(--label-content) ' (L7)';
+        }
+
+        &.cce::after {
+            content: var(--label-content) ' (L8)';
+        }
+
+        &.cdd::after {
+            content: var(--label-content) ' (L9)';
         }
     }
 
