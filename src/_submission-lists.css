@@ -1,6 +1,8 @@
 /* 
 =============================================================================== 
 Submission Lists
+
+List of submissions in general and page-specific fixes.
 =============================================================================== 
 */
 
@@ -53,5 +55,11 @@ html[op="upvoted"] {
 
     .rank {
         opacity: 1 !important;
+    }
+}
+
+html[op="jobs"] {
+    .athing img[src="s.gif"] {
+        display: none;
     }
 }
