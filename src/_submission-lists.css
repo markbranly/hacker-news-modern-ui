@@ -58,8 +58,3 @@ html[op="upvoted"] {
     }
 }
 
-html[op="jobs"] {
-    .athing img[src="s.gif"] {
-        display: none;
-    }
-}

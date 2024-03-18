@@ -251,6 +251,30 @@ Submissions are split into two table rows: .title and .subtext
     }
 }
 
+/* Jobs Submissions */
+.athing:has(.titleline):not(:has(.votelinks)) td:has(img) {
+    vertical-align: top;
+
+    &::before {
+        --size: 24px;
+        
+        background: var(--color-gold-800);
+        border-radius: 50px;
+        color: var(--color-gold-500);
+        content: '$';
+        display: inline-block;
+        font-size: var(--size);
+        height: var(--size);
+        left: 4px;
+        line-height: 1.1;
+        padding: 2px;
+        position: relative;
+        text-align: center;
+        top: -2px;
+        width: var(--size);
+    }
+}
+
 /* The username link. New users are green. */
 a[href^="user?id"] font[color="#3c963c"]::after {
     content: var(--icon-new-indicator);
