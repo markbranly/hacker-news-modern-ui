@@ -3,36 +3,52 @@
 User Profile View
 ===============================================================================
 */
-html[op="user"] tbody:has(> .athing) {
-    tr > td:first-child {
-        text-transform: capitalize;
-    }
-
-    td {
-        font-size: var(--reading-copy-size);
-        padding-bottom: 1rem;
-        text-align: left;
-    }
-
-
-    a {
-        color: var(--ui-link-color);
-        font-family: var(--font-family-sans);
-        font-size: var(--reading-copy-size);
-        text-decoration: underline;
-        text-decoration-thickness: var(--ui-link-underline-thickness);
+html[op="user"] {
+    --left-col-width: 9ch;
     
-        &:hover {
-            color: var(--ui-link-color-hover);
-            text-decoration-color: var(--ui-link-underline-color-hover);
-            text-decoration-skip-ink: none;
-            text-decoration-thickness: var(--ui-link-underline-thickness-hover);
+    tbody:has(> .athing) {
+        
+
+        tr > td:first-child {
+            width: var(--left-col-width);
+            text-transform: capitalize;
+        }
+
+        td {
+            font-size: var(--reading-copy-size);
+            padding-bottom: 1rem;
+            text-align: left;
+        }
+
+        /* The first row of user-specific content links. */
+        tr:has(> td > a[href^="submitted"]) td:first-child {
+            padding-top: 0;
+
+            &::before {
+                content: 'Content:';
+            }
+        }
+
+        /* Content Links */
+        a {
+            &:link {
+                color: var(--content-link-color);
+                font-weight: bold;
+                text-decoration: underline;
+                text-decoration-color: var(--content-link-underline-color);
+                text-decoration-thickness: var(--content-link-underline-thickness);
+            }
+
+            &:visited {
+                color: var(--content-link-color-visited);
+                text-decoration-color: var(--content-link-underline-color-visited);
+            }
+            
+            &:is(:link, :visited):hover {
+                color: var(--content-link-color-hover);
+                text-decoration-color: var(--content-link-underline-color-hover);
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
         }
     }
-
-    .hnuser {
-        font-size: var(--font-size-xl);
-        font-weight: bold;
-    }
-
 }

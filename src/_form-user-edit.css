@@ -4,7 +4,7 @@ User Profile Edit Form
 ===============================================================================
 */
 .profileform {
-    --left-col-width: 14ch;
+    --left-col-width: 12ch;
 
     font-size: var(--form-label-size);
     margin-inline: auto;
@@ -21,11 +21,8 @@ User Profile Edit Form
         color: var(--form-label-color);
         display: block;
         font-size: var(--form-label-size);
-        font-weight: var(--form-label-weight);
         padding-right: 1ch;
         padding-top: 0.5rem;
-        text-transform: capitalize;
-        width: var(--left-col-width);
     }
 
     /* The 2nd and 3rd rows don't have fields or extra line-height to add vertical padding. */
@@ -46,9 +43,10 @@ User Profile Edit Form
 
     /* Helptext about "About". */
     a[href="formatdoc"] {
-        /* Color and size are already set by User Profile view. Time to bust out the juice! */
-        color: var(--color-blue-500) !important;
+        /* Color, size, and weight are already set by User Profile view. Time to bust out the juice! */
+        color: var(--color-blue-600) !important;
         font-size: var(--form-helptext-size) !important;
+        font-weight: normal !important;
         text-transform: capitalize;
 
         &:hover {
@@ -75,8 +73,13 @@ User Profile Edit Form
         }
     }
 
+    td:has(> a[href="changepw"]) {
+        /* Our top-level selector for user profiles is more specific. Spill some juice!  */
+        padding-bottom: 3rem !important;
+    }
+
 
     input[type="submit"] {
-        margin-left: var(--left-col-width);
+        margin: 2rem 0 0 var(--left-col-width);
     }
 }
