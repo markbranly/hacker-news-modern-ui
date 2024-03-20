@@ -51,7 +51,7 @@ User Profile Edit Form
 
         &:hover {
             color: var(--color-blue-700) !important;
-            text-decoration: underline;
+            text-decoration-color: currentColor;
         }
 
         font {

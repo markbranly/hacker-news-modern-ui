@@ -46,13 +46,16 @@ html:has(form[action="login"], form[action="/x"]) {
     }
 
     a[href="forgot"] {
+        color: var(--color-blue-600);
         display: inline-block;
-        color: var(--color-blue-500);
+        font-size: var(--form-helptext-size) !important;
         margin-bottom: 3rem;
-        text-decoration: none;
-        
+        text-decoration-thickness: var(--content-link-underline-thickness);
+
         &:hover {
-            text-decoration: underline;
+            color: var(--color-blue-700);
+            text-decoration-color: currentColor;
+            text-decoration-thickness: var(--content-link-underline-thickness-hover);
         }
     }
 }
