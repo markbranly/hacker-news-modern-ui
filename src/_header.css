@@ -215,7 +215,7 @@ html[op="jobs"] .pagetop a[href="jobs"] {
 }
 
 /* Logo-only headers on these pages. */
-html:is([op="formatdoc"], [op="submit"], [op="delete-confirm"], [op="reply"]) {
+html:is([op="formatdoc"], [op="submit"], [op="x"], [op="delete-confirm"], [op="reply"]) {
     a[href="https://news.ycombinator.com"] {
         display: inline-block;
         transition: scale 0.3s; 
