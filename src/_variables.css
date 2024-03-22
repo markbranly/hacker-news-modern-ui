@@ -81,6 +81,7 @@ Variables
     --votearrow-border-size: 0;
     --votearrow-border-color: var(--button-background-color);
     --votearrow-border-color-hover: var(--votearrow-background-color-hover);
+    --votearrow-size: 20px;
     /* Submissions */
     --submission-text-color: var(--ui-link-color);
     --submission-title-size: var(--font-size-xl);
@@ -143,6 +144,6 @@ Variables
     --icon-right-arrow-hook: '↪';
     --icon-search: '⌕';
     --icon-unvote: '⨻';
-    --icon-upvote: '▴';
     --icon-user: '⚇';
+    --icon-votearrow: '▴';
 }

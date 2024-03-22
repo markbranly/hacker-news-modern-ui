@@ -12,6 +12,24 @@ table:has(> tbody > .athing > .title > .rank) {
     
     .votelinks {
         padding: 0 0.5rem 0 0;
+        text-align: center;
+
+        center {
+            margin: auto;
+            width: max-content;
+        }
+
+        &:has(a[href*="&how=down"]) {
+            a[href*="&how=down"] {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            
+            a[href*="&how=down"] {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
     }
 
     .spacer {

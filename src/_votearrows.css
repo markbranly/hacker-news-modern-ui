@@ -7,34 +7,44 @@ their respective context file (submission-lists, comments, etc.)
 =============================================================================== 
 */
 a:has(.votearrow) {
+    align-items: center;
+    background: var(--votearrow-background-color);
+    border: solid var(--votearrow-border-size) var(--votearrow-border-color);
+    border-radius: 3px;
+    color: var(--votearrow-arrow-color);
+    display: flex;
+    height: var(--votearrow-size);
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+    width: var(--votearrow-size);
     
     .votearrow {
-        --size: 24px;
-
-        background: var(--votearrow-background-color);
-        border: solid var(--votearrow-border-size) var(--votearrow-border-color);
-        border-radius: 3px;
-        color: var(--votearrow-arrow-color);
-        height: var(--size);
-        margin: 0;
-        transition: all 0.3s;
-        width: var(--size);
+        background-image: none;
+        height: 100%;
+        width: 100%;
 
         &::before {
             box-sizing: border-box;
-            content: var(--icon-upvote);
+            content: var(--icon-votearrow);
             display: inline-block;
             font-family: sans-serif;
-            font-size: calc(1.25 * var(--size));
+            font-size: calc(1.25 * var(--votearrow-size));
             height: 100%;
-            line-height: 0.4;
-            padding: calc(0.25 * var(--size)) 0 0;
+            line-height: 0.5;
+            padding: calc(0.25 * var(--votearrow-size)) 0 0;
             text-align: center;
             width: 100%;
         }
+
+        /* Downvote arrows have a utility class to flip them. */
+        &.rotate180::before {
+            line-height: 0.3;
+        }
     }
 
-    &:hover .votearrow {
+    &:hover {
         color: var(--votearrow-arrow-color-hover);
         background: var(--votearrow-background-color-hover);
         border-color: var(--votearrow-border-color-hover);

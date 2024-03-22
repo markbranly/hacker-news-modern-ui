@@ -8,9 +8,7 @@ Examples:
 */
 
 /* Votearrows in the comment context (not all of which are in comment-tree). */
-.athing:has(.comment) a .votearrow {
-    --size: 20px; 
-
+.athing:has(.comment) a:has(.votearrow) {
     margin-inline: 0 0.5ch;
 }
 

@@ -51,16 +51,17 @@ pre {
     overflow: auto;
     padding: 1em 1ch;
     white-space: pre;
+
+    &,
+    code {
+        font-family: var(--font-family-mono);
+    }
 }
 
+/* Nesting the hover state does not work. */
 pre:hover {
     --shadow-color: var(--color-yellow-200);
     
     background: var(--color-yellow-900);
     color: var(--color-yellow-100);
-}
-
-pre,
-code {
-    font-family: var(--font-family-mono);
 }
