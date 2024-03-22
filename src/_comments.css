@@ -76,7 +76,7 @@ Examples:
     }
 
     /* Comments with no `.votearrow`: [flagged] and [dead] */
-    .votelinks:has(img[src="s.gif"]) {
+    .votelinks:has(img[src="s.gif"]):not(:has(font)) {
         --votearrow-margin: 1ch; 
         --votearrow-size: 20px;
 
