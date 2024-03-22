@@ -105,6 +105,8 @@ tr:has(> td > .pagetop .hnname) {
             transition: all 0.3s;
         }
 
+        /* On hover or when on Newest, show the sparkle. */
+        html[op="newest"] &::after,
         &:hover::after {
             content: var(--icon-new-indicator);
             opacity: 1;
