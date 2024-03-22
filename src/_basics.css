@@ -39,3 +39,28 @@ a:is(:link, :visited, :hover) {
 ul {
     padding-left: 2ch;
 }
+
+pre {
+    --shadow-color: var(--color-gray-200);
+
+    background: var(--color-gray-700);
+    box-shadow: 2px 2px 0 2px var(--shadow-color);
+    border-radius: 8px;
+    color: var(--color-blue-100);
+    margin: 1.75rem 0;
+    overflow: auto;
+    padding: 1em 1ch;
+    white-space: pre;
+}
+
+pre:hover {
+    --shadow-color: var(--color-yellow-200);
+    
+    background: var(--color-yellow-900);
+    color: var(--color-yellow-100);
+}
+
+pre,
+code {
+    font-family: var(--font-family-mono);
+}
