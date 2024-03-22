@@ -30,27 +30,31 @@ Submissions are split into two table rows: .title and .subtext
         /* The submission title. */
         > a {
             border-radius: 3px;
-            color: #333 !important;
+            color: var(--submission-title-color) !important;
             display: inline-block;
-            font-size: var(--font-size-xl);
+            font-size: var(--submission-title-size);
             line-height: 1.2;
             margin-right: 8px;
             overflow: visible;
-            text-decoration-color: #999;
+            text-decoration-color: currentColor;
+
+            &:visited {
+                color: var(--submission-title-color-visited) !important;
+            }
             
-            &:hover {
-                background: #fff;
-                box-shadow: 0 0 0 5px #fff;
-                color: var(--color-blue-600) !important;
+            &:is(:hover,:active,:focus) {
+                background: var(--submission-title-bg-color-hover);
+                box-shadow: 0 0 0 0.25em var(--submission-title-bg-color-hover);
+                color: var(--submission-title-color-hover) !important;
                 text-decoration: underline;
-                text-decoration-color: var(--color-blue-200);
+                text-decoration-color: var(--submission-title-underline-color-hover);
                 text-decoration-thickness: 4px;
                 text-underline-offset: 0.2em;
             }
         }
     
         .sitebit {
-            color: #6f6f6f;
+            color: var(--submission-text-color);
             display: inline-block;
             font-size: var(--ui-link-font-size);
             white-space: nowrap;
@@ -60,7 +64,6 @@ Submissions are split into two table rows: .title and .subtext
 
 .subtext {
     --icon-size: 24px;
-    --text-color: var(--ui-link-color); 
 
     color: transparent; /* Hide the text */
     font-family: var(--font-family-sans);
@@ -71,7 +74,7 @@ Submissions are split into two table rows: .title and .subtext
     }
     
     :is(.score, a) {
-        color: var(--text-color);
+        color: var(--submission-text-color);
         font-size: var(--ui-link-font-size);
         font-family: var(--font-family-sans);
     }
@@ -85,6 +88,10 @@ Submissions are split into two table rows: .title and .subtext
         color: var(--ui-link-color);
         font-family: var(--font-family-sans);
         font-size: var(--ui-link-font-size);
+
+        &:visited {
+            color: var(--ui-link-color-visited);
+        }
     
         &:hover {
             color: var(--ui-link-color-hover);

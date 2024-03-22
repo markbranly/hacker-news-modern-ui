@@ -81,6 +81,14 @@ Variables
     --votearrow-border-size: 0;
     --votearrow-border-color: var(--button-background-color);
     --votearrow-border-color-hover: var(--votearrow-background-color-hover);
+    /* Submissions */
+    --submission-text-color: var(--ui-link-color);
+    --submission-title-size: var(--font-size-xl);
+    --submission-title-bg-color-hover: #fff;
+    --submission-title-color: var(--color-gray-700);
+    --submission-title-color-hover: var(--color-blue-600);
+    --submission-title-color-visited: var(--color-orange-700);
+    --submission-title-underline-color-hover: var(--color-blue-200);
     /* Miscellaneous Content */
     --content-link-color: var(--color-blue-800);
     --content-link-color-hover: var(--color-gray-600);
@@ -103,10 +111,12 @@ Variables
     /* UI Links */
     --ui-link-color: var(--color-gray-400);
     --ui-link-color-hover: var(--color-blue-900);
+    --ui-link-color-visited: var(--color-gray-900);
     --ui-link-font-size: var(--font-size-sm);
     --ui-link-icon-color: inherit;
     --ui-link-icon-color-hover: inherit;
     --ui-link-underline-color-hover: var(--color-blue-500);
+    --ui-link-underline-color-visited: var(--color-gray-400);
     --ui-link-underline-thickness: 0.15em;
     --ui-link-underline-thickness-hover: 0.25em;
     --ui-icon-action-color: var(--ui-link-icon-color);
