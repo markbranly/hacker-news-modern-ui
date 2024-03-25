@@ -154,6 +154,28 @@ html[op="item"] .fatitem {
         line-height: var(--reading-copy-line-height);
         max-width: var(--reading-copy-width);
         margin: 2rem 0;
+
+        /* Content Links */
+        a {
+            &:link {
+                color: var(--content-link-color);
+                font-weight: bold;
+                text-decoration: underline;
+                text-decoration-color: var(--content-link-underline-color);
+                text-decoration-thickness: var(--content-link-underline-thickness);
+            }
+
+            &:visited {
+                color: var(--content-link-color-visited);
+                text-decoration-color: var(--content-link-underline-color-visited);
+            }
+            
+            &:is(:link, :visited):hover {
+                color: var(--content-link-color-hover);
+                text-decoration-color: var(--content-link-underline-color-hover);
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
+        }
     }
 
     /* The comment form, of course . */
