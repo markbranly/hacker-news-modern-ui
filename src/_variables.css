@@ -74,9 +74,11 @@ Variables
     /* Vote Arrows */
     --votearrow-arrow-color: #fff;
     --votearrow-arrow-color-hover: #fff;
+    --votearrow-arrow-color-downvoted: var(--color-gray-200);
     --votearrow-arrow-color-upvoted: var(--color-gold-800);
     --votearrow-background-color: var(--color-orange-500);
     --votearrow-background-color-hover: var(--button-background-color-hover);
+    --votearrow-background-color-downvoted: var(--color-gray-900);
     --votearrow-background-color-upvoted: var(--color-gold-500);
     --votearrow-border-size: 0;
     --votearrow-border-color: var(--button-background-color);
@@ -139,6 +141,7 @@ Variables
     --icon-heart-outline: '♡';
     --icon-heart-solid: '♥';
     --icon-hexnut: '⏣';
+    --icon-job: '$';
     --icon-left-arrow-hook: '↩';
     --icon-new-indicator: '✧';
     --icon-right-arrow-hook: '↪';

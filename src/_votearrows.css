@@ -32,7 +32,7 @@ a:has(.votearrow) {
             font-family: sans-serif;
             font-size: calc(1.25 * var(--votearrow-size));
             height: 100%;
-            line-height: 0.5;
+            line-height: 0.55;
             padding: calc(0.25 * var(--votearrow-size)) 0 0;
             text-align: center;
             width: 100%;
@@ -53,11 +53,30 @@ a:has(.votearrow) {
         transition: all 0.3s;
     }
 
-    /* These are upvoted submissions and comments. */
+    /* These are voted submissions and comments. */
     &.clicky.nosee {
-        --votearrow-arrow-color: var(--votearrow-arrow-color-upvoted);
-        --votearrow-background-color: var(--votearrow-background-color-upvoted);
-        
         visibility: visible;
+        
+        &:is([href*="&how=up"]) {
+            --votearrow-arrow-color: var(--votearrow-arrow-color-upvoted);
+            --votearrow-background-color: var(--votearrow-background-color-upvoted);
+        }
+
+        &:is([href*="&how=down"]) {
+            --votearrow-arrow-color: var(--votearrow-arrow-color-downvoted);
+            --votearrow-background-color: var(--votearrow-background-color-downvoted);
+        }
+    }
+}
+
+.votelinks:has(a[href*="&how=down"]) {
+    a[href*="&how=up"] {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    a[href*="&how=down"] {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
     }
 }

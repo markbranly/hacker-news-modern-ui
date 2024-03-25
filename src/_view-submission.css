@@ -10,16 +10,6 @@ https://news.ycombinator.com/item?id=39562984
 
 /* fatitem is a table that contains the submission and the comment form. */
 html[op="item"] .fatitem {
-    /* Fix some issues with votearrow spacing. */
-    .votelinks {
-        /* The selector that originally sets this has to be _very_ specific. Juice it! */
-        padding: 0 !important;    
-        
-        center {
-            text-align: left;
-        }
-    }
-
     /* The submission action links. */
     .subtext {
         /* All of the submission action links we are converting to icon only. */

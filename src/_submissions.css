@@ -263,22 +263,25 @@ Submissions are split into two table rows: .title and .subtext
     vertical-align: top;
 
     &::before {
-        --size: 24px;
+        --size: var(--votearrow-size);
         
         background: var(--color-gold-800);
         border-radius: 50px;
         color: var(--color-gold-500);
-        content: '$';
+        content: var(--icon-job);
         display: inline-block;
         font-size: var(--size);
         height: var(--size);
-        left: 4px;
         line-height: 1.1;
         padding: 2px;
         position: relative;
         text-align: center;
-        top: -2px;
+        top: -1px;
         width: var(--size);
+    }
+
+    img {
+        width: calc(0.5 * var(--votearrow-size));
     }
 }
 

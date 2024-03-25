@@ -11,23 +11,22 @@ table:has(> tbody > .athing > .title > .rank) {
     margin-block: 2rem var(--content-margin-bottom) !important;
     
     .votelinks {
-        padding: 0 0.5rem 0 0;
-        text-align: center;
+        padding: 0;
 
         center {
-            margin: auto;
+            margin-top: 3px;
+            position: relative;
             width: max-content;
         }
 
         &:has(a[href*="&how=down"]) {
-            a[href*="&how=down"] {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
+            center {
+                margin-top: calc(-0.33 * var(--votearrow-size));
             }
-            
+
             a[href*="&how=down"] {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
+                position: absolute;
+                top: 100%;
             }
         }
     }
@@ -58,6 +57,12 @@ table:has(> tbody > .athing > .title > .rank) {
     &:has(:hover,:active,:focus,:focus-visible) .rank {
         opacity: 1;
         transition: all 0.2s;
+    }
+
+    /* The second column contains the votearrow or spacer img (Jobs). */
+    td:nth-child(2) {
+        text-align: left;
+        width: calc(1.5 * var(--votearrow-size));
     }
 }
 
