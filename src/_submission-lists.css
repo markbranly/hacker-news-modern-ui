@@ -71,13 +71,4 @@ html[op="upvoted"] {
         padding: 0 !important;
         width: 0;
     }
-
-    .nosee {
-        display: none;
-    }
-
-    .rank {
-        opacity: 1 !important;
-    }
 }
-
