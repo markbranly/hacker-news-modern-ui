@@ -1919,11 +1919,11 @@
     User Profile View
     ===============================================================================
     */
-    
     html[op="user"] {
         --left-col-width: 9ch;
-    
+        
         tbody:has(> .athing) {
+            
     
             tr > td:first-child {
                 width: var(--left-col-width);
@@ -2267,41 +2267,5 @@
             margin: 2rem 0 0 var(--left-col-width);
         }
     }
-    /** 
-    
-    Other
-    *
-    * TODO: Identify and sort these.
-    
-    **/
-    
-    
-    
-    /** 
-    
-    Removed? 
-    TODO: Track these down or remove them.
-    
-    */
-    body[link="#444444"] {
-        margin: auto;
-    
-        padding: 20px;
-        max-width: 960px;
-    }
-    
-    body[link="#444444"] .WordSection1 {
-        padding: 40px 40px 20px;
-        background: #fff;
-    }
-    
-    html[op="x"] #hnmain > tbody > tr:nth-child(3) > td {
-        width: 960px;
-        display: block;
-        margin: auto;
-        color: #900;
-        font-weight: bold;
-        font-size: 18px;
-        text-align: center;
-    }
+
 }
