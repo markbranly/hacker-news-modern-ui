@@ -1,0 +1,2307 @@
+/* ==UserStyle==
+@name           Modern & Friendly Hacker News 
+@description    A more friendly, more usable, and more accessible redesign of Hacker News using 
+                the Y-combinator brand standards.
+@version        0.1.0
+@namespace      github.com/markbranly/hacker-news-modern-ui
+@author         Mark Branly
+@license        MIT
+@homepageURL    https://github.com/markbranly/hacker-news-modern-ui
+@supportURL     https://github.com/markbranly/hacker-news-modern-ui/issues
+==/UserStyle== */
+
+
+@-moz-document url-prefix("https://news.ycombinator.com/") {
+    /*
+    =============================================================================== 
+    Variables
+    ===============================================================================  
+    */
+    :root {
+        /* Colors */
+        --color-orange-100: #fce0d3;
+        --color-orange-200: #fac1a7;
+        --color-orange-300: #f7a37a;
+        --color-orange-400: #f5844e;
+        --color-orange-500: #f26522;
+        --color-orange-600: #c2511b;
+        --color-orange-700: #913d14;
+        --color-orange-800: #61280e;
+        --color-orange-900: #301407;
+        --color-beige-100: #f6f6ef;
+        --color-blue-100: #e9f3fb;
+        --color-blue-200: #a8d1ed;
+        --color-blue-300: #7db9e4;
+        --color-blue-400: #51a2db;
+        --color-blue-500: #268bd2;
+        --color-blue-600: #1e6fa8;
+        --color-blue-700: #17537e;
+        --color-blue-800: #0f3854;
+        --color-blue-900: #081c2a;
+        --color-gold-500: #e6af0d;
+        --color-gold-800: #5c4605;
+        --color-gray-100: #d7d9dc;
+        --color-gray-200: #afb3b9;
+        --color-gray-300: #878d97;
+        --color-gray-400: #5f6774;
+        --color-gray-500: #374151;
+        --color-gray-600: #2c3441;
+        --color-gray-700: #212731;
+        --color-gray-800: #161a20;
+        --color-gray-900: #0b0d10;
+        --color-red-500: #c00;
+        --color-red-700: #7a0000;
+        --color-yellow-100: #f7e4cd;
+        --color-yellow-200: #efc89b;
+        --color-yellow-300: #e8ad6a;
+        --color-yellow-400: #e09138;
+        --color-yellow-500: #d87606;
+        --color-yellow-600: #ad5e05;
+        --color-yellow-700: #824704;
+        --color-yellow-800: #562f02;
+        --color-yellow-900: #2b1801;
+        /* Typography */
+        --font-family-system: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+        --font-family-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+        --font-family-sans: "Avenir", var(--font-family-system); 
+        --font-size-xs: 0.8rem;
+        --font-size-sm: 0.9rem;
+        --font-size-md: 1rem;
+        --font-size-lg: 1.2rem;
+        --font-size-xl: 1.4rem;
+        --font-size-xxl: 2.2rem;
+        /* Layout */
+        --footer-background-color: var(--color-gray-500);
+        --footer-border-color: rgb(255 255 255 / 20%);
+        --header-background-color: var(--color-orange-700);
+        --header-border-color: var(--color-orange-500);
+        --header-border-size: 5px;
+        --content-width-max: 960px;
+        --content-margin-bottom: 4rem;
+        /* Buttons  */
+        --button-background-color: var(--color-blue-700);
+        --button-background-color-hover: var(--color-blue-500);
+        --button-font-size: var(--font-size-md);
+        --button-text-color: #fff;
+        --button-text-color-hover: #fff;
+        --button-box-shadow-hover: 3px 3px 0 1px rgba(0, 0, 0, 0.2);
+        /* Vote Arrows */
+        --votearrow-arrow-color: #fff;
+        --votearrow-arrow-color-hover: #fff;
+        --votearrow-arrow-color-downvoted: var(--color-gray-200);
+        --votearrow-arrow-color-upvoted: var(--color-gold-800);
+        --votearrow-background-color: var(--color-orange-500);
+        --votearrow-background-color-hover: var(--button-background-color-hover);
+        --votearrow-background-color-downvoted: var(--color-gray-900);
+        --votearrow-background-color-upvoted: var(--color-gold-500);
+        --votearrow-border-size: 0;
+        --votearrow-border-color: var(--button-background-color);
+        --votearrow-border-color-hover: var(--votearrow-background-color-hover);
+        --votearrow-size: 20px;
+        /* Submissions */
+        --submission-text-color: var(--ui-link-color);
+        --submission-title-size: var(--font-size-xl);
+        --submission-title-bg-color-hover: #fff;
+        --submission-title-color: var(--color-gray-700);
+        --submission-title-color-hover: var(--color-blue-600);
+        --submission-title-color-visited: var(--color-orange-700);
+        --submission-title-underline-color-hover: var(--color-blue-200);
+        /* Miscellaneous Content */
+        --content-link-color: var(--color-blue-800);
+        --content-link-color-hover: var(--color-gray-600);
+        --content-link-color-visited: var(--color-gray-400);
+        --content-link-underline-color: var(--color-blue-300);
+        --content-link-underline-color-hover: var(--color-orange-400);
+        --content-link-underline-color-visited: var(--color-gray-200);
+        --content-link-underline-thickness: 0.25em;
+        --content-link-underline-thickness-hover: 0.4em;
+        --hr-size: 5px;
+        --page-title-color: var(--color-yellow-600);
+        --page-title-size: var(--font-size-xxl);
+        --page-title-weight: 400;
+        --reading-copy-color: var(--color-gray-600);
+        --reading-copy-line-height: 1.5;
+        --reading-copy-size: var(--font-size-md);
+        --reading-copy-width: 80ch;
+        --subhead-size: var(--font-size-xl);
+        --subhead-line-height: 1.4;
+        /* UI Links */
+        --ui-link-color: var(--color-gray-400);
+        --ui-link-color-hover: var(--color-blue-900);
+        --ui-link-color-visited: var(--color-gray-900);
+        --ui-link-font-size: var(--font-size-sm);
+        --ui-link-icon-color: inherit;
+        --ui-link-icon-color-hover: inherit;
+        --ui-link-underline-color-hover: var(--color-blue-500);
+        --ui-link-underline-color-visited: var(--color-gray-400);
+        --ui-link-underline-thickness: 0.15em;
+        --ui-link-underline-thickness-hover: 0.25em;
+        --ui-icon-action-color: var(--ui-link-icon-color);
+        --ui-icon-action-color-hover: var(--color-blue-500);
+        /* Forms */
+        --form-label-color: var(--color-gray-400);
+        --form-label-size: var(--font-size-md);
+        --form-label-weight: 700;
+        --form-helptext-color: var(--color-gray-700);
+        --form-helptext-size: var(--font-size-sm);
+        /* Icons */
+        --icon-circle-plus: '⊕';
+        --icon-circle-division-slash: '⊘';
+        --icon-circle-x: '⊗';
+        --icon-clock: '◷';
+        --icon-comment: '⪽';
+        --icon-downvote: '⨺';
+        --icon-flag: '⚑';
+        --icon-heart-outline: '♡';
+        --icon-heart-solid: '♥';
+        --icon-hexnut: '⏣';
+        --icon-job: '$';
+        --icon-left-arrow-hook: '↩';
+        --icon-new-indicator: '✧';
+        --icon-right-arrow-hook: '↪';
+        --icon-search: '⌕';
+        --icon-unvote: '⨻';
+        --icon-user: '⚇';
+        --icon-votearrow: '▴';
+    }    /*
+    ===============================================================================
+    Basics
+    ===============================================================================
+    */
+    ::selection {
+        background: var(--color-yellow-100);
+        color: var(--color-yellow-800);
+    }
+    
+    html {
+        background: var(--footer-background-color);
+    }
+    
+    body {
+        background: var(--color-beige-100);
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-family-sans);
+        font-size: 16px;
+    }
+    
+    td {
+        color: var(--reading-copy-color);
+        font-family: var(--font-family-sans);
+        font-size: var(--reading-copy-size);
+    }
+    
+    a:is(:link, :visited, :hover) {
+        text-underline-offset: 0.25em;
+        text-decoration-skip-ink: none;
+        transition: color,text-decoration-color,text-decoration-thickness 0.3s;
+    
+        u {
+            text-decoration: none !important;
+        }
+    }
+    
+    ul {
+        padding-left: 2ch;
+    }
+    
+    pre {
+        --shadow-color: var(--color-gray-200);
+    
+        background: var(--color-gray-700);
+        box-shadow: 2px 2px 0 2px var(--shadow-color);
+        border-radius: 8px;
+        color: var(--color-blue-100);
+        margin: 1.75rem 0;
+        overflow: auto;
+        padding: 1em 1ch;
+        white-space: pre;
+    
+        &,
+        code {
+            font-family: var(--font-family-mono);
+        }
+    }
+    
+    /* Nesting the hover state does not work. */
+    pre:hover {
+        --shadow-color: var(--color-yellow-200);
+        
+        background: var(--color-yellow-900);
+        color: var(--color-yellow-100);
+    }
+    /* 
+    ===============================================================================
+    Layout
+    ===============================================================================
+    */
+    #hnmain {
+        width: 100%;
+    
+        /* If there is no footer, add a bottom border for a smoother transition. */
+        &:not(:has(.yclinks)) {
+            border-bottom: solid 10px var(--color-gray-300);
+        }
+    
+        /* Main Content. */
+        /* This is _usually_ the main content well. */ 
+        > tbody > tr:nth-child(3) > td > table, 
+        /* On threads, each comment has a table that can act as the main content well.  */
+        html[op="threads"] & .comtr table,
+        /* On reply, there is an empty 3rd `tr`. */
+        html[op="reply"] & .fatitem {
+            max-width: var(--content-width-max);
+            margin-inline: auto;
+            margin-bottom: var(--content-margin-bottom);
+    
+            @media (min-width: 960px) {
+                width: var(--content-width-max);
+            }
+        }
+    }
+    
+    /* Leaders page layout fix. Does this belong here? */
+    html[op="leaders"] .athing > td:first-child {
+        width: 3ch;
+    }
+    /* 
+    ===============================================================================
+    Page Titles
+    
+    Page titles are generated by pseudo elements. Most come from the title 
+    attribute of the #pagespace element. Some are overridden. 
+    
+    ===============================================================================
+    */
+    
+    /* This element both is in the right place and has an appropriate title attr. */
+    #pagespace[title] {
+        &::before {
+            color: var(--page-title-color);
+            content: attr(title);
+            display: block;
+            font-size: var(--page-title-size);
+            font-weight: var(--page-title-weight);
+            margin: 2rem auto 1rem;
+            max-width: var(--content-width-max);
+            text-transform: capitalize;
+        }
+    
+        /* User comments page. The title starts with username. */
+        html:is([op="threads"]) &::before {
+            text-transform: unset;
+        }
+    
+        /* User profile page. Title contains username but starts with "Profile:" */
+        html:is([op="user"]) & {
+            &::first-letter {
+                text-transform: uppercase;
+            }
+    
+            &::before {
+                text-transform: unset;
+            }
+        }
+    
+        /* No titles on submissions. */
+        html[op="item"] &::before {
+            content: '';
+        }
+    }
+    
+    /* Below are replacement titles where they are less than optimal. */
+    #pagespace::before {
+        html[op="ask"] & {
+            content: 'Ask HN';
+        } 
+    
+        html[op="asknew"] & {
+            content: 'New Ask HN Submissions';
+        }
+        
+        html[op="front"] & {
+            content: 'Front';
+        }
+        
+        html[op="show"] & {
+            content: 'Show HN';
+        }
+        
+        html[op="shownew"] & {
+            content: 'New Show HN Submissions';
+        
+        }
+    }
+    /* 
+    ===============================================================================
+    Page Descriptions
+    
+    This is the lead text just below the page title. 
+    
+    ===============================================================================
+    */
+    #pagespace + tr > td > div {
+        color: var(--reading-copy-color);
+        font-size: var(--reading-copy-size);
+        line-height: var(--reading-copy-line-height);
+        font-weight: normal;
+        max-width: var(--content-width-max);
+        margin: 0 auto 3rem !important;
+    
+        a {
+            &:link {
+                color: var(--content-link-color);
+                font-weight: bold;
+                text-decoration: underline;
+                text-decoration-color: var(--content-link-underline-color);
+                text-decoration-thickness: var(--content-link-underline-thickness);
+            }
+    
+            &:visited {
+                color: var(--content-link-color-visited);
+                text-decoration-color: var(--content-link-underline-color-visited);
+            }
+            
+            &:is(:link, :visited):hover {
+                color: var(--content-link-color-hover);
+                text-decoration-color: var(--content-link-underline-color-hover);
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
+        }
+        
+        :is(u, .hnmore) {
+            text-decoration: none;
+        }
+    }
+    /* 
+    ===============================================================================
+    Buttons
+    ===============================================================================
+    */
+    .morelink,
+    input[type="submit"] {
+        background: var(--button-background-color);
+        border: none;
+        border-radius: 3px;
+        /* Need to ensure that this isn't overridden. Bring the juice! */
+        color: var(--button-text-color) !important;
+        cursor: pointer;
+        display: inline-block;
+        font-family: var(--font-family-sans);
+        font-size: var(--button-font-size);
+        line-height: 1.25;
+        padding: 0.5em 1.5ch;
+        text-transform: capitalize;
+        transition: all 0.3s;
+    }
+    
+    /* Sadly, these cannot be nested, nor do they work with `is:()`. Maybe a browser bug. */
+    .morelink:hover,
+    input[type="submit"]:hover {
+        background: var(--button-background-color-hover);
+        box-shadow: var(--button-box-shadow-hover);
+        color: var(--button-text-color-hover);
+        transition: all 0.3s;
+        transform: scale(1.05);
+    }
+    
+    .morelink {
+        &::after {
+            content: '⟩';
+            display: inline-block;
+            font-weight: bold;
+            margin-left: 0.5ch;
+            transform: scaleX(1.5);
+            transition: all 0.2s;
+        }
+    
+        &:hover::after {
+            transform: scaleY(.75) scaleX(1.75) translateX(0.25ch);
+            transition: all 0.5s;
+        }
+    }
+    
+    html[op="delete-confirm"] input[type="submit"][value="yes" i] {
+        background: var(--color-red-500);
+        margin-right: 1ch;
+    }
+    
+    /* Nesting isn't working on this hover. Need the full selector. */
+    html[op="delete-confirm"] input[type="submit"][value="yes" i]:hover {
+        background: var(--color-red-700);
+    }
+    /*
+    ===============================================================================
+    Form Elements
+    ===============================================================================
+    */
+    
+    input:is([type="text"], [type="url"], [type="password"]),
+    textarea,
+    select {
+        background: #fff;
+        border: solid 1px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        font-size: var(--font-size-lg);
+        font-family: var(--font-family-sans);
+        line-height: 1.5;
+        padding: 0.25em 0.5ch;
+        transition: all 0.3s;
+    
+        &:is(:focus, :focus-visible) {
+            box-shadow: none;
+            border-color: var(--color-blue-500);
+            outline: 3px solid var(--color-blue-200);
+        }
+    
+        &:not(select) {
+            width: 100%;
+        }
+    }
+    
+    textarea {
+        height: 4.5em;
+        margin: 0 0 10px;
+        max-width: var(--reading-copy-width);
+    
+        &:focus {
+            height: 12em;
+            transition: all 0.3s;
+        }
+    }
+    
+    textarea + br + br {
+        display: none;
+    }
+    /*
+    ===============================================================================
+    Header
+    
+    Includes the standard header and logo-only headers found on a few pages.
+    ===============================================================================
+    */
+    
+    /* The outermost Header element. */
+    #hnmain > tbody > tr:first-child td[bgcolor="#ff6600"] {
+        background: var(--color-orange-600) !important;
+        border-bottom: solid var(--header-border-size) var(--header-border-color);
+        padding: 1.25rem;
+    
+        td:has(.pagetop) {
+            vertical-align: middle;
+        }
+    }
+    
+    /* General settings for text and links in the header.  */
+    .pagetop {
+        /* The only useful header text that isn't links is the karma score. */
+        color: transparent;
+        font-family: var(--font-family-sans);
+    
+        @media (max-width: 750px) and (min-width: 300px) {
+            margin: 0;
+        }
+    
+        a,
+        a:visited {
+            --underline-thickness: 3px;
+            --underline-color: rgba(255 255 255 / 50%);
+        
+            color: #fff;
+            color: rgba(255, 255, 255, 1);
+            margin-left: 1ch;
+            text-decoration-color: var(--underline-color);
+            text-decoration-thickness: var(--underline-thickness);
+            transition: all 0.25s;
+            
+            &:hover {
+                color: #fff;
+                text-decoration: underline;
+                text-decoration-color: var(--underline-color);
+                text-decoration-thickness: var(--underline-thickness);;
+                transition: all 0.25s;
+            }
+        }
+    }
+    
+    /* The YC logo and site name, together forming the Site ID. */
+    tr:has(> td > .pagetop .hnname) {
+        a[href="https://news.ycombinator.com"]:has(img) {
+            display: block;
+            position: relative;
+            top: -1px;
+    
+            img {
+                box-sizing: border-box;
+                background-size: contain;
+                overflow: hidden;
+                transform: scale(2);
+                transition: transform 0.3s;
+            }
+    
+            &:hover img {
+                filter: hue-rotate(-180deg);
+                transform: scale(2.3);
+                transition: transform 0.2s;
+            }
+        }
+    
+        .hnname {
+            display: inline-block;
+            margin: 0 20px 0 5px;
+            
+            a {
+                font-size: var(--font-size-lg);
+            }
+        }
+    }
+    
+    /* The Main Nav */
+    .pagetop {
+        &:has(.hnname) a {
+            font-weight: bold;
+            text-transform: capitalize;
+    
+            @media (min-width: 1024px) {
+                font-size: var(--font-size-md);
+            }
+        }
+    
+        a[href="newest"] {
+            position: relative;
+    
+            &::after {
+                content: '';
+                opacity: 0;
+                position: absolute;
+                right: -1.25ch;
+                top: 50%;
+                transform: rotate(180deg);
+                transition: all 0.3s;
+            }
+    
+            /* On hover or when on Newest, show the sparkle. */
+            html[op="newest"] &::after,
+            &:hover::after {
+                content: var(--icon-new-indicator);
+                opacity: 1;
+                top: -0.25em;
+                transform: rotate(0deg);
+                transition: all 0.3s;
+            }
+        }
+    
+        a[href="submit"] {
+            background: var(--button-background-color);
+            border-radius: 3px;
+            display: inline-block;
+            margin-left: 1.5ch;
+            padding: 0.5em 0.75em;
+            text-decoration: none;
+            transition: all 0.3s;
+    
+            @media (max-width: 1023px) {
+                scale: 1.2; /* Using scale as to not influence the total height of header */
+            }
+    
+            &::before {
+                content: var(--icon-circle-plus);
+                display: inline-block;
+                font-weight: normal;
+                margin-right: 0.5ch;
+                opacity: 0.75;
+                scale: 1.3;
+            }
+    
+            &:hover {
+                background: var(--button-background-color-hover);
+                box-shadow: var(--button-box-shadow-hover);
+                text-decoration: none;
+                scale: 1.05;
+    
+                &::before {
+                    opacity: 1;
+                    transition: all 0.3s;
+                }
+    
+                @media (max-width: 1023px) {
+                    scale: 1.3;
+                }
+            }
+        }
+    
+        /* This is the page title on a smattering of pages, like a user's upvoted submissions. */
+        font[color="#ffffff"] {
+            display: none;
+        }
+    }
+    
+    /* Main Nav current page indicators. */
+    html[op="newest"] .pagetop a[href="newest"],
+    html[op="threads"] .pagetop a[href^="threads"],
+    html[op="front"] .pagetop a[href^="front"],
+    html[op="newcomments"] .pagetop a[href^="newcomments"],
+    html[op="ask"] .pagetop a[href^="ask"],
+    html[op="show"] .pagetop a[href^="show"],
+    html[op="jobs"] .pagetop a[href="jobs"] {
+        text-decoration: underline;
+        text-decoration-color: #fff;
+        text-decoration-thickness: var(--underline-thickness);
+    
+        &:hover {
+            text-decoration-color: var(--underline-color);
+        }
+    }
+    
+    /* The User Login/Logout Area */
+    .pagetop:has(#logout, a[href^="login"]) {
+        align-items: center; 
+        display: flex;
+        justify-content: flex-end;
+    
+        /* The Karma: turn it into a "badge"  */
+        #karma {
+            align-items: center;
+            background-color: rgba(255 255 255 / 95%);
+            border-radius: 1em;
+            color: var(--color-blue-800);
+            display: flex;
+            justify-content: center;
+            height: 2ch;
+            letter-spacing: 1px;
+            line-height: 1;
+            min-width: 2ch;
+            padding: 0.1em;
+        }
+    
+        /* Login/Logout Button */
+        a[href^="login"],
+        #logout {
+            border: solid 1px #fff;
+            display: inline-block;
+            text-transform: capitalize;
+            padding: 0.25em 0.5em;
+            border-radius: 3px;
+    
+            &:hover {
+                background: #fff;
+                color: var(--color-orange-700) !important;
+                text-decoration: none;
+            }
+        }
+    }
+    
+    /* Logo-only headers on these pages. */
+    html:is([op="formatdoc"], [op="submit"], [op="x"], [op="delete-confirm"], [op="reply"], [op="changepw"]) {
+        a[href="https://news.ycombinator.com"] {
+            display: inline-block;
+            transition: scale 0.3s; 
+            
+            img {
+                background: #fff;
+                border: solid 2px #fff !important;
+                height: 32px;
+                width: 32px;
+            }
+            
+            &:hover {
+                scale: 1.1;
+                filter: hue-rotate(180deg);
+                transition: scale 0.3s;
+            }
+        }
+    }
+    /*
+    ===============================================================================
+    Footer
+    ===============================================================================
+    */
+    
+    /* The outermost footer element. */
+    #hnmain > tbody > tr:has(.yclinks) {
+        background: var(--footer-background-color);
+        color: #fff;
+    
+        /* This is the orange line in the classic HN layout. */
+        img[src="s.gif"] + table td {
+            background: var(--footer-border-color);
+            padding-top: 10px;
+        }
+    
+        /* This wraps the contents of the footer */
+        center {
+            align-items: center;
+            display: flex;
+            /* Make the search form first. */
+            flex-direction: column-reverse;
+        }
+    
+        /* The search form. */
+        form[action="//hn.algolia.com/"] {
+            background: var(--color-gray-100);
+            border-radius: 5px;
+            color: var(--color-gray-500);
+            font-size: var(--font-size-lg);
+            line-height: 1.25;
+            margin: 2rem 0 3rem;
+            max-width: 90%;
+            padding: 0.5em 1ch;
+            position: relative;
+            text-align: left;
+            width: calc(var(--content-width-max) - 2ch);
+    
+            &::before {
+                content: var(--icon-search);
+                display: inline-block;
+                margin: 0 0.5ch;
+                position: relative;
+                scale: 1.25;
+                top: -0.25em;
+            }
+    
+            input {
+                background: transparent;
+                border: solid 2px var(--color-gray-300);
+                border-radius: inherit;
+                color: var(--color-gray-800);
+                font-size: inherit;
+                height: 100%;
+                left: 0;
+                line-height: inherit;
+                padding: inherit;
+                padding-left: 10ch;
+                position: absolute;
+                top: 0;
+                width: 100%;
+    
+                &:focus,
+                &:active {
+                    background: rgb(255 255 255 / 40%);
+                    border-color: var(--color-orange-500);
+                    outline: solid 2px rgba(255 255 255 / 50%);
+                }
+            }
+        }
+    
+        /* The utility links in the footer. */
+        .yclinks {
+            border-top: solid var(--hr-size) var(--footer-border-color);
+            font-family: var(--font-family-sans);
+            font-size: var(--font-size-md);
+            padding: 1rem 1ch 2rem;
+            text-align: left;
+            word-spacing: 0.5ch;
+            width: calc(var(--content-width-max) - 2ch);
+    
+            a {
+                color: #fff;
+                text-decoration-color: rgb(255 255 255 / 50%);
+                text-underline-offset: 0.4em;
+                text-decoration-thickness: 3px;
+                word-spacing: normal;
+                
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: rgb(255 255 255 / 50%);
+                    text-decoration-thickness: 3px;
+                }
+            }
+        }
+    }
+    /*
+    ===============================================================================  
+    Vote Arrows
+    
+    This is common styles for all votearrows. Contextual changes should be made in
+    their respective context file (submission-lists, comments, etc.)
+    =============================================================================== 
+    */
+    a:has(.votearrow) {
+        align-items: center;
+        background: var(--votearrow-background-color);
+        border: solid var(--votearrow-border-size) var(--votearrow-border-color);
+        border-radius: 3px;
+        color: var(--votearrow-arrow-color);
+        display: flex;
+        height: var(--votearrow-size);
+        justify-content: center;
+        margin: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+        width: var(--votearrow-size);
+        
+        .votearrow {
+            background-image: none;
+            height: 100%;
+            margin: 0;
+            width: 100%;
+    
+            &::before {
+                box-sizing: border-box;
+                content: var(--icon-votearrow);
+                display: inline-block;
+                font-family: sans-serif;
+                font-size: calc(1.25 * var(--votearrow-size));
+                height: 100%;
+                line-height: 0.55;
+                padding: calc(0.25 * var(--votearrow-size)) 0 0;
+                text-align: center;
+                width: 100%;
+            }
+    
+            /* Downvote arrows have a utility class to flip them. */
+            &.rotate180::before {
+                line-height: 0.3;
+            }
+        }
+    
+        &:hover {
+            color: var(--votearrow-arrow-color-hover);
+            background: var(--votearrow-background-color-hover);
+            border-color: var(--votearrow-border-color-hover);
+            transform: scale(1.05);
+            box-shadow: var(--button-box-shadow-hover);
+            transition: all 0.3s;
+        }
+    
+        /* These are voted submissions and comments. */
+        &.clicky.nosee {
+            visibility: visible;
+            
+            &:is([href*="&how=up"]) {
+                --votearrow-arrow-color: var(--votearrow-arrow-color-upvoted);
+                --votearrow-background-color: var(--votearrow-background-color-upvoted);
+            }
+    
+            &:is([href*="&how=down"]) {
+                --votearrow-arrow-color: var(--votearrow-arrow-color-downvoted);
+                --votearrow-background-color: var(--votearrow-background-color-downvoted);
+            }
+        }
+    }
+    
+    .votelinks:has(a[href*="&how=down"]) {
+        a[href*="&how=up"] {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    
+        a[href*="&how=down"] {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+    /* 
+    ===============================================================================
+    Comments
+    
+    Examples:
+    - https://news.ycombinator.com/item?id=39560180 (code blocks and links)
+    ===============================================================================
+    */
+    
+    /* Votearrows in the comment context (not all of which are in comment-tree). */
+    .athing:has(.comment) a:has(.votearrow) {
+        margin-inline: 0 0.5ch;
+    }
+    
+    .comment-tree {
+        --comment-margin-top: 0.5rem; 
+        --votearrow-size: 16px;
+    
+        background: rgba(255, 255, 255, 0.5);
+        border-collapse: collapse;
+        border-radius: 5px;
+        border-spacing: 0;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
+        box-sizing: border-box;
+        margin-bottom: 40px !important;
+    
+        &:not(:has(td)) {
+            display: none;
+        }
+    
+        > tbody > tr {
+            > td {
+                padding: 0;
+            }
+            
+            /* This gives the whole comment tree top padding. */
+            &:first-child > td {
+                padding-top: 0.25rem;
+            }
+            
+            /* This gives the whole comment tree bottom padding. */
+            &:last-child > td {
+                padding-bottom: 1.5rem;
+            }
+        }
+    
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+    
+        /* The container surrounding comhead. */
+        div:has(.comhead) {
+            /* We are overriding inline styling. Gonna need that juice! */
+            margin: var(--comment-margin-top) 0 -1rem !important;
+            transition: margin-bottom 0.3s;
+        }
+        
+        /* Collapsed comments. */
+        .comtr.coll {
+            div:has(.comhead) {
+                margin-bottom: 0 !important;
+                transition: margin-bottom 0.3s;
+            }
+    
+            /* Collapsed but not upvoted comments. */
+            .votelinks.nosee:not(:has(a.nosee)) {
+                filter: saturate(0) brightness(1.75);
+                visibility: visible;
+                
+            }
+        } 
+    
+        /* Votearrows in the comment tree context. */
+        a:has(.votearrow) {
+            margin-inline: 1ch 0.5ch !important;
+    
+            &:is([href*="&how=up"]) {
+                margin-top: var(--comment-margin-top) !important;
+            }
+        }
+    
+        /* Comments with no `.votearrow`: [flagged] and [dead] */
+        .votelinks:has(img[src="s.gif"]):not(:has(font)) {
+            --votearrow-margin: 1ch; 
+            --votearrow-size: 20px;
+    
+            center::before {
+                content: var(--icon-flag);
+                color: var(--color-gray-500);
+                display: block;
+                font-size: 1rem;
+                margin-inline: var(--votearrow-margin);
+                position: relative;
+                scale: 1.5;
+                top: 0.5em;
+                width: var(--votearrow-size);
+            }
+    
+            img {
+                width: calc(var(--votearrow-size) + 2 * var(--votearrow-margin)); 
+            }
+    
+        }
+    }
+    
+    /* The comment head with the comment meta. */
+    .comhead {
+        font-family: var(--font-family-sans);
+        font-size: var(--ui-link-font-size);
+        word-spacing: 0.25ch;
+    
+        .comment-tree & {
+            word-spacing: 0.75ch;
+        }
+    
+        .score {
+            word-spacing: normal;
+        }
+    
+        a:link {
+            color: var(--ui-link-color);
+            font-family: var(--font-family-sans);
+            font-size: var(--ui-link-font-size);
+            word-spacing: normal;
+        
+            &:hover {
+                color: var(--ui-link-color-hover);
+                text-decoration-color: var(--ui-link-underline-color-hover);
+                text-decoration-thickness: var(--ui-link-underline-thickness-hover);
+            }
+    
+            &[href^="user"] {
+                font-weight: bold;
+            }
+        }
+        
+        .navs a.togg {
+            display: inline-block;
+            font-weight: 900;
+            margin-left: 0.5ch;
+    
+            &:hover {
+                color: var(--ui-link-underline-color-hover) !important;
+                text-decoration: none;
+            }
+    
+            /* Collapsed comments */
+            .comtr.coll & {
+                color: var(--color-gray-800);
+            }
+        }
+    }
+    
+    /* The comment proper. */
+    .comment {
+        color: var(--reading-copy-color);
+        font-size: var(--reading-copy-size);
+        font-family: var(--font-family-sans);
+        line-height: var(--reading-copy-line-height);
+        max-width: var(--reading-copy-width);
+        padding: 0.5rem 1.5ch 1rem 0;
+        
+        &:not(:noshow) {
+            display: inline-block;
+        }
+    
+        &:hover {
+            --background: rgb(255 255 255 / 90%);
+    
+            background: var(--background);
+            box-shadow: -5px 0 0 5px var(--background);
+        }
+    
+        p {
+            margin-top: 1.1em;
+        }
+    
+        /* .commtext should just be the comment body, excluding the reply link. */
+        .commtext a {
+            &:link {
+                color: var(--content-link-color);
+                font-weight: bold;
+                text-decoration-color: var(--content-link-underline-color);
+                text-decoration-thickness: var(--content-link-underline-thickness);
+            }
+    
+            &:visited {
+                color: var(--content-link-color-visited);
+                text-decoration-color: var(--content-link-underline-color-visited);
+            }
+            
+            &:is(:link, :visited):hover {
+                color: var(--content-link-color-hover);
+                text-decoration-color: var(--content-link-underline-color-hover);
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
+        }
+    
+        /* Downvoted comments. */
+        .commtext:is(.c5a, .c73, .c82, .c88, .c9c, .cae, .cbe, .cce, .cdd) {
+            --border-radius: 5px;
+            --border-color: var(--color-orange-800);
+            --label-content: var(--icon-downvote) ' Downvoted';
+    
+            background: rgb(0 0 0 / 2%);
+            border: solid 1px var(--border-color);
+            border-radius: var(--border-radius);
+            color: var(--color-orange-800);
+            display: block;
+            opacity: 0.775;
+            padding: 0.25rem 0.75ch 2rem;
+            position: relative;
+    
+            &::after {
+                background: var(--border-color);
+                bottom: 0;
+                border-radius: var(--border-radius) 0 0;
+                color: var(--color-yellow-100);
+                content: var(--label-content);
+                display: inline-block;
+                font-size: var(--font-size-xs);
+                padding: 0.25rem 0.75ch;
+                position: absolute;
+                right: 0;
+            }
+    
+            &.c5a::after {
+                content: var(--label-content) ' (L1)';
+            }
+    
+            &.c73::after {
+                content: var(--label-content) ' (L2)';
+            }
+    
+            &.c82::after {
+                content: var(--label-content) ' (L3)';
+            }
+    
+            &.c88::after {
+                content: var(--label-content) ' (L4)';
+            }
+    
+            &.c9c::after {
+                content: var(--label-content) ' (L5)';
+            }
+    
+            &.cae::after {
+                content: var(--label-content) ' (L6)';
+            }
+    
+            &.cbe::after {
+                content: var(--label-content) ' (L7)';
+            }
+    
+            &.cce::after {
+                content: var(--label-content) ' (L8)';
+            }
+    
+            &.cdd::after {
+                content: var(--label-content) ' (L9)';
+            }
+        }
+    
+        /* Nesting the hover state not working here. */
+        .commtext:is(.c5a, .c73, .c82, .c88, .c9c, .cae, .cbe, .cce, .cdd):hover {
+            opacity: 1;
+        }
+    }
+    
+    /* Reply links. */
+    .reply p {
+        /* Links are wrapped in <u> */
+        u {
+            text-decoration: none;
+        }
+        
+        a {
+            &:link {
+                border-radius: 3px;
+                color: var(--content-link-color);
+                display: inline-block;
+                font-size: var(--ui-link-font-size);
+                font-weight: bold;
+                padding: 0.25em 0.75ch 0.25em 0.5ch;
+                text-decoration: none;
+                text-transform: capitalize;
+            }
+            
+            &::before {
+                color: var(--content-link-underline-color);
+                content: var(--icon-right-arrow-hook);
+                display: inline-block;
+                font-size: 1.5em;
+                font-weight: bold;
+                line-height: 0.5;
+                position: relative;
+                top: 0.2em;
+                transition: all .3s;
+            }
+    
+            &:hover {
+                background: var(--button-background-color-hover);
+                box-shadow: var(--button-box-shadow-hover);
+                /* Sometimes, reply links are within .commtext. Let's juice them to be sure. */
+                color: var(--button-text-color-hover) !important; 
+    
+                &::before {
+                    color: var(--button-text-color-hover);
+                }
+            }
+        }
+    }
+    
+    /* Indentation Lines */
+    .ind {
+        --line-color: rgb(0 0 0 / 5%);
+        --line-start: 36px;
+        --line-width: 3px;
+        --line-end: calc(var(--line-start) + var(--line-width));
+        --indent-width: 40px;
+    
+        background-image: repeating-linear-gradient(
+            to right, 
+            transparent, 
+            transparent var(--line-start), 
+            var(--line-color) var(--line-start), 
+            var(--line-color) var(--line-end), 
+            transparent var(--line-end),
+            transparent var(--indent-width)
+        );
+    }
+    
+    /* Threads page fixes. */
+    html[op="threads"] #hnmain  {
+        .comtr table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 0;
+        
+            .votelinks font[color="#ff6600"] {
+                margin-left: 0;
+                line-height: 0.9;
+            }
+        }
+        
+        /*  The second to last row of the #hnmain table should be the last comment. */
+        > tbody > tr:nth-last-of-type(2) table {
+            margin-bottom: var(--content-margin-bottom);
+        }
+    }
+    /* 
+    ===============================================================================
+    Submissions
+    
+    Common styles for Submissions in both list views and item views.
+    
+    Submissions are split into two table rows: .title and .subtext 
+    ===============================================================================
+    */
+    
+    /* When viewing your own posts (and comments), the votearrows are just asterisks. */
+    .votelinks font[color="#ff6600"] {
+        font-weight: bold;
+        scale: 1.5;
+        display: inline-block;
+        margin-inline: 1ch;
+        position: relative;
+        top: 0.5em;
+        width: 20px;
+    }
+    
+    .title {
+        font-family: var(--font-family-sans);
+        overflow: visible;
+        
+        .titleline {
+            display: inline-block;
+            margin-bottom: 0.5rem;  
+            
+            /* The submission title. */
+            > a {
+                border-radius: 3px;
+                color: var(--submission-title-color) !important;
+                display: inline-block;
+                font-size: var(--submission-title-size);
+                line-height: 1.2;
+                margin-right: 8px;
+                overflow: visible;
+                text-decoration-color: currentColor;
+    
+                &:visited {
+                    color: var(--submission-title-color-visited) !important;
+                }
+                
+                &:is(:hover,:active,:focus) {
+                    background: var(--submission-title-bg-color-hover);
+                    box-shadow: 0 0 0 0.25em var(--submission-title-bg-color-hover);
+                    color: var(--submission-title-color-hover) !important;
+                    text-decoration: underline;
+                    text-decoration-color: var(--submission-title-underline-color-hover);
+                    text-decoration-thickness: 4px;
+                    text-underline-offset: 0.2em;
+                }
+            }
+        
+            .sitebit {
+                color: var(--submission-text-color);
+                display: inline-block;
+                font-size: var(--ui-link-font-size);
+                white-space: nowrap;
+            }
+        }
+    }
+    
+    .subtext {
+        --icon-size: 24px;
+    
+        color: transparent; /* Hide the text */
+        font-family: var(--font-family-sans);
+    
+        .subline {
+            display: flex;
+            align-items: center;
+        }
+        
+        :is(.score, a) {
+            color: var(--submission-text-color);
+            font-size: var(--ui-link-font-size);
+            font-family: var(--font-family-sans);
+        }
+    
+        .score {
+            line-height: 1.8;
+            margin-top: -0.15em;
+        }
+    
+        a {
+            color: var(--ui-link-color);
+            font-family: var(--font-family-sans);
+            font-size: var(--ui-link-font-size);
+    
+            &:visited {
+                color: var(--ui-link-color-visited);
+            }
+        
+            &:hover {
+                color: var(--ui-link-color-hover);
+                text-decoration-color: var(--ui-link-underline-color-hover);
+                text-decoration-thickness: var(--ui-link-underline-thickness-hover);
+            }
+    
+            /* Set up the icons */
+            &::before {
+                color: var(--ui-link-icon-color);
+                display: inline-block;
+                font-size: var(--icon-size);
+                height: var(--icon-size);
+                line-height: 1;
+                margin-right: 0.1ch;
+                text-align: center;
+                vertical-align: middle;
+                width: var(--icon-size);
+            }
+    
+            &:hover::before {
+                color: var(--ui-link-icon-color-hover);
+            }
+        }
+    
+        /* The user link. */
+        a.hnuser {
+            font-weight: bold;
+            margin-left: -0.3ch;
+    
+            &::before {
+                content: var(--icon-user);
+                line-height: 0.925;
+            }
+        }
+    
+        /* This is the comments and the age. */
+        a[href^="item"] {   
+            margin-left: 0;
+    
+            &::before {
+                content: var(--icon-comment);
+                line-height: 0.75;
+                scale: 1.1 1.25;
+                text-align: right;
+                margin-right: 0.25ch;
+            }
+        }
+    
+        /* Override properties for just the age. */
+        .age {
+            /* Normal submissions the age follows the user. */
+            .hnuser + & {
+                margin-left: 1.6ch;
+            }
+    
+            a {
+                margin-left: 0;
+    
+                &::before {
+                    content: var(--icon-clock);
+                    line-height: 0.75;
+                    scale: 1;
+                    margin-right: 0.1ch;
+                }
+                
+            }
+        }
+    
+        /* The Unvote link */
+        span:has(> a[href^="vote"]) {
+            order: 5;
+            margin-left: 1ch; 
+    
+            a::before {
+                content: var(--icon-unvote);
+                line-height: 0.9;
+                scale: 0.875;
+            }
+        }
+    
+        /* The Hide/Un-hide Links */
+        a[href^="hide"] {
+            margin-left: 1.3ch;
+            order: 8;
+    
+            /* Submissions with no user/discussion. */
+            .age + & {
+                margin-left: 0;
+            }
+    
+            &::before {
+                content: var(--icon-circle-division-slash);
+                line-height: 0.775;
+            }
+    
+            /* The un-hide link */ 
+            &[href*="&un=t"]{
+                &::before {
+                    content: var(--icon-circle-plus);
+                    line-height: 0.95;
+                }
+            }
+        }
+    
+        /* The search past postings link */
+        a.hnpast {
+            order: 9;
+            margin-left: 1.5ch;
+    
+            &::before {
+                content: var(--icon-left-arrow-hook);
+                line-height: 1.2;
+            }
+        }
+    
+        /* The Favorite/Un-Favorite Links */
+        a[href^="fave"] {
+            margin-left: 1.2ch;
+            order: 7;
+    
+            &::before {
+                content: var(--icon-heart-outline);
+    
+            }
+    
+            &:hover::before {
+                content: var(--icon-heart-solid);
+            }
+    
+            /* The un-favorite link */ 
+            &[href*="&un=t"] {
+                &::before {
+                    content: var(--icon-heart-solid);
+                }
+    
+                &:hover::before {
+                    content: var(--icon-heart-outline);
+                }
+            }
+        }
+    
+        /* The Edit Link */
+        a[href^="edit"] {
+            margin-left: 1.75ch;
+            order: 10;
+    
+            &::before {
+                content: var(--icon-hexnut);
+                line-height: 0.7;
+            }
+        }
+        
+        /* The Delete Link */
+        a[href^="delete"] {
+            margin-left: 1.75ch;
+            order: 11;
+    
+    
+            &::before {
+                content: var(--icon-circle-x);
+                line-height: 0.9;
+            }
+        }
+    }
+    
+    /* Jobs Submissions */
+    .athing:has(.titleline):not(:has(.votelinks)) td:has(img) {
+        vertical-align: top;
+    
+        &::before {
+            --size: var(--votearrow-size);
+            
+            background: var(--color-gold-800);
+            border-radius: 50px;
+            color: var(--color-gold-500);
+            content: var(--icon-job);
+            display: inline-block;
+            font-size: var(--size);
+            height: var(--size);
+            line-height: 1.1;
+            padding: 2px;
+            position: relative;
+            text-align: center;
+            top: -1px;
+            width: var(--size);
+        }
+    
+        img {
+            width: calc(0.5 * var(--votearrow-size));
+        }
+    }
+    
+    /* The username link. New users are green. */
+    a[href^="user?id"] font[color="#3c963c"]::after {
+        content: var(--icon-new-indicator);
+        display: inline-block;
+        left: -0.1ch;
+        position: relative;
+        scale: 1.1;
+        top: -0.35em;
+    }
+    /* 
+    =============================================================================== 
+    Submission Lists
+    
+    List of submissions in general and page-specific fixes.
+    =============================================================================== 
+    */
+    
+    /* The table/list of submissions */
+    table:has(> tbody > .athing > .title > .rank) {
+        margin-block: 2rem var(--content-margin-bottom) !important;
+        
+        .votelinks {
+            padding: 0;
+    
+            center {
+                margin-top: 3px;
+                position: relative;
+                width: max-content;
+            }
+    
+            &:has(a[href*="&how=down"]) {
+                center {
+                    margin-top: calc(-0.33 * var(--votearrow-size));
+                }
+    
+                a[href*="&how=down"] {
+                    position: absolute;
+                    top: 100%;
+                }
+            }
+        }
+    
+        .spacer {
+            height: 1.5rem !important;
+        }
+    }
+    
+    /* The first row of a submission within a list (only lists have ranks). */
+    .athing:has(> .title > .rank) {
+        .title {
+            position: relative;
+        }
+    
+        .rank {
+            display: inline-block;
+            font-size: 0.9rem;
+            left: -4ch;
+            margin-top: 0.3em;
+            opacity: 0;
+            position: absolute;
+            text-align: right;
+            transition: all 0.3s;
+            width: 3ch;
+        }
+        
+        &:has(:hover,:active,:focus,:focus-visible) .rank {
+            opacity: 1;
+            transition: all 0.2s;
+        }
+    
+        /* The second column contains the votearrow or spacer img (Jobs). */
+        td:nth-child(2) {
+            text-align: left;
+            width: calc(1.5 * var(--votearrow-size));
+        }
+    }
+    
+    html[op="upvoted"] {
+        .votelinks {
+            padding: 0 !important;
+            width: 0;
+        }
+    }
+    /*
+    ===============================================================================
+    Info Pages
+    
+    These are pages like Guidelines and FAQ.
+    ===============================================================================
+    */
+    
+    /* These are all the info pages */
+    body > center > table[width="500"] {
+        width: var(--reading-copy-width);
+        
+        /* This is the cell that contains the content. */
+        td[bgcolor="#fafaf0"] {
+            background: none;
+            color: var(--reading-copy-color);
+            font-size: var(--font-size-md);
+            line-height: var(--reading-copy-line-height);
+            padding-bottom: 4rem;
+        }
+    
+        /* The y-Combinator logo. */
+        img[src="yc500.gif"] {
+            border: solid 10px #fff;
+            height: auto;
+            width: 200px;
+        }
+    
+        /* This should be the page title */ 
+        td[bgcolor="#fafaf0"] >  b:first-of-type {
+            color: var(--page-title-color);
+            display: block;
+            font-size: var(--page-title-size);
+            font-weight: var(--page-title-weight);
+            margin: 1rem 0 0;
+    
+            &:has(+ br) {
+                margin-bottom: -2rem;
+            }
+        }
+    
+        /* These are sub-headings. */
+        p b:first-child:last-child,
+        b:has(+ p), 
+        b:has(+ br + br) {
+            color: var(--color-gray-500);
+            display: block;
+            font-size: var(--font-size-xl);
+            line-height: 1.4;
+            margin-top: 2.5rem;
+    
+            /* The paragraph element that contains the subhead */
+            p:has(&) {
+                margin-bottom: 0.5rem;
+            }
+        }
+    
+        p {
+            margin: 0 0 1.5rem;
+        }
+    
+        /* Content Links */
+        a {
+            &:link {
+                color: var(--content-link-color);
+                font-weight: bold;
+                text-decoration: underline;
+                text-decoration-color: var(--content-link-underline-color);
+                text-decoration-thickness: var(--content-link-underline-thickness);
+            }
+    
+            &:visited {
+                color: var(--content-link-color-visited);
+                text-decoration-color: var(--content-link-underline-color-visited);
+            }
+            
+            &:is(:link, :visited):hover {
+                color: var(--content-link-color-hover);
+                text-decoration-color: var(--content-link-underline-color-hover);
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
+        }
+    }
+    /* 
+    ===============================================================================
+    Submission View
+    
+    Example with submission text:
+    https://news.ycombinator.com/item?id=39562984
+    
+    ===============================================================================
+    */
+    
+    /* fatitem is a table that contains the submission and the comment form. */
+    html[op="item"] .fatitem {
+        /* The submission action links. */
+        .subtext {
+            /* All of the submission action links we are converting to icon only. */
+            a:is([href^="hide"], [href^="fave"], .hnpast, [href^="edit"], [href^="delete"], [href^="vote"]) {;
+                display: inline-block;
+                font-size: 0 !important;
+                height: var(--icon-size);
+                position: relative;
+                vertical-align: middle;
+                white-space: nowrap;
+                width: var(--icon-size);
+    
+                &::before {
+                    color: var(--ui-icon-action-color)
+                }
+    
+                &::after {
+                    background: rgb(0 0 0);
+                    border-radius: 3px;
+                    color: #fff;
+                    display: none;
+                    font-size: var(--font-size-xs) !important;
+                    left: 100%;
+                    padding: 0.25em 0.5em;
+                    position: absolute;
+                    top: calc(var(--icon-size) * 0.67);
+                    z-index: 100;
+                }
+    
+                &:is(:hover,:active,:focus) {
+                    text-decoration: none;
+                    
+                    &::before {
+                        color: var(--ui-icon-action-color-hover);
+                    }
+    
+                    &::after {
+                        display: block;
+                    }
+                }
+            }
+    
+            /* This is the comments and the age links. */
+            a[href^="item"] {
+                margin-left: -0.5ch;
+            }
+    
+            /* Override properties for the age. */
+            .age a {
+                margin-left: 0;
+            }
+    
+            /* The Hide/Un-hide Links */
+            a[href^="hide"] {
+                margin-left: 5px;
+    
+                &::after {
+                    content: 'Hide';
+                }
+    
+                /* The un-hide link */ 
+                &[href*="&un=t"]::after {
+                    content: 'Un-hide';
+                }
+            }
+    
+            /* The Unvote link */
+            span:has(> a[href^="vote"]) {
+                margin-right: -6px;
+                
+                a::after {
+                    content: 'Unvote';
+                }
+            }
+    
+            /* The Favorite/Un-Favorite Links */
+            a[href^="fave"] {
+                margin-left: 12px;
+                order: 7;
+    
+                &::after {
+                    content: 'Favorite';
+                }
+    
+                /* The un-favorite link */ 
+                &[href*="&un=t"]::after {
+                    content: 'Un-favorite';
+                }
+            }
+    
+            /* The search past postings link */
+            a.hnpast {
+                margin-left: 5px;
+    
+                &::after {
+                    content: 'Past submissions';
+                }
+            }
+    
+            /* The edit link */
+            a[href^="edit"] {
+                margin-left: 20px;
+                
+                &::before {
+                    line-height: 0.775;
+                }
+    
+                &::after {
+                    content: 'Edit';
+                }
+            }
+    
+            /* The delete link */
+            a[href^="delete"] {
+                margin-left: 5px;
+               
+                &::before {
+                    line-height: 1;
+                }
+    
+                &::after {
+                    content: 'Delete';
+                }
+            }
+        }
+    
+        /* This is the submission content, the "post" if you will. Implements reading copy. */
+        .toptext {
+            color: var(--reading-copy-color);
+            font-size: var(--reading-copy-size);
+            font-family: var(--font-family-sans);
+            line-height: var(--reading-copy-line-height);
+            max-width: var(--reading-copy-width);
+            margin: 2rem 0;
+    
+            /* Content Links */
+            a {
+                &:link {
+                    color: var(--content-link-color);
+                    font-weight: bold;
+                    text-decoration: underline;
+                    text-decoration-color: var(--content-link-underline-color);
+                    text-decoration-thickness: var(--content-link-underline-thickness);
+                }
+    
+                &:visited {
+                    color: var(--content-link-color-visited);
+                    text-decoration-color: var(--content-link-underline-color-visited);
+                }
+                
+                &:is(:link, :visited):hover {
+                    color: var(--content-link-color-hover);
+                    text-decoration-color: var(--content-link-underline-color-hover);
+                    text-decoration-thickness: var(--content-link-underline-thickness-hover);
+                }
+            }
+        }
+    
+        /* The comment form, of course . */
+        form[action="comment"] {
+            border-top: solid var(--hr-size) rgb(0 0 0 / 5%);
+            color: var(--color-gray-400);
+            display: flex;
+            flex-direction: column;
+            font-size: var(--reading-copy-size);
+            margin-top: 1.5rem;
+            max-width: var(--reading-copy-width);
+            padding-top: 1.5rem;
+    
+            &::before {
+                content: 'Join the conversation!';
+                display: block;
+                font-size: var(--font-size-lg);
+                margin-bottom: 1rem;
+                order: 0;
+            }
+    
+            &::after {
+                content: 'Formatting options: https://news.ycombinator.com/formatdoc';
+                cursor: not-allowed;
+                display: block;
+                font-size: var(--font-size-xs);
+                margin-bottom: 0.5rem;
+                order: 1;
+            }
+    
+            textarea {
+                margin-bottom: 1rem;
+                order: 2;
+            }
+    
+            input[type="submit"] {
+                order: 3;
+                width: max-content;
+            }
+        }
+    }
+        
+    /* The comment form of a submission when there are no comments. */
+    html[op="item"] body:has(.comment-tree):not(:has(.comment-tree .comment)) form[action="comment"]::before {
+        content: 'Be the first to comment!';
+    }
+    
+    /* The comment form of a comment's view page. */
+    html[op="item"] body:has(.fatitem .comment) form[action="comment"]::before {
+        content: 'Reply';
+    }
+    /*
+    ===============================================================================
+    User Profile View
+    ===============================================================================
+    */
+    
+    html[op="user"] {
+        --left-col-width: 9ch;
+    
+        tbody:has(> .athing) {
+    
+            tr > td:first-child {
+                width: var(--left-col-width);
+                text-transform: capitalize;
+            }
+    
+            td {
+                font-size: var(--reading-copy-size);
+                padding-bottom: 1rem;
+                text-align: left;
+            }
+    
+            /* The first row of user-specific content links. */
+            tr:has(> td > a[href^="submitted"]) td:first-child {
+                padding-top: 0;
+    
+                &::before {
+                    content: 'Content:';
+                }
+            }
+    
+            /* Content Links */
+            a {
+                &:link {
+                    color: var(--content-link-color);
+                    font-weight: bold;
+                    text-decoration: underline;
+                    text-decoration-color: var(--content-link-underline-color);
+                    text-decoration-thickness: var(--content-link-underline-thickness);
+                }
+    
+                &:visited {
+                    color: var(--content-link-color-visited);
+                    text-decoration-color: var(--content-link-underline-color-visited);
+                }
+                
+                &:is(:link, :visited):hover {
+                    color: var(--content-link-color-hover);
+                    text-decoration-color: var(--content-link-underline-color-hover);
+                    text-decoration-thickness: var(--content-link-underline-thickness-hover);
+                }
+            }
+        }
+    }
+    /* 
+    ===============================================================================
+    User Login
+    
+    Covers the login + create account page and the password reset page.
+    ===============================================================================
+    */
+    
+    /* `form[action="/x"]` is the password reset form. */
+    html:has(form[action="login"], form[action="/x"]) {
+        background-color: var(--color-beige-100);
+    
+        /* There is no other container. */
+        body {
+            margin: 4rem auto;
+            max-width: 480px;
+        }
+    
+        /* These are headings. */
+        b {
+            color: var(--color-gray-400);
+            display: block;
+            font-size: var(--font-size-lg);
+            margin-bottom: 0.5rem;
+        }
+    
+        /* Let's control the spacing ourselves _after_ the first heading. */
+        b ~ br { 
+            display: none;
+        }
+    
+        form {
+            border: solid 1px rgb(0 0 0 / 20%);
+            border-radius: 5px;
+            padding: 1rem;
+    
+            table,
+            input:is([type="text"], [type="password"]) {
+                width: 100%;
+            }
+    
+            td:first-of-type {
+                text-transform: capitalize;
+                width: 9ch;
+            }
+        }
+    
+        a[href="forgot"] {
+            color: var(--color-blue-600);
+            display: inline-block;
+            font-size: var(--form-helptext-size) !important;
+            margin-bottom: 3rem;
+            text-decoration-thickness: var(--content-link-underline-thickness);
+    
+            &:hover {
+                color: var(--color-blue-700);
+                text-decoration-color: currentColor;
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
+        }
+    }
+    
+    
+    /* 
+    ===============================================================================
+    Lists Page
+    
+    https://news.ycombinator.com/lists
+    ===============================================================================
+    */
+    
+    html[op="lists"] #pagespace + tr table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 4rem;
+    
+        @media (min-width: 960px) {
+            tbody {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    
+    
+        /* Each row is a List item. */
+        tr {
+            display: flex;
+            flex-direction: column;
+            line-height: var(--reading-copy-line-height);
+    
+            td:first-child {
+                font-size: var(--font-size-lg);
+                padding-bottom: 0.25em;
+                text-transform: capitalize;
+            }
+    
+            td:nth-child(2) {
+                color: var(--reading-copy-color);
+                font-size: var(--reading-copy-size);
+                padding: 0 2ch 2rem 0;
+            }
+        }
+    
+        a {
+            color: var(--content-link-color);
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: var(--content-link-underline-color);
+            text-decoration-thickness: var(--content-link-underline-thickness);
+            
+            &:hover {
+                color: var(--content-link-color);
+                text-decoration-color: var(--content-link-underline-color-hover);
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
+        }
+    
+    }
+    /* 
+    ===============================================================================
+    Formatting Options Page
+    
+    This page does not conform to the markup of standard info pages.
+    
+    https://news.ycombinator.com/formatdoc 
+    ===============================================================================
+    */
+    
+    html[op="formatdoc"] {
+        .admin {
+            center {
+                text-align: left;
+                margin-inline: auto;
+                max-width: var(--content-width-max);
+            }
+        
+            table {
+                max-width: var(--reading-copy-width);
+                width: auto;
+        
+                td {
+                    color: var(--reading-copy-color);
+                    font-family: var(--font-family-sans);
+                    font-size: var(--reading-copy-size);
+                }
+            }
+        }
+    }
+    
+    /*
+    ===============================================================================
+    Submit Post Form
+    ===============================================================================
+    */
+    
+    form[action="/r"] {
+        font-weight: normal;
+    
+        /* Inside the cell, but outside the form is where messages are displayed. */
+        td:has(&) {
+            display: block;
+            font-weight: bold;
+            margin: auto;
+            max-width: var(--content-width-max);
+            padding: 0 1.5ch 4rem;
+        }
+    
+        :is(table, tbody, tr, td) {
+            display: block;
+            max-width: var(--reading-copy-width);
+        }
+    
+        tr > td:first-child {
+            color: var(--form-label-color);
+            font-size: var(--form-label-size);
+            font-weight: var(--form-label-weight);
+            padding-top: 0.5rem;
+            text-transform: capitalize;
+        }
+    
+        input[name="title"] + span {
+            color: var(--color-red-500);
+            display: inline-block;
+            font-size: var(--form-helptext-size);
+            /* Margin is set inline, Dog. Better pour some juice! */
+            margin-left: 0 !important;
+        }
+    
+        td:has(> input[type="submit"]) {
+            padding-bottom: 2rem;
+        }
+    
+        /* Content Links */
+        a {
+            &:link {
+                color: var(--content-link-color);
+                font-weight: bold;
+                text-decoration: underline;
+                text-decoration-color: var(--content-link-underline-color);
+                text-decoration-thickness: var(--content-link-underline-thickness);
+            }
+    
+            &:visited {
+                color: var(--content-link-color-visited);
+                text-decoration-color: var(--content-link-underline-color-visited);
+            }
+            
+            &:is(:link, :visited):hover {
+                color: var(--content-link-color-hover);
+                text-decoration-color: var(--content-link-underline-color-hover);
+                text-decoration-thickness: var(--content-link-underline-thickness-hover);
+            }
+        }   
+    }
+    /*
+    ===============================================================================
+    User Profile Edit Form
+    ===============================================================================
+    */
+    .profileform {
+        --left-col-width: 12ch;
+    
+        font-size: var(--form-label-size);
+        margin-inline: auto;
+        width: var(--content-width-max);
+    
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+    
+        /* The labels. */
+        tr > td:first-child {
+            box-sizing: border-box;
+            color: var(--form-label-color);
+            display: block;
+            font-size: var(--form-label-size);
+            padding-right: 1ch;
+            padding-top: 0.5rem;
+        }
+    
+        /* The 2nd and 3rd rows don't have fields or extra line-height to add vertical padding. */
+        tbody tr:is(:nth-child(2), :nth-child(3)) td:last-child {
+            padding-top: 0.5rem;
+        }
+    
+        td:has(> textarea[name="about"]) {
+            /* Overriding inline style. Got juice? */
+            overflow: visible !important;
+            /* Inheritting from very specific selector. Juice-y! */
+            padding-bottom: 2rem !important;
+        }
+    
+        textarea {
+            margin-bottom: 0;
+        }
+    
+        /* Helptext about "About". */
+        a[href="formatdoc"] {
+            /* Color, size, and weight are already set by User Profile view. Time to bust out the juice! */
+            color: var(--color-blue-600) !important;
+            font-size: var(--form-helptext-size) !important;
+            font-weight: normal !important;
+            text-transform: capitalize;
+    
+            &:hover {
+                color: var(--color-blue-700) !important;
+                text-decoration-color: currentColor;
+            }
+    
+            font {
+                /* Color and size are set inline. Hope you brought some extra juice! */
+                font-size: inherit !important;
+                color: inherit !important;
+            }
+        }
+    
+        /* Helptext about email. */
+        tr:has(> td > font[size="2"]) {
+            td {
+                padding: 0;
+            }
+    
+            font {
+                color: var(--form-helptext-color);
+                font-size: var(--form-helptext-size);
+            }
+        }
+    
+        td:has(> a[href="changepw"]) {
+            /* Our top-level selector for user profiles is more specific. Spill some juice!  */
+            padding-bottom: 3rem !important;
+        }
+    
+    
+        input[type="submit"] {
+            margin: 2rem 0 0 var(--left-col-width);
+        }
+    }
+    /** 
+    
+    Other
+    *
+    * TODO: Identify and sort these.
+    
+    **/
+    
+    
+    
+    /** 
+    
+    Removed? 
+    TODO: Track these down or remove them.
+    
+    */
+    body[link="#444444"] {
+        margin: auto;
+    
+        padding: 20px;
+        max-width: 960px;
+    }
+    
+    body[link="#444444"] .WordSection1 {
+        padding: 40px 40px 20px;
+        background: #fff;
+    }
+    
+    html[op="x"] #hnmain > tbody > tr:nth-child(3) > td {
+        width: 960px;
+        display: block;
+        margin: auto;
+        color: #900;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+    }
+}

@@ -60,9 +60,11 @@ Due to the fact that the audience for this project is the cross-section of Hacke
 
 
 ## Build
-Since the end result is a single CSS file, and the source files are modern Pure CSS, the build process for this project is dead-simple; we simply have to concatenate all of the source files into one. 
+Since the end result is a single CSS file, and the source files are modern Pure CSS, the build process for this project is fairly simple. 
 
-A text file, `manifest.txt`, provides the ordered list of source files and a simple Makefile provides the build command:
+Our build file, `userstyle.css`, provides the structure, or scaffolding, of the source files. 
+
+All `@import` statements in the build file are replaced with their file contents during the build process to create the single file required by [UserStyles.world](https://userstyles.world/). Makefile provides the build command:
 
 ```
 $ make
@@ -74,4 +76,4 @@ An _experimental_ **watch** command is available as well:
 $ make watch
 ```
 
-This command utilizes the cross-platform file-monitoring utility, [fswatch](https://github.com/emcrisostomo/fswatch). At the moment, it can be a little finnicky to exit as you have to press Control-C twice in quick succession to exit; once to exit the `fswatch` command and again to exit the loop before `fswatch` is run again. 
+This command utilizes the cross-platform file-monitoring utility, [fswatch](https://github.com/emcrisostomo/fswatch). Early indications are that it works quite well. 

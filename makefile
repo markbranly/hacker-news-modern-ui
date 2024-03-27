@@ -1,6 +1,10 @@
-OUTPUT_FILE := hacker-news-modern-ui.css
-INDEX_FILE := manifest.txt
+# =============================================================================
+# Variables
+# =============================================================================
+BUILD_FILE := userstyle.css
+DIST_FILE := dist/hacker-news-modern-ui.user.css
 SRC_DIR := src
+CSS_FILES := $(shell find $(SRC_DIR) -type f -name '*.css')
 
 GREEN := \033[92m
 YELLOW := \033[0;33m
@@ -9,20 +13,31 @@ RED := \033[0;31m
 FMT_END := \033[0m
 
 # =============================================================================
+# Distribution File 
+# =============================================================================
+$(DIST_FILE): $(BUILD_FILE) $(CSS_FILES)
+	$(shell ./build.sh $(BUILD_FILE) $(DIST_FILE))
+	@if [ $$? -eq 0 ]; then \
+		echo "\n$(GREEN)Build complete. Output: $(DIST_FILE)\n$(FMT_END)"; \
+	else \
+		echo "\n$(RED)Build failed.\n$(FMT_END)"; \
+	fi
 
-$(OUTPUT_FILE): $(wildcard $(SRC_DIR)/*.css)
-	@cat $$(more $(INDEX_FILE)) > $(OUTPUT_FILE)
-	@echo "\nBuild complete. Output:\n$(OUTPUT_FILE)\n"
 
-
+# =============================================================================
+# Watch Command
+# =============================================================================
 .PHONY: watch
 watch:
 	@which fswatch > /dev/null || (echo "$(RED)⚠️  ERROR: Command 'fswatch' not found. Make sure it is installed and in your system path.$(FMT_END)\n" && exit 1;)
 	@clear;
 	@$(MAKE);
-	@echo "\n🔎 Watching assets for changes … \n"
-	@echo "[To $(RED)STOP$(FMT_END), double-press $(GREEN)CTRL-C$(FMT_END)]\n"
+	@echo "\n🔎 Watching for changes … \n"
+	@echo "[To $(RED)STOP$(FMT_END), press $(GREEN)CTRL-C$(FMT_END)]\n"
 	@while true; do \
-		fswatch -1 $(INDEX_FILE) $(SRC_DIR) | xargs echo '{}' > /dev/null && $(MAKE); \
-		sleep 1; \
+        changed_file=$$(fswatch -1 .); \
+        echo "File changed: $$changed_file"; \
+        $(MAKE); \
 	done
+
+	
