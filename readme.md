@@ -1,70 +1,23 @@
-# Hacker News Modern UI
+# Hacker News Modern and Friendly UI
 
-Hacker News is a fantastic resource with a notoriously dated design. The internet is filled with [redesign concepts](https://whatpixel.com/hacker-news-redesigns/) and [alternative UIs](https://blog.luke.lol/tech/hacker-news-alternatives/). 
+## Design
+Below is a quick look at the redesign. For more images and explanations of the design concept, [check out the Design Improvements page](https://github.com/markbranly/hacker-news-modern-ui/wiki/Design-Improvements).
 
-_So why another one?_
-Many of those projects have different goals from this one. Some have usability issues, some have accessibility issues, some are full clients, and some are purely academic explorations.  
-
-The purpose of this project is to produce a _working_ redesign of the Hacker News site that can be deployed as a [User Style](https://userstyles.world/). 
-
-There are six stated goals—four design-related and two technical: 
-
-1. Make the design more modern.
-2. Make the design more usable.
-3. Make the design more accessible.
-4. Adhere to Y Combinator's brand standards.
-5. Implement the design using _only_ **modern** Pure CSS.
-6. Implement the design using _only_ resources available on ycombinator.com or deployable via CSS. 
-
-## Notes
-
-### Usability
-Hacker News current design presents many usability issues and readability challenges. 
-
-1. UI links lack distinction and run together.
-1. Links in content are not very scannable. 
-1. Font sizes are very small.
-1. Reading widths are far too long to be comfortable.
+<img width="896" alt="Hacker News Homepage with new design applied" src="https://github.com/markbranly/hacker-news-modern-ui/assets/78463/609213f5-b2f6-47fa-8225-de269f0c3d91">
 
 
-### Accessibility
-While there are a great many improvements we can make to the accessibility of Hacker News, there are many issues that cannot be resolved with CSS alone. 
+## Why another Hacker News Redesign?
+[Read the Project Brief](https://github.com/markbranly/hacker-news-modern-ui/wiki/Project-Brief).
 
-For example, actions like expanding or collapsing a comment thread are implemented as links with javascript actions instead of buttons. CSS cannot change the markup or add keypress handlers to make the links behave like buttons.
-
-So while this project will yield a _more_ accessible Hacker News, it will not produce a _totally_ accessible Hacker News. 
-
-
-### Brand Standards
-At this time, no published brand standards appear to be available. They will have to be inferred. 
-
-The brand standards appear to be deployed inconsistently. Note the two different, analogous, blue tones displayed on this blog post:
-https://www.ycombinator.com/blog/early-interviews-summer-2024
-  
-Considering that, 
-1. The blue tone appearing copy of the post is a nearly-perfect complement of the orange, (hence a complementary scheme) and
-2. The blue tone appearing as the author of the post and in the sidebar is the [default Tailwind blue](https://v2.tailwindcss.com/docs/customizing-colors),
-
-This project will assume the former is the canonical blue for the brand, yielding the final palette:
-
-- Orange: `#f26522`
-- Blue: `#268bd2`
-- Yellow: `#d87606`
-- Gray: `#374151`
-
-Y Combinators brand standards, as deployed, are not particularly accessible. This project will make use of [tints and shades of the color palette](https://maketintsandshades.com/#f26522,268bd2,d87606,374151,777777) to achieve acceptable contrast ratios where necessary. However, as much as possible, the design will adhere to the vibrant, airy, and clean feeling of the brand. 
-
-
-### Modern Pure CSS
-Due to the fact that the audience for this project is the cross-section of Hacker News readers and UserStyles users, we can be fairly certain that anyone using it is on an up-to-date browser. That means that almost all cutting-edge CSS is on the table. This project will attempt to make maximize that very-rare opportunity to explore the future of CSS.  
-
+## Roadmap
+[View the Project Roadmap](https://github.com/markbranly/hacker-news-modern-ui/wiki/Roadmap).
 
 ## Build
 Since the end result is a single CSS file, and the source files are modern Pure CSS, the build process for this project is fairly simple. 
 
 Our build file, `userstyle.css`, provides the structure, or scaffolding, of the source files. 
 
-All `@import` statements in the build file are replaced with their file contents during the build process to create the single file required by [UserStyles.world](https://userstyles.world/). Makefile provides the build command:
+All `@import` statements in the build file are replaced with their file contents during the build process to create the single file required by [UserStyles.world](https://userstyles.world/). A simple Makefile provides the build command:
 
 ```
 $ make
