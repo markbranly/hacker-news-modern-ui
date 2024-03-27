@@ -843,7 +843,7 @@
                 font-family: sans-serif;
                 font-size: calc(1.25 * var(--votearrow-size));
                 height: 100%;
-                line-height: 0.55;
+                line-height: 0.5;
                 padding: calc(0.25 * var(--votearrow-size)) 0 0;
                 text-align: center;
                 width: 100%;
