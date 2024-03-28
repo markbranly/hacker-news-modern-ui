@@ -15,7 +15,7 @@ FMT_END := \033[0m
 # =============================================================================
 # Distribution File 
 # =============================================================================
-$(DIST_FILE): $(BUILD_FILE) $(CSS_FILES)
+$(DIST_FILE): userstyle.header.css $(BUILD_FILE) $(CSS_FILES)
 	$(shell ./build.sh $(BUILD_FILE) $(DIST_FILE))
 	@if [ $$? -eq 0 ]; then \
 		echo "\n$(GREEN)Build complete. Output: $(DIST_FILE)\n$(FMT_END)"; \
