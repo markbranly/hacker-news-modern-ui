@@ -206,6 +206,11 @@ html[op="item"] .fatitem {
             width: max-content;
         }
     }
+
+    /* Margin between the Submission content and the comments is set sitewide. Remove these */
+    ~ br {
+        display: none;
+    }
 }
     
 /* The comment form of a submission when there are no comments. */
